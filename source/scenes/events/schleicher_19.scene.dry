@@ -114,10 +114,10 @@ Q.schleicher_points += Q.republicans_schleicher;
 if (Q.dnef_formed) Q.schleicher_points += Q.dnef_votes / 10;
 
 Q.normalized_workers_total = Q.workers_spd_normalized;
-if (Q.kpd_relation >= 40) {
-    Q.normalized_workers_total += Q.workers_kpd_normalized;
-} else if (Q.kpd_relation < 40) {
-    Q.normalized_workers_total += Q.workers_kpd_normalized*0.5;
+if (Q.uspd_relation >= 40) {
+    Q.normalized_workers_total += Q.workers_uspd_normalized;
+} else if (Q.uspd_relation < 40) {
+    Q.normalized_workers_total += Q.workers_uspd_normalized*0.5;
 }
 Q.spd_points += ((1 - Q.labor_dissent/100)*Q.normalized_workers_total*(1 - Q.unemployed/100)*2.5) / 5;
 
@@ -141,9 +141,9 @@ Q.reichswehr_power = Q.reichswehr_strength*Q.reichswehr_militancy;
 Q.schleicher_points += Q.reichswehr_power/50;
 
 Q.rfb_power = Q.rfb_strength*Q.rfb_militancy / 50;
-if (Q.kpd_relation >= 40) {
+if (Q.uspd_relation >= 40) {
     Q.spd_points += Q.rfb_power;
-} else if (Q.kpd_relation < 40) {
+} else if (Q.uspd_relation < 40) {
     Q.spd_points += Q.rfb_power*0.5;
 }
 
@@ -188,8 +188,8 @@ Q.schleicher_strength -= 1;
 
 Q.workers_spd += 12;
 Q.unemployed_spd += 8;
-Q.workers_kpd += 4;
-Q.unemployed_kpd += 4;
+Q.workers_uspd += 4;
+Q.unemployed_uspd += 4;
 
 Q.workers_dnef -= 6;
 Q.new_middle_dnef -= 4;

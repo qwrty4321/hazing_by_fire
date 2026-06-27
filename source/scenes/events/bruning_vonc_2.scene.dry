@@ -39,19 +39,19 @@ New elections have been set for [+ next_election_month : month +] [+ next_electi
 
 @recalculate
 on-arrival: {!
-if (Q.year >= 1930 && Q.year < 1932 && !Q.spd_in_government && Q.chancellor == "Brüning" && Q.bourgeois_negotiations == 0 && Q.dvp_exist) {
+if (Q.year >= 1930 && Q.year < 1932 && !Q.spd_in_government && Q.chancellor == "Brüning" && Q.bourgeois_negotiations == 0 && Q.nlp_exist) {
     Q.bourgeois_negotiations = 1;
     Q.bourgeois_negotiations_1 = 1;
     Q.bourgeois_negotiations_1930_timer = 6;
 }
 
-if (Q.bourgeois_negotiations_1930_timer > 0 && Q.bourgeois_negotiations <= 1 && Q.next_election_time - Q.time < 4 && Q.dvp_exist) {
+if (Q.bourgeois_negotiations_1930_timer > 0 && Q.bourgeois_negotiations <= 1 && Q.next_election_time - Q.time < 4 && Q.nlp_exist) {
     Q.bourgeois_negotiations = 2;
     Q.bourgeois_negotiations_1_election = 1;
     Q.bourgeois_negotiations_elections_1930_timer = 2;
 }
 
-if (Q.bourgeois_negotiations_elections_1930_timer > 0 && Q.bourgeois_negotiations_1930_timer > 0 && Q.dvp_exist) {
+if (Q.bourgeois_negotiations_elections_1930_timer > 0 && Q.bourgeois_negotiations_1930_timer > 0 && Q.nlp_exist) {
     Q.bourgeois_negotiations_election_soon = 1;
 }
 !}

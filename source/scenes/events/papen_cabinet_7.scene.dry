@@ -27,7 +27,7 @@ However, it does help draw bourgeois sympathies into the cabinet, as many upper-
 
 @papen
 title: At least *something* is being done to fix the economy.
-on-arrival: pro_republic += 4; workers_spd += 2; workers_z += 2; workers_kpd += 2; unemployed -= 1; economic_growth += 1; inflation += 1; papen_economy_time = rubicon_time + 24; budget -= 1
+on-arrival: pro_republic += 4; workers_spd += 2; workers_z += 2; workers_uspd += 2; unemployed -= 1; economic_growth += 1; inflation += 1; papen_economy_time = rubicon_time + 24; budget -= 1
 
 We’ve seen a slight decrease in unemployment—small, but in a depression this deep, any break from Brüning’s deflationary orthodoxy is a welcome change.
 

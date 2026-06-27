@@ -1,0 +1,52 @@
+title: <span style="color: #C0A054;">**NLP**</span> Party Vote
+subtitle: The <span style="color: #C0A054;">**NLP**</span> chooses their new leader...
+view-if: year = 1929 and month = 12 and nlp_reform = 1 and not lvp_formed and not (lvp_timer_1_trigger and (lvp_merger_1_timer or lvp_trigger_1_time))
+on-arrival: nlp_right += 3 if nlp_relation < 30; nlp_left += 2 if nlp_relation >= 50; nlp_right += 2 if not in_grand_coalition
+max-visits: 1
+tags: event
+face-image: img/nlp.jpg
+new-page: true
+
+= <span style="color: #C0A054;">**NLP**</span> Congress
+
+The <span style="color: #C0A054;">**NLP**</span> are having an internal party vote to elect a successor to former party leader and statesman Gustav Stresemann. Despite recent reforms, both the party and its electorate have been shifting to the right in recent years. [? if not in_grand_coalition: The left of the <span style="color: #C0A054;">**NLP**</span> has also been diminished by the current absence of a coalition including both parties. ?]
+
+The candidate on the right is current party leader Ernst Scholz. Scholz has heavy ties to industry and a record of opposing bourgeois unity. Although the right of the party was weakened, nationalist influences have rose since Stresemann's death. On the left is Julius Curtius, [? if in_grand_coalition or in_right_coalition or in_center_right_coalition: the <span style="color: #C0A054;">**NLP**</span>'s [? if (foreign_minister_party == "NLP" and economic_minister_party != "NLP") or (foreign_minister_party == "NLP" and economic_minister_party == "NLP"): Foreign Minister who succeeded Stresemann in the role.?][? if economic_minister_party == "NLP" and foreign_minister_party != "NLP": Economic Minister, and a close ally of Stresemann?]?][? if not in_grand_coalition: a close ally of Stresemann and seen by many as his natural successor?]. A movement to draft former Chancellor Hans Luther is met with his own personal reluctance, but he remains a possible compromise candidate.
+
+- @resultsnlp: The party votes...
+
+@resultsnlp
+on-arrival: {!
+if (Q.nlp_right > (Q.nlp_left*1.5) || (Q.nlp_right > (Q.nlp_left + 4))) {
+    Q.nlp_ideology = "Right"
+} else if (Q.nlp_left > (Q.nlp_right*1.5) || (Q.nlp_left > (Q.nlp_right + 4))) {
+    Q.nlp_ideology = "Left"
+} else {
+    Q.nlp_ideology = "Moderate"
+}
+!}
+go-to: curtius if nlp_ideology == "Left" or (nlp_ideology == "Moderate" and (coalition_dissent < 2 and in_grand_coalition)) and in_grand_coalition; scholz if nlp_ideology == "Right" or (nlp_ideology == "Moderate" and not in_grand_coalition); luther if (nlp_ideology == "Moderate" and (coalition_dissent >= 2 and in_grand_coalition)) or (nlp_ideology == "Left" and not in_grand_coalition)
+
+@curtius
+on-arrival: nlp_leader = "Curtius"; liberal_cooperation += 1; bourgeois_cooperation += 1; nlp_left += 3; nlp_relation += 5; new_middle_nlp += 5; rural_nlp += 2; pro_republic += 5; fvp_left += 1; fvp_cohesion += 1
+face-image: img/portraits/curtius.jpg
+
+Julius Curtius has won the vote to succeed Stresemann for the chairmanship. It seems like the industrialists have finally lost their fight to control the <span style="color: #C0A054;">**NLP**</span>, which has now become a genuine People's Party that Stresemann envisioned.
+
+This is still excellent news for us and our relations with the <span style="color: #C0A054;">**NLP**</span>. [? if in_grand_coalition: We have noticed a decrease in coalition tensions. ?]
+
+@scholz
+on-arrival: nlp_leader = "Scholz"; nlp_right += 2; nlp_relation -= 10; old_middle_nlp -= 4; new_middle_nlp -= 4; rural_nlp -= 2; old_middle_dnvp += 4 if dnvp_ideology == "Moderate"; new_middle_dnvp += 4 if dnvp_ideology == "Moderate"; rural_dnvp += 2 if dnvp_ideology == "Moderate"; old_middle_kvp += 4 if kvp_formed; new_middle_kvp += 4 if kvp_formed; rural_kvp += 4 if kvp_formed; workers_fvp += 1; workers_nlp -= 1; pro_republic -= 3; fvp_right += 1; fvp_cohesion -= 1; liberal_cooperation -= 3; bourgeois_cooperation -= 2
+face-image: img/portraits/ernst_scholz.jpg
+
+Ernst Scholz has surprisingly won the vote to succeed Stresemann for the chairmanship. The right wing of the <span style="color: #C0A054;">**NLP**</span> was crippled in the events of their last congress, but managed to claw back into power. The left of the party still have some control over internal affairs and can dissuade them from their worse excesses.
+
+Needless to say, this is bad news for our relationship with the <span style="color: #C0A054;">**NLP**</span>, and makes the formation of future governments involving us more difficult[? if in_grand_coalition:, and the current government untenable?].
+
+@luther
+on-arrival: nlp_leader = "Luther"; nlp_left += 3 if in_grand_coalition; liberal_cooperation += 4; bourgeois_cooperation += 4; nlp_relation += 3 if in_grand_coalition; new_middle_nlp += 3; old_middle_nlp += 5; rural_nlp += 3; pro_republic += 5; old_middle_dnvp -= 2 if (dnvp_ideology == "Radical" and not kvp_formed); old_middle_nlp += 2 if (dnvp_ideology == "Radical" and not kvp_formed); new_middle_dnvp -= 2 if (dnvp_ideology == "Radical" and not kvp_formed); new_middle_nlp += 2 if (dnvp_ideology == "Radical" and not kvp_formed); rural_dnvp -= 1 if (dnvp_ideology == "Radical" and not kvp_formed); rural_nlp += 1 if (dnvp_ideology == "Radical" and not kvp_formed); fvp_left += 1; fvp_cohesion += 2
+face-image: img/portraits/luther.jpg
+
+Hans Luther has surprisingly won the vote to succeed Stresemann for the chairmanship. Luther has support among both the industrialists and the left of the party, giving him the ability to command strong influence over the party unlike his predecessors. Perhaps he's what the <span style="color: #C0A054;">**NLP**</span> needs in order to survive this crisis of German democracy. [? if (dnvp_ideology == "Radical" and not kvp_formed): Luther also manages to attract dissidents from Hugenberg's <span style="color: #3E88B3;">**DNVP**</span>. ?]
+
+Luther is particularly supportive of uniting the liberal parties and even for the creation of a broad bourgeois party. [? if in_grand_coalition: He has also voiced support for maintaining the Grand coalition and cooperation between the two parties. ?][? if not in_grand_coalition and nlp_relation >= 40: He has voiced support for a coalition government involving us and cooperation between the two parties. ?][? if not in_grand_coalition and nlp_relation < 40: He has voiced skepticism to any potential coalitions involving us, because of the current absence of a coalition including both parties. ?]

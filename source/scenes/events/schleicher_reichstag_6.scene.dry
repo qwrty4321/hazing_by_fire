@@ -36,9 +36,9 @@ Q.schleicher_spd_r -= 2;
 Q.schleicher_spd_influence -= 1;
 Q.schleicher_spd_support -= 3;
 
-Q.workers_kpd -= 6;
-Q.new_middle_kpd -= 2;
-Q.unemployed_kpd -= 6;
+Q.workers_uspd -= 6;
+Q.new_middle_uspd -= 2;
+Q.unemployed_uspd -= 6;
 
 Q.workers_spd -= 2;
 Q.new_middle_spd -= 2;

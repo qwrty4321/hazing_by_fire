@@ -42,17 +42,17 @@ title: Theodor Duesterberg voices his objections.
 on-arrival: {!
 Q.hugenberg_hitler_r = 0;
 
-if (Q.dnvp_r < 6 && !Q.hugenberg_dvp) Q.hugenberg_hitler_r += 1;
-if (Q.dnvp_r < 8 && !Q.hugenberg_dvp) Q.hugenberg_hitler_r += 1;
-if (Q.dnvp_r >= 8 && !Q.hugenberg_dvp) Q.hugenberg_hitler_r -= 1;
-if (Q.dnvp_r >= 10 && !Q.hugenberg_dvp) Q.hugenberg_hitler_r -= 1;
+if (Q.dnvp_r < 6 && !Q.hugenberg_nlp) Q.hugenberg_hitler_r += 1;
+if (Q.dnvp_r < 8 && !Q.hugenberg_nlp) Q.hugenberg_hitler_r += 1;
+if (Q.dnvp_r >= 8 && !Q.hugenberg_nlp) Q.hugenberg_hitler_r -= 1;
+if (Q.dnvp_r >= 10 && !Q.hugenberg_nlp) Q.hugenberg_hitler_r -= 1;
 
 if (Q.prussia_leader != "Schleicher") Q.hugenberg_hitler_r -= 1;
 
-if (Q.dnvp_r + Q.dvp_r < 8 && Q.hugenberg_dvp) Q.hugenberg_hitler_r += 1;
-if (Q.dnvp_r + Q.dvp_r < 10 && Q.hugenberg_dvp) Q.hugenberg_hitler_r += 1;
-if (Q.dnvp_r + Q.dvp_r >= 10 && Q.hugenberg_dvp) Q.hugenberg_hitler_r -= 1;
-if (Q.dnvp_r + Q.dvp_r >= 12 && Q.hugenberg_dvp) Q.hugenberg_hitler_r -= 1;
+if (Q.dnvp_r + Q.nlp_r < 8 && Q.hugenberg_nlp) Q.hugenberg_hitler_r += 1;
+if (Q.dnvp_r + Q.nlp_r < 10 && Q.hugenberg_nlp) Q.hugenberg_hitler_r += 1;
+if (Q.dnvp_r + Q.nlp_r >= 10 && Q.hugenberg_nlp) Q.hugenberg_hitler_r -= 1;
+if (Q.dnvp_r + Q.nlp_r >= 12 && Q.hugenberg_nlp) Q.hugenberg_hitler_r -= 1;
 !}
 
 The co-leader of the <span style="color: #3E88B3;">**Stahlhelm**</span>, alongside Otto Schmidt-Hannover of the [? if dnvp_ideology == "Radical": <span style="color: #3E88B3;">**DNVP**</span>?][? if dnvp_ideology == "Moderate": <span style="color: #003755;">**DNF**</span>?], expresses serious reservations about [+ nsdap_chancellor +]'s chancellorship.

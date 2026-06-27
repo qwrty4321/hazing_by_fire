@@ -64,7 +64,7 @@ We provide diplomatic and some financial and material support to the <span style
 @force_peace
 title: Can we bring the sides together for a peace?
 view-if: spd_in_government and foreign_minister_party = "SPD" and sdapo_strength = 5
-on-arrival: austria_peace = 1; pro_republic += 3; coup_progress -= 1; ddp_left += 2; dvp_left += 2; lvp_left += 2
+on-arrival: austria_peace = 1; pro_republic += 3; coup_progress -= 1; fvp_left += 2; nlp_left += 2; lvp_left += 2
 
 The Austrian government obviously sees us as biased, so there is no way they will let us host peace negotiations. However, negotiations begin nonetheless. In Switzerland, with <span style="color: #7A3C00;">Fascist</span> Italy as the <span style="color: #7A3C00;">Austrofascists</span>' protector and Germany as the <span style="color: #A50034;">**SDAPÖ**</span>'s, a peace deal is hammered out. The <span style="color: #A50034;">socialists</span> are disarmed and give up all pretense of revolution, while the <span style="color: #ABDDA4;">right-wing</span> paramilitaries are also disarmed. Dictatorship ends, and normal government is restored, with free elections.
 
@@ -72,14 +72,14 @@ Given the <span style="color: #A50034;">**SDAPÖ**</span>'s starting position, t
 
 @long_war_2
 title: There is nothing we can do.
-on-arrival: z_relation -= 6; dvp_relation -= 6; ddp_relation -= 3; catholics_spd -= 5; old_middle_spd -= 5; coalition_dissent += 1; economic_growth -= 0.5; ddp_right += 2; dvp_right += 2; lvp_right += 2
+on-arrival: z_relation -= 6; nlp_relation -= 6; fvp_relation -= 3; catholics_spd -= 5; old_middle_spd -= 5; coalition_dissent += 1; economic_growth -= 0.5; fvp_right += 2; nlp_right += 2; lvp_right += 2
 
 No matter our efforts, the war continues. Too many lives are extinguished. Refugees begin to flow into Germany, and trade suffers. Many are calling our Austrian interference a mistake.
 
 
 @sdapo_victory
 title: The <span style="color: #7A3C00;">Austrofascists</span> are backing down!
-on-arrival: sdapo_win = 1; pro_republic += 5; west_relation += 1; east_relation += 1; austria_victory = 1; reichswehr_loyalty += 0.1; coup_progress -= 2; ddp_left += 3; dvp_left += 3; lvp_left += 3
+on-arrival: sdapo_win = 1; pro_republic += 5; west_relation += 1; east_relation += 1; austria_victory = 1; reichswehr_loyalty += 0.1; coup_progress -= 2; fvp_left += 3; nlp_left += 3; lvp_left += 3
 view-if: sdapo_strength >= 6
 achievement: arbeiter_von_wien
 

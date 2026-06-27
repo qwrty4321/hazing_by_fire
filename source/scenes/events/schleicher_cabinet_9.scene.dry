@@ -44,8 +44,8 @@ Q.economic_growth += 0.8;
 Q.inflation += 1.4;
 Q.budget -= 1;
 
-Q.workers_kpd -= 6; 
-Q.unemployed_kpd -= 6; 
+Q.workers_uspd -= 6; 
+Q.unemployed_uspd -= 6; 
 Q.workers_nsdap -= 2; 
 Q.unemployed_nsdap -= 2; 
 Q.workers_spd -= 2; 

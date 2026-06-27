@@ -34,10 +34,10 @@ Q.pro_republic += 5;
 Q.nationalism -= 3;
 Q.lausanne_seen = 1;
 Q.reparations_resolved = 1;
-Q.dvp_left += 2;
+Q.nlp_left += 2;
 Q.lvp_left += 2;
-Q.ddp_left += 1;
-Q.ddp_cohesion += 1;
+Q.fvp_left += 1;
+Q.fvp_cohesion += 1;
 
 Q.papen_strength += 1;
 Q.schleicher_papen_r -= 1;

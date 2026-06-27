@@ -1,6 +1,6 @@
 title: Schleicher's Turn to Play
 subtitle: Will the general hold firm?
-view-if: chancellor == "Schleicher" and kpd_explode and schleicher_fight
+view-if: chancellor == "Schleicher" and uspd_explode and schleicher_fight
 max-visits: 1
 new-page: true
 priority: -1
@@ -12,38 +12,38 @@ go-to: reichstag
 
 @reichstag
 on-arrival: {!
-Q.kpd_r_alt = 0;
+Q.uspd_r_alt = 0;
 Q.sapd_r_alt = 0;
 Q.spd_r_alt = 0;
-Q.ddp_r_alt = 0;
+Q.fvp_r_alt = 0;
 Q.lvp_r_alt = 0;
-Q.dvp_r_alt = 0;
+Q.nlp_r_alt = 0;
 Q.z_r_alt = 0;
 Q.kvp_r_alt = 0;
 Q.total_r_alt = 0;
 
-Q.kpd_r_alt = Q.kpd_r_pre;
+Q.uspd_r_alt = Q.uspd_r_pre;
 if (Q.sapd_formed && Q.sapd_r_pre) Q.sapd_r_alt = Q.sapd_r_pre;
 Q.spd_r_alt = Q.spd_r_pre;
-if (!Q.dstp_maintained && Q.libs_against_schleicher && !Q.lvp_formed) Q.ddp_r_alt = Q.ddp_r_pre;
+if (!Q.dstp_maintained && Q.libs_against_schleicher && !Q.lvp_formed) Q.fvp_r_alt = Q.fvp_r_pre;
 if (Q.libs_against_schleicher && Q.lvp_formed) Q.lvp_r_alt = Q.lvp_r_pre;
-if (Q.libs_against_schleicher && Q.dvp_relation >= 40 && Q.dvp_leader != "Dingeldey" && (Q.industrialists_schleicher < 4 || Q.republicans_schleicher <= 0) && Q.dvp_exist && !Q.lvp_formed) Q.dvp_r_alt = Q.dvp_r_pre;
+if (Q.libs_against_schleicher && Q.nlp_relation >= 40 && Q.nlp_leader != "Dingeldey" && (Q.industrialists_schleicher < 4 || Q.republicans_schleicher <= 0) && Q.nlp_exist && !Q.lvp_formed) Q.nlp_r_alt = Q.nlp_r_pre;
 if (Q.z_against_schleicher) Q.z_r_alt = Q.z_r_pre - Q.bvp_r;
 
-Q.total_r_alt = parseFloat(Q.kpd_r_alt + Q.sapd_r_alt + Q.spd_r_alt + Q.ddp_r_alt + Q.dvp_r_alt + Q.z_r_alt + Q.lvp_r_alt).toFixed(1);
-Q.total_r_alt_2 = parseFloat(Q.kpd_r_alt + Q.sapd_r_alt + Q.spd_r_alt + Q.ddp_r_alt + Q.dvp_r_alt + Q.z_r_alt + Q.lvp_r_alt).toFixed(1);
+Q.total_r_alt = parseFloat(Q.uspd_r_alt + Q.sapd_r_alt + Q.spd_r_alt + Q.fvp_r_alt + Q.nlp_r_alt + Q.z_r_alt + Q.lvp_r_alt).toFixed(1);
+Q.total_r_alt_2 = parseFloat(Q.uspd_r_alt + Q.sapd_r_alt + Q.spd_r_alt + Q.fvp_r_alt + Q.nlp_r_alt + Q.z_r_alt + Q.lvp_r_alt).toFixed(1);
 
 if (Q.total_r_alt < 100) {
     let scale = 100 / Q.total_r_alt;
-    Q.kpd_r_alt = Math.round(Q.kpd_r_alt * scale * 10) / 10;
+    Q.uspd_r_alt = Math.round(Q.uspd_r_alt * scale * 10) / 10;
     Q.sapd_r_alt = Math.round(Q.sapd_r_alt * scale * 10) / 10;
     Q.spd_r_alt = Math.round(Q.spd_r_alt * scale * 10) / 10;
-    Q.ddp_r_alt = Math.round(Q.ddp_r_alt * scale * 10) / 10;
-    Q.dvp_r_alt = Math.round(Q.dvp_r_alt * scale * 10) / 10;
+    Q.fvp_r_alt = Math.round(Q.fvp_r_alt * scale * 10) / 10;
+    Q.nlp_r_alt = Math.round(Q.nlp_r_alt * scale * 10) / 10;
     Q.z_r_alt   = Math.round(Q.z_r_alt * scale * 10) / 10;
     Q.lvp_r_alt = Math.round(Q.lvp_r_alt * scale * 10) / 10;
 
-    Q.total_r_alt = Q.kpd_r_alt + Q.sapd_r_alt + Q.spd_r_alt + Q.ddp_r_alt + Q.dvp_r_alt + Q.z_r_alt + Q.lvp_r_alt;
+    Q.total_r_alt = Q.uspd_r_alt + Q.sapd_r_alt + Q.spd_r_alt + Q.fvp_r_alt + Q.nlp_r_alt + Q.z_r_alt + Q.lvp_r_alt;
 }
 
 for (var party of Q.parties) {
@@ -57,15 +57,15 @@ go-to: reichstag_diagram
 
 In defiance of the illegal adjournment of the Reichstag, an alternative assembly has been convened. The parties participating are determined by their ties to us and their role in the ongoing demonstrations.
 
-[? if kpd_r_alt: With most <span style="color: #700000;">**KPD**</span> deputies imprisoned, substitute representatives have been appointed to fill their seats. ?]
+[? if uspd_r_alt: With most <span style="color: #700000;">**USPD**</span> deputies imprisoned, substitute representatives have been appointed to fill their seats. ?]
 
 @reichstag_diagram
 on-display: {!
 data = [{
-    "id": "kpd",
-    "legend": "KPD",
-    "name": "KPD",
-    "seats": Math.round(Q.kpd_r_alt * 2),
+    "id": "uspd",
+    "legend": "USPD",
+    "name": "USPD",
+    "seats": Math.round(Q.uspd_r_alt * 2),
 }];
 
 if (Q.sapd_formed && Q.sapd_r_alt) {
@@ -95,12 +95,12 @@ if (Q.rdp_r) {
     });
 }
 
-if (Q.ddp_r_alt && !Q.lvp_formed) {
+if (Q.fvp_r_alt && !Q.lvp_formed) {
     data.push({
-        "id": "ddp",
-        "legend": Q.ddp_name,
-        "name": Q.ddp_name,
-        "seats": Math.round(Q.ddp_r_alt * 2),
+        "id": "fvp",
+        "legend": Q.fvp_name,
+        "name": Q.fvp_name,
+        "seats": Math.round(Q.fvp_r_alt * 2),
     });
 }
 
@@ -121,12 +121,12 @@ data = data.concat([{
     }
 ]);
 
-if (Q.dvp_r_alt && !Q.lvp_formed && Q.dvp_exist) {
+if (Q.nlp_r_alt && !Q.lvp_formed && Q.nlp_exist) {
     data.push({
-        "id": "dvp",
-        "legend": "DVP",
-        "name": "DVP",
-        "seats": Math.round(Q.dvp_r_alt * 2),
+        "id": "nlp",
+        "legend": "NLP",
+        "name": "NLP",
+        "seats": Math.round(Q.nlp_r_alt * 2),
     });
 }
 
@@ -236,13 +236,13 @@ go-to: negotiation_menu_med if spd_med; negotiation_menu_win if spd_win
 [? if not dnef_formed and dnef_r_alt: {!<tr><td><div class="box" style='background-color:#E3000F; outline: 2px; outline-style: solid;'> </div></td><td>!} **SPD:** {!</td><td>!} **[+ spd_r_alt +]%** {!</td></tr>!} ?]
 [? if dnef_formed and dnef_r_alt: {!<tr><td><div class="box" style='background-color:#BFC8CC; outline: 2px; outline-style: solid;'> </div></td><td>!} **DNEF:** {!</td><td>!} **[+ dnef_r_alt +]%** {!</td></tr>!} ?]
 
-[? if not lvp_formed and dstp_dnef and ddp_r_alt: {!<tr><td><div class="box2" style='background-color:#A79A3F'> </div></td><td>!} [+ ddp_name +]: {!</td><td>!} [+ ddp_r_alt +]% {!</td></tr>!} ?]
+[? if not lvp_formed and dstp_dnef and fvp_r_alt: {!<tr><td><div class="box2" style='background-color:#A79A3F'> </div></td><td>!} [+ fvp_name +]: {!</td><td>!} [+ fvp_r_alt +]% {!</td></tr>!} ?]
 
 [? if lvp_formed and lvp_dnef and lvp_r_alt: {!<tr><td><div class="box2" style='background-color:#CC9900'> </div></td><td>!} LVP: {!</td><td>!} [+ lvp_r_alt +]% {!</td></tr>!} ?]
 
 [? if z_dnef and z_r_alt: {!<tr><td><div class="box2" style='background-color:#1A0000'> </div></td><td>!} [+ z_party_name +]: {!</td><td>!} [+ z_r_alt +]% {!</td></tr>!} ?]
 
-[? if not lvp_formed and dvp_exist and dvp_dnef and dvp_r_alt: {!<tr><td><div class="box2" style='background-color:#AA861F'> </div></td><td>!} DVP: {!</td><td>!} [+ dvp_r_alt +]% {!</td></tr>!} ?]
+[? if not lvp_formed and nlp_exist and nlp_dnef and nlp_r_alt: {!<tr><td><div class="box2" style='background-color:#AA861F'> </div></td><td>!} NLP: {!</td><td>!} [+ nlp_r_alt +]% {!</td></tr>!} ?]
 
 [? if other_dnef and other_r_alt: {!<tr><td><div class="box2" style='background-color:#707070'> </div></td><td>!} Others: {!</td><td>!} [+ other_r_alt +]% {!</td></tr>!} ?]
 
@@ -256,15 +256,15 @@ go-to: negotiation_menu_med if spd_med; negotiation_menu_win if spd_win
 
 [? if sapd_formed and sapd_r_alt: {!<tr><td><div class="box" style='background-color:#9B0000'> </div></td><td>!} SAPD: {!</td><td>!} [+ sapd_r_alt +]% {!</td></tr>!} ?]
 
-[? if kpd_r_alt: {!<tr><td><div class="box" style='background-color:#700000'> </div></td><td>!} KPD: {!</td><td>!} [+ kpd_r_alt +]% {!</td></tr>!} ?]
+[? if uspd_r_alt: {!<tr><td><div class="box" style='background-color:#700000'> </div></td><td>!} USPD: {!</td><td>!} [+ uspd_r_alt +]% {!</td></tr>!} ?]
 
-[? if not lvp_formed and not dstp_dnef and ddp_r_alt: {!<tr><td><div class="box" style='background-color:#D3C24D'> </div></td><td>!} [+ ddp_name +]: {!</td><td>!} [+ ddp_r_alt +]% {!</td></tr>!} ?]
+[? if not lvp_formed and not dstp_dnef and fvp_r_alt: {!<tr><td><div class="box" style='background-color:#D3C24D'> </div></td><td>!} [+ fvp_name +]: {!</td><td>!} [+ fvp_r_alt +]% {!</td></tr>!} ?]
 
 [? if lvp_formed and lvp_r_alt and not lvp_dnef: {!<tr><td><div class="box" style='background-color:#FFCC00'> </div></td><td>!} LVP: {!</td><td>!} [+ lvp_r_alt +]% {!</td></tr>!} ?]
 
 [? if not z_dnef and z_r_alt: {!<tr><td><div class="box" style='background-color:#000'> </div></td><td>!} [+ z_party_name +]: {!</td><td>!} [+ z_r_alt +]% {!</td></tr>!} ?]
 
-[? if not lvp_formed and dvp_exist and not dvp_dnef and dvp_r_alt: {!<tr><td><div class="box" style='background-color:#D5AC27'> </div></td><td>!} DVP: {!</td><td>!} [+ dvp_r_alt +]% {!</td></tr>!} ?]
+[? if not lvp_formed and nlp_exist and not nlp_dnef and nlp_r_alt: {!<tr><td><div class="box" style='background-color:#D5AC27'> </div></td><td>!} NLP: {!</td><td>!} [+ nlp_r_alt +]% {!</td></tr>!} ?]
 
 [? if not other_dnef and other_r_alt: {!<tr><td><div class="box" style='background-color:#a0a0a0'> </div></td><td>!} Other parties: {!</td><td>!} [+ other_r_alt +]% {!</td></tr>!} ?]
 
@@ -381,15 +381,15 @@ Q.pro_republic += 20;
 
 Q.workers_spd += 4;
 Q.unemployed_spd += 4;
-Q.new_middle_ddp += 2;
-Q.old_middle_ddp += 2;
+Q.new_middle_fvp += 2;
+Q.old_middle_fvp += 2;
 Q.new_middle_lvp += 2;
 Q.old_middle_lvp += 2;
 Q.rural_z += 2;
 
 if (Q.reichstag_fire_decree_schleicher) {
-    Q.workers_kpd += 4;
-    Q.unemployed_kpd += 4;
+    Q.workers_uspd += 4;
+    Q.unemployed_uspd += 4;
     Q.workers_sapd += 2;
     Q.unemployed_sapd += 2;
 }
@@ -413,7 +413,7 @@ The Reichstag will convene on [+ next_reichstag_month : month +] [+ next_reichst
 
 @schemes
 title: Demand the above, and also guarantees for the continued independence of political organizations.
-subtitle: Including the <span style="color: #700000;">**KPD**</span>.
+subtitle: Including the <span style="color: #700000;">**USPD**</span>.
 unavailable-subtitle: [? if not spd_win or total_r_alt_2 < 50: Not enough leverage. ?][? if pro_republic < 50 and weimar_votes < 45 or reichstag_fire_decree_schleicher: Schleicher is dead-set on banning the <span style="color: #700000;">Communists</span>. ?]
 view-if: dnef_formed
 choose-if: spd_win and (pro_republic >= 50 or weimar_votes >= 45) and total_r_alt_2 >= 50 and not reichstag_fire_decree_schleicher
@@ -456,25 +456,25 @@ Q.new_middle_spd += 3;
 Q.old_middle_spd += 3;
 Q.rural_spd += 3;
 Q.catholics_spd += 3;
-Q.new_middle_ddp += 3;
-Q.old_middle_ddp += 3;
+Q.new_middle_fvp += 3;
+Q.old_middle_fvp += 3;
 Q.new_middle_lvp += 3;
 Q.old_middle_lvp += 3;
 Q.rural_z += 3;
 Q.catholics_z += 3;
 
-Q.workers_kpd += 12;
-Q.unemployed_kpd += 12;
-Q.new_middle_kpd += 2;
+Q.workers_uspd += 12;
+Q.unemployed_uspd += 12;
+Q.new_middle_uspd += 2;
 
-Q.kpd_banned = 0;
+Q.uspd_banned = 0;
 Q.sapd_banned = 0;
 
 for (var party of Q.parties) {
     Q[party+'_r'] = Q[party+'_r_pre'];
 }
 
-Q.kpd_relation += 20;
+Q.uspd_relation += 20;
 
 if (Q.sapd_formed) {
     Q.workers_sapd += 4;
@@ -496,7 +496,7 @@ achievement: getrennt_marschieren_vereint_schlagen
 
 With our leverage, we have negotiated the reconvening of the Reichstag, with Schleicher promising not to obstruct the chamber's right to assemble as it sees fit. Furthermore, we secured an agreement that his government will not infringe upon the people's right to organize peacefully or on the freedom of the press, with all emergency restrictions lifted.
 
-The most controversial concession was the lifting of the ban on the <span style="color: #700000;">**KPD**</span>[? if sapd_formed: and <span style="color: #9B0000;">**SAPD**</span>?], a major retreat and an open sign of Schleicher's defeat. Although expectedly, the <span style="color: #700000;">**RFB**</span> remains banned.
+The most controversial concession was the lifting of the ban on the <span style="color: #700000;">**USPD**</span>[? if sapd_formed: and <span style="color: #9B0000;">**SAPD**</span>?], a major retreat and an open sign of Schleicher's defeat. Although expectedly, the <span style="color: #700000;">**RFB**</span> remains banned.
 
 President Hindenburg, along with the <span style="color: #C0A054;">industrialists</span> and <span style="color: #3E88B3;">nationalists</span>, have now completely lost confidence in the chancellor. A vote of no confidence and new elections are expected. We can harness the significant public enthusiasm shown in defiance of dictatorship and need not fear further democratic backsliding—so long as Schleicher keeps his word.
 

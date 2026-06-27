@@ -10,7 +10,7 @@ max-visits: 1
 
 Following the collapse of our coalition, President [+ president +] has appointed Heinrich Brüning of the [? if z_party_name != "CVP": <span style="color: #000000;">Center</span>?][? if z_party_name == "CVP": <span style="color: #000000;">**CVP**</span>?] Party in a government supported by bourgeois forces. However, they cannot survive without the support from us or Hugenberg's <span style="color: #3E88B3;">**DNVP**</span>.
 
-Brüning, has reorganized his cabinet to include the parties to the right of the [? if not lvp_formed and dvp_exist: <span style="color: #C0A054;">**DVP**</span>?][? if not lvp_formed and not dvp_exist: <span style="color: #D3C24D;">**[+ ddp_name +]**</span>?][? if lvp_formed: <span style="color: #FFCC00;">**LVP**</span>?], such as the new <span style="color: #0087DC;">**KVP**</span>, which has been granted generous cabinet positions. We are left with the choice to "tolerate" the government to prevent the gains of extremists within the Reichstag or vote to oust Brüning for new elections.
+Brüning, has reorganized his cabinet to include the parties to the right of the [? if not lvp_formed and nlp_exist: <span style="color: #C0A054;">**NLP**</span>?][? if not lvp_formed and not nlp_exist: <span style="color: #D3C24D;">**[+ fvp_name +]**</span>?][? if lvp_formed: <span style="color: #FFCC00;">**LVP**</span>?], such as the new <span style="color: #0087DC;">**KVP**</span>, which has been granted generous cabinet positions. We are left with the choice to "tolerate" the government to prevent the gains of extremists within the Reichstag or vote to oust Brüning for new elections.
 
 - @vote_no
 - @vote_yes
@@ -31,7 +31,7 @@ New elections have been set for [+ next_election_month : month +] [+ next_electi
 title: Oppose the vote of no confidence, voting for the government.
 subtitle: We would essentially provide "toleration" to a bourgeois government.
 view-if: cordon_sanitaire >= 50
-on-arrival: welfare -= 1; left_dissent += 10; labor_dissent += 10; workers_spd *= 0.9; unemployed_spd *= 0.9; unemployed_nsdap += 5; unemployed_kpd += 5; workers_nsdap += 5; workers_kpd += 3; workers_spd -= 4 if welfare < 0; unemployed_spd -= 5 if welfare < 0; pro_republic -= 4; kpd_relation -= 8; rural_kvp += 3; rural_dnvp -= 3; old_middle_kvp += 3; old_middle_dnvp -= 3; new_middle_kvp += 3; new_middle_dnvp -= 3; spd_toleration_kvp = 1
+on-arrival: welfare -= 1; left_dissent += 10; labor_dissent += 10; workers_spd *= 0.9; unemployed_spd *= 0.9; unemployed_nsdap += 5; unemployed_uspd += 5; workers_nsdap += 5; workers_uspd += 3; workers_spd -= 4 if welfare < 0; unemployed_spd -= 5 if welfare < 0; pro_republic -= 4; uspd_relation -= 8; rural_kvp += 3; rural_dnvp -= 3; old_middle_kvp += 3; old_middle_dnvp -= 3; new_middle_kvp += 3; new_middle_dnvp -= 3; spd_toleration_kvp = 1
 
 We try to convince the workers that this policy is necessary in order to maintain a stable parliamentary government, and to deal with the fiscal consequences of the depression. Still, this policy provides excellent recruiting fodder for <span style="color: #7A3C00;">Nazis</span> and <span style="color: #700000;">**Communists**</span>. 
 

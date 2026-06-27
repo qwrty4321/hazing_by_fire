@@ -5,11 +5,11 @@ view-if: total_bruning_time > 0 and bruning_toleration_time and not in_center_ri
 on-arrival: {!
 Q.second_bruning_cabinet_seen = 1;
 Q.judicial_reform -= 1;
-Q.ddp_right += 1;
-Q.dvp_right += 2;
+Q.fvp_right += 1;
+Q.nlp_right += 2;
 Q.lvp_right += 2;
 Q.pro_republic -= 3;
-Q.new_middle_dvp -= 1;
+Q.new_middle_nlp -= 1;
 !}
 priority: -2
 tags: event
@@ -39,7 +39,7 @@ New elections have been set for [+ next_election_month : month +] [+ next_electi
 @vote_yes
 title: Vote in favor of this measure to continue the toleration agreement.
 view-if: spd_toleration
-on-arrival: left_dissent += 10; labor_dissent += 5; workers_spd -= 3; workers_nsdap += 2; workers_kpd += 1; unemployed_spd -= 3; unemployed_nsdap += 2; unemployed_kpd += 1; kpd_relation -= 5
+on-arrival: left_dissent += 10; labor_dissent += 5; workers_spd -= 3; workers_nsdap += 2; workers_uspd += 1; unemployed_spd -= 3; unemployed_nsdap += 2; unemployed_uspd += 1; uspd_relation -= 5
 
 We are compelled once again to vote in favor of the [+ chancellor +] government to prevent the extremist parties on the <span style="color: #7A3C00;">far</span>-<span style="color: #3E88B3;">right</span> and <span style="color: #700000;">left</span> from translating their growing popular support into parliamentary gains.
 

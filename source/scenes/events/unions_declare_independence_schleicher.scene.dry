@@ -10,7 +10,7 @@ Q.unions_schleicher = 1;
 if (Q.labor_strength < 10) {
     Q.workers_spd -= 16;
     Q.unemployed_spd -= 8;
-    Q.workers_kpd += 4;
+    Q.workers_uspd += 4;
     Q.workers_nsdap += 4;
 
     Q.workers_dnef += 12;
@@ -22,7 +22,7 @@ if (Q.labor_strength < 10) {
 } else if (Q.labor_strength < 25) {
     Q.workers_spd -= 20;
     Q.unemployed_spd -= 10;
-    Q.workers_kpd += 5;
+    Q.workers_uspd += 5;
     Q.workers_nsdap += 5;
 
     Q.workers_dnef += 14;
@@ -34,7 +34,7 @@ if (Q.labor_strength < 10) {
 } else if (Q.labor_strength < 40) {
     Q.workers_spd -= 22;
     Q.unemployed_spd -= 12;
-    Q.workers_kpd += 6;
+    Q.workers_uspd += 6;
     Q.workers_nsdap += 6;
 
     Q.workers_dnef += 16;
@@ -47,7 +47,7 @@ if (Q.labor_strength < 10) {
 } else if (Q.labor_strength < 60) {
     Q.workers_spd -= 24;
     Q.unemployed_spd -= 14;
-    Q.workers_kpd += 7;
+    Q.workers_uspd += 7;
     Q.workers_nsdap += 7;
 
     Q.workers_dnef += 18;
@@ -60,7 +60,7 @@ if (Q.labor_strength < 10) {
 } else {
     Q.workers_spd -= 26;
     Q.unemployed_spd -= 16;
-    Q.workers_kpd += 8;
+    Q.workers_uspd += 8;
     Q.workers_nsdap += 8;
 
     Q.workers_dnef += 20;
@@ -73,11 +73,11 @@ if (Q.labor_strength < 10) {
 }
 
 Q.workers_nsdap -= 3;
-Q.workers_kpd -= 3;
+Q.workers_uspd -= 3;
 
 Q.workers_spd -= 20;
 Q.unemployed_spd -= 10;
-Q.workers_kpd += 3;
+Q.workers_uspd += 3;
 Q.workers_nsdap += 3;
 Q.workers_dnef += 14;
 Q.unemployed_dnef += 7;
@@ -88,7 +88,7 @@ if (Q.sapd_formed) {
     Q.workers_sapd += 5;
     Q.unemployed_sapd += 3;
 } else {
-    Q.workers_kpd += 2;
+    Q.workers_uspd += 2;
 }
 
 Q.labor_strength = Q.labor_strength / 2;
@@ -109,8 +109,8 @@ max-visits: 1
 
 = Unions Declare Independence
 
-Our policy choices have greatly offended the labor movement. Union leaders have declared that they are independent of any political party, and some have been seen seeking accommodation with the <span style="color: #700000;">**KPD**</span> and even the <span style="color: #7A3C00;">**NSDAP**</span>. However, most unionists are now seeking an accommodation with Chancellor Schleicher[? if dnef_formed:&nbsp;and his <span style="color: #BFC8CC;">**DNEF**</span>?][? if not dnef_formed:, pressuring him to establish a political vehicle of his own?]. In doing so, they have stepped away from <span style="color: #9B0000;">Marxist</span> ideology and shifted toward a more pragmatic laborist stance.
+Our policy choices have greatly offended the labor movement. Union leaders have declared that they are independent of any political party, and some have been seen seeking accommodation with the <span style="color: #700000;">**USPD**</span> and even the <span style="color: #7A3C00;">**NSDAP**</span>. However, most unionists are now seeking an accommodation with Chancellor Schleicher[? if dnef_formed:&nbsp;and his <span style="color: #BFC8CC;">**DNEF**</span>?][? if not dnef_formed:, pressuring him to establish a political vehicle of his own?]. In doing so, they have stepped away from <span style="color: #9B0000;">Marxist</span> ideology and shifted toward a more pragmatic laborist stance.
 
-Nonetheless, most workers remain loyal to the <span style="color: #c00000;">**SPD**</span>, although their affiliation is less solid. Many workers move left[? if sapd_formed:, to the <span style="color: #700000;">**KPD**</span> or the nascent <span style="color: #9B0000;">**SAPD**</span>?], while others are drawn in a nationalist direction, as the ADGB signals its readiness to cooperate with the <span style="color: #c00000;">Red</span> General to tackle the crisis.
+Nonetheless, most workers remain loyal to the <span style="color: #c00000;">**SPD**</span>, although their affiliation is less solid. Many workers move left[? if sapd_formed:, to the <span style="color: #700000;">**USPD**</span> or the nascent <span style="color: #9B0000;">**SAPD**</span>?], while others are drawn in a nationalist direction, as the ADGB signals its readiness to cooperate with the <span style="color: #c00000;">Red</span> General to tackle the crisis.
 
 Much of our working-class base has defected, and labor's influence in our party has greatly diminished.

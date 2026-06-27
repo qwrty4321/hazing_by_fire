@@ -60,7 +60,7 @@ Q.workers_dnef += 2;
 Q.unemployed_dnef += 4;
 
 Q.z_relation -= 5;
-Q.ddp_relation -= 5;
+Q.fvp_relation -= 5;
 Q.lvp_relation -= 5;
 !}
 

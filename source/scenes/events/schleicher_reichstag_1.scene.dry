@@ -39,6 +39,6 @@ In any case, after clearing a few remaining bills, the chamber agrees to a holid
 
 @reichstag_2
 title: Papen's decree on wages is repealed!
-on-arrival: workers_kpd -= 4; unemployed_kpd -= 4; workers_z += 2; workers_spd += 2; unemployed_spd += 4; pro_republic += 3; reichstag_break = 1; reichstag_rubicon = 0; oskar_goal = "Scheme against Schleicher"; papen_goal = "Scheme against Schleicher"; schleicher_approval += 1
+on-arrival: workers_uspd -= 4; unemployed_uspd -= 4; workers_z += 2; workers_spd += 2; unemployed_spd += 4; pro_republic += 3; reichstag_break = 1; reichstag_rubicon = 0; oskar_goal = "Scheme against Schleicher"; papen_goal = "Scheme against Schleicher"; schleicher_approval += 1
 
 Schleicher has given his consent for the Reichstag to repeal one of Papen's more egregious decrees that had particulary offended the labor unions, as part of his prior promise and to calm their fury against the government. 

@@ -12,7 +12,7 @@ Despite our Otto Braun losing his position as the Minister-President of Prussia,
 - @sign_concordat: The Prussian government shall sign the concordat.
 
 @sign_concordat
-on-arrival: prussian_concordat = 1; z_relation += 4; catholics_spd += 3*(1-dissent); catholics_dnvp -= 2 if dnvp_ideology == "Radical"; ddp_relation -= 2; ddp_cohesion -= 0.5; lvp_relation -= 2
+on-arrival: prussian_concordat = 1; z_relation += 4; catholics_spd += 3*(1-dissent); catholics_dnvp -= 2 if dnvp_ideology == "Radical"; fvp_relation -= 2; fvp_cohesion -= 0.5; lvp_relation -= 2
 
 We have signed a Concordat between the Free State of Prussia and the Roman Catholic Church, guaranteeing religious freedom for Catholics in Prussia. This sets the stage for the negotiation of a national Concordat covering all of Germany.
 

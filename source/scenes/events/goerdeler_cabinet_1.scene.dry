@@ -69,9 +69,9 @@ Q.new_middle_other += 4;
 Q.old_middle_other += 4;
 Q.rural_other += 4;
 
-Q.new_middle_dvp += 4;
-Q.old_middle_dvp += 4;
-Q.rural_dvp += 2;
+Q.new_middle_nlp += 4;
+Q.old_middle_nlp += 4;
+Q.rural_nlp += 2;
 
 Q.new_middle_lvp += 6;
 Q.old_middle_lvp += 6;

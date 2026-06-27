@@ -32,7 +32,7 @@ New elections have been set for [+ next_election_month : month +] [+ next_electi
 title: Oppose the vote of no confidence, voting for the government.
 subtitle: We would essentially provide "toleration" to a bourgeois government.
 view-if: cordon_sanitaire >= 50 and center_right_coalition < 50
-on-arrival: spd_toleration = 1; in_right_coalition = 0; in_center_right_coalition = 0; left_dissent += 10; labor_dissent += 10; workers_spd *= 0.9; unemployed_spd *= 0.9; unemployed_nsdap += 3; unemployed_kpd += 3; workers_nsdap += 3; workers_kpd += 1; workers_spd -= 2 if welfare < 0; unemployed_spd -= 4 if welfare < 0; pro_republic -= 4; kpd_relation -= 8
+on-arrival: spd_toleration = 1; in_right_coalition = 0; in_center_right_coalition = 0; left_dissent += 10; labor_dissent += 10; workers_spd *= 0.9; unemployed_spd *= 0.9; unemployed_nsdap += 3; unemployed_uspd += 3; workers_nsdap += 3; workers_uspd += 1; workers_spd -= 2 if welfare < 0; unemployed_spd -= 4 if welfare < 0; pro_republic -= 4; uspd_relation -= 8
 
 We try to convince the workers that this policy is necessary in order to maintain a stable parliamentary government, and to deal with the fiscal consequences of the depression. Still, this policy provides excellent recruiting fodder for <span style="color: #7A3C00;">Nazis</span> and <span style="color: #700000;">**Communists**</span>.
 
@@ -49,6 +49,6 @@ The bourgeois cabinet has fallen. New elections have been set for [+ next_electi
 title: It does not matter what we do.
 subtitle: Brüning will form a center-right coalition.
 view-if: center_right_coalition >= 50
-on-arrival: spd_in_government = 0; spd_toleration = 0; spd_toleration_right = 0; in_grand_coalition = 0; in_center_right_coalition = 1; in_right_coalition = 0; ddp_relation -= 5; dvp_relation -= 5; z_relation -= 5; lvp_relation -= 5; old_middle_dnf -= 2; ddp_right += 1; bourgeois_cooperation += 2; liberal_cooperation += 1
+on-arrival: spd_in_government = 0; spd_toleration = 0; spd_toleration_right = 0; in_grand_coalition = 0; in_center_right_coalition = 1; in_right_coalition = 0; fvp_relation -= 5; nlp_relation -= 5; z_relation -= 5; lvp_relation -= 5; old_middle_dnf -= 2; fvp_right += 1; bourgeois_cooperation += 2; liberal_cooperation += 1
 
 The bourgeois has survived without our toleration, leaving us as an opposition party. 

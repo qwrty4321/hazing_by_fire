@@ -9,14 +9,14 @@ card-image: img/weimar_coalition_2.jpg
 
 = Inter-Party Relationships
 
-The <span style="color: #c00000;">**SPD**</span> cannot govern by itself yet. Because we do not have an electoral majority, we need the support of other parties. Recently, our governments have consisted of the <span style="color: #000000;">We</span><span style="color: #DD0000;">im</span><span style="color: #FFCC00;">ar</span> Coalition of the <span style="color: #c00000;">**SPD**</span>, <span style="color: #000000;">Center</span>, and [? if ddp_name == "DDP" and not lvp_formed: <span style="color: #D3C24D;">**Democratic**</span>?][? if ddp_name == "DStP" and not lvp_formed: <span style="color: #D3C24D;">**State**</span>?][? if lvp_formed: <span style="color: #FFCC00;">**Liberal People's**</span>?] parties. [? if cvp_formed: However the formation of the <span style="color: #000000;">**[+ z_party_name +]**</span> has only really made cooperation with the <span style="color: #D3C24D;">liberals</span> possible. ?] We can reach out and build additional connections with these parties, or perhaps we can stand alone.
+The <span style="color: #c00000;">**SPD**</span> cannot govern by itself yet. Because we do not have an electoral majority, we need the support of other parties. Recently, our governments have consisted of the <span style="color: #000000;">We</span><span style="color: #DD0000;">im</span><span style="color: #FFCC00;">ar</span> Coalition of the <span style="color: #c00000;">**SPD**</span>, <span style="color: #000000;">Center</span>, and [? if fvp_name == "FVP" and not lvp_formed: <span style="color: #D3C24D;">**Democratic**</span>?][? if fvp_name == "DStP" and not lvp_formed: <span style="color: #D3C24D;">**State**</span>?][? if lvp_formed: <span style="color: #FFCC00;">**Liberal People's**</span>?] parties. [? if cvp_formed: However the formation of the <span style="color: #000000;">**[+ z_party_name +]**</span> has only really made cooperation with the <span style="color: #D3C24D;">liberals</span> possible. ?] We can reach out and build additional connections with these parties, or perhaps we can stand alone.
 
-- @liberals: Strengthen our bonds with the left-liberal [? if ddp_name == "DDP": <span style="color: #D3C24D;">German Democratic Party</span>?][? if ddp_name == "DStP": <span style="color: #D3C24D;">German State Party</span>?] and conservative-liberal <span style="color: #C0A054;">German People's Party</span>.
-- @liberals_ddp: Strengthen our bonds with the left-liberal [? if ddp_name == "DDP": <span style="color: #D3C24D;">German Democratic Party</span>?][? if ddp_name == "DStP": <span style="color: #D3C24D;">German State Party</span>?].
+- @liberals: Strengthen our bonds with the left-liberal [? if fvp_name == "FVP": <span style="color: #D3C24D;">German Democratic Party</span>?][? if fvp_name == "DStP": <span style="color: #D3C24D;">German State Party</span>?] and conservative-liberal <span style="color: #C0A054;">German People's Party</span>.
+- @liberals_fvp: Strengthen our bonds with the left-liberal [? if fvp_name == "FVP": <span style="color: #D3C24D;">German Democratic Party</span>?][? if fvp_name == "DStP": <span style="color: #D3C24D;">German State Party</span>?].
 - @liberals_lvp: Strengthen our bonds with the <span style="color: #FFCC00;">Liberal People's Party</span>.
 - @center: Strengthen our bonds with the Catholic [? if z_party_name != "CVP": <span style="color: #000000;">Center Party</span>?][? if z_party_name == "CVP": <span style="color: #000000;">**CVP**</span>?].
 - @cvp: Reconcile with the <span style="color: #000000;">Christian People's Party</span>.
-- @kpd: Work towards repairing relationships with the <span style="color: #700000;">Communist Party</span>.
+- @uspd: Work towards repairing relationships with the <span style="color: #700000;">Communist Party</span>.
 - @dnvp: Open dialogue with [? if dnvp_leader != "Lambach": Treviranus and the <span style="color: #0087DC;">People's Conservatives</span>?][? if dnvp_leader == "Lambach": Lambach and the <span style="color: #6D5298;">Christian Socials</span>?] of the <span style="color: #3E88B3;">**DNVP**</span>.
 - @nsdap: Establish contact with Strasser and the <span style="color: #7A3C00;">Nazi Party</span>'s left wing.
 - @spd_alone: The <span style="color: #c00000;">SPD</span> can stand alone for now.
@@ -24,47 +24,47 @@ The <span style="color: #c00000;">**SPD**</span> cannot govern by itself yet. Be
 - @easy_discard
 
 
-@kpd
+@uspd
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 1; kpd_inter_party_seen += 1
-go-to: kpd_blutmai if blutmai = 1; kpd_1 if blutmai = 0 and kpd_coalition_success = 0 and (kpd_relation < 40 or kpd_rectifed_history = 1); kpd_rectification_of_history if kpd_relation >= 40 and kpd_rectified_history = 0; kpd_2 if kpd_coalition_success = 1 and kpd_rectified_history = 1
+on-arrival: resources -= 1; uspd_inter_party_seen += 1
+go-to: uspd_blutmai if blutmai = 1; uspd_1 if blutmai = 0 and uspd_coalition_success = 0 and (uspd_relation < 40 or uspd_rectifed_history = 1); uspd_rectification_of_history if uspd_relation >= 40 and uspd_rectified_history = 0; uspd_2 if uspd_coalition_success = 1 and uspd_rectified_history = 1
 
-@kpd_1
-on-arrival: kpd_relation += 6*(1 - dissent); communist_coalition += 1 if kpd_inter_party_seen <= 1; reformist_dissent += 2; z_relation -= 2 if z_ideology == "Right"; dvp_relation -= 3; ddp_relation -= 2; lvp_relation -= 3
+@uspd_1
+on-arrival: uspd_relation += 6*(1 - dissent); communist_coalition += 1 if uspd_inter_party_seen <= 1; reformist_dissent += 2; z_relation -= 2 if z_ideology == "Right"; nlp_relation -= 3; fvp_relation -= 2; lvp_relation -= 3
 
 The <span style="color: #700000;">communists</span> are suspicious of our overtures, especially the <span style="color: #8B0000;">Stalinist</span> leadership, who persist in calling us "<span style="color: #c00000;">social</span> <span style="color: #7A3C00;">fascists</span>". However, connections are made at the grassroots and local levels.
 
-@kpd_rectification_of_history
+@uspd_rectification_of_history
 
-One stumbling block for our relations with the <span style="color: #700000;">**KPD**</span> is our history of conflict, dating back to 1918 and 1919. The <span style="color: #700000;">**KPD**</span> is especially contemptuous of Gustav Noske, the <span style="color: #c00000;">**SPD**</span> "bloodhound" who reportedly ordered the violent suppression of the <span style="color: #700000;">Spartacist</span> uprising and other <span style="color: #700000;">**KPD**</span> revolts. They also blame us for the deaths of Rosa Luxemburg and Karl Liebknecht, two <span style="color: #c00000;">**SPD**</span>-turned-<span style="color: #700000;">**KPD**</span> leaders who were killed during the suppression of the uprising.
+One stumbling block for our relations with the <span style="color: #700000;">**USPD**</span> is our history of conflict, dating back to 1918 and 1919. The <span style="color: #700000;">**USPD**</span> is especially contemptuous of Gustav Noske, the <span style="color: #c00000;">**SPD**</span> "bloodhound" who reportedly ordered the violent suppression of the <span style="color: #700000;">Spartacist</span> uprising and other <span style="color: #700000;">**USPD**</span> revolts. They also blame us for the deaths of Rosa Luxemburg and Karl Liebknecht, two <span style="color: #c00000;">**SPD**</span>-turned-<span style="color: #700000;">**USPD**</span> leaders who were killed during the suppression of the uprising.
 
-For further improvements in <span style="color: #700000;">**KPD**</span> relations, it might be necessary to expel Noske, and hold some sort of commemoration for Luxemburg and Liebknecht.
+For further improvements in <span style="color: #700000;">**USPD**</span> relations, it might be necessary to expel Noske, and hold some sort of commemoration for Luxemburg and Liebknecht.
 
 - @yes_history: Yes, we must apologize for our past actions.
 - @no_history: No, we have no need to apologize.
 
 @yes_history
-on-arrival: reformist_dissent += 12; reformist_strength -= 2; neorevisionist_dissent += 5; left_dissent -= 6; left_strength += 5; kpd_rectified_history = 1; z_relation -= 3; z_relation -= 3 if z_ideology == "Right"; dvp_relation -= 6; lvp_relation -= 6; ddp_relation -= 4; kpd_relation += 8*(1-dissent); coalition_dissent += 1; dvp_right += 2; ddp_right += 2; lvp_right += 2
+on-arrival: reformist_dissent += 12; reformist_strength -= 2; neorevisionist_dissent += 5; left_dissent -= 6; left_strength += 5; uspd_rectified_history = 1; z_relation -= 3; z_relation -= 3 if z_ideology == "Right"; nlp_relation -= 6; lvp_relation -= 6; fvp_relation -= 4; uspd_relation += 8*(1-dissent); coalition_dissent += 1; nlp_right += 2; fvp_right += 2; lvp_right += 2
 
-As part of normalizing relations with the <span style="color: #700000;">**KPD**</span>, we have to acknowledge the wrongdoings of our past. We have expelled Noske, and have held public commemorations for those killed by troops during the uprisings.
+As part of normalizing relations with the <span style="color: #700000;">**USPD**</span>, we have to acknowledge the wrongdoings of our past. We have expelled Noske, and have held public commemorations for those killed by troops during the uprisings.
 
 This leads to tensions with the moderates and reformists within our party, and criticism from the <span style="color: #000000;">conservative</span> and <span style="color: #C0A054;">liberal</span> parties.
 
 @no_history
-on-arrival: kpd_relation -= 3
+on-arrival: uspd_relation -= 3
 
 We have no need to apologize for the actions of Ebert and Noske; it is the <span style="color: #700000;">communists</span>' fault for launching a violent insurrection.
 
 
-@kpd_2
-on-arrival: kpd_relation += 8*(1 - dissent); communist_coalition += 1 if kpd_inter_party_seen <= 1; reformist_dissent += 2; z_relation -= 3; dvp_relation -= 3; lvp_relation -= 3; ddp_relation -= 3
+@uspd_2
+on-arrival: uspd_relation += 8*(1 - dissent); communist_coalition += 1 if uspd_inter_party_seen <= 1; reformist_dissent += 2; z_relation -= 3; nlp_relation -= 3; lvp_relation -= 3; fvp_relation -= 3
 
-After the success of the coalition government with the <span style="color: #700000;">**KPD**</span>, they are much more amenable to us.
+After the success of the coalition government with the <span style="color: #700000;">**USPD**</span>, they are much more amenable to us.
 
-@kpd_blutmai
-on-arrival: kpd_relation += 3*(1 - dissent); reformist_dissent += 1
+@uspd_blutmai
+on-arrival: uspd_relation += 3*(1 - dissent); reformist_dissent += 1
 
 After the events of Blütmai, reconciling with the <span style="color: #700000;">Communists</span> is difficult, if not impossible. Nevertheless, we must try.
 
@@ -105,43 +105,43 @@ on-arrival: resources -= 1; z_relation += 6*(1 - dissent); cvp_left += 1
 
 It's not exactly easy to get the <span style="color: #000000;">Christians</span> to like us again—but it's not impossible either. We will leverage our connections with their <span style="color: #FF7F00;">Christian Left</span> and Labor factions to lay the groundwork for a potential reconciliation between our two parties.
 
-@liberals_ddp
-view-if: not lvp_formed and not dvp_exist
+@liberals_fvp
+view-if: not lvp_formed and not nlp_exist
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 1; ddp_relation += 8*(1 - dissent); ddp_left += 1; ddp_cohesion += 0.5
+on-arrival: resources -= 1; fvp_relation += 8*(1 - dissent); fvp_left += 1; fvp_cohesion += 0.5
 
-The <span style="color: #D3C24D;">**[+ ddp_name +]**</span> has been one of our closest allies throughout the course of the Republic. Now, as they are the only remaining liberal party, strengthening ties with them should be our top priority.
+The <span style="color: #D3C24D;">**[+ fvp_name +]**</span> has been one of our closest allies throughout the course of the Republic. Now, as they are the only remaining liberal party, strengthening ties with them should be our top priority.
 
 @liberals
-view-if: not lvp_formed and dvp_exist
+view-if: not lvp_formed and nlp_exist
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 1; ddp_relation += 5*(1 - dissent); ddp_left += 0.5; ddp_cohesion += 0.25; dvp_relation += 2 if in_grand_coalition_prussia
-go-to: dvp_stresemann if stresemann_dead = 0; dvp_loss if stresemann_dead = 1 and dvp_votes >= 5; dvp_moribund if stresemann_dead = 1 and dvp_votes < 5
+on-arrival: resources -= 1; fvp_relation += 5*(1 - dissent); fvp_left += 0.5; fvp_cohesion += 0.25; nlp_relation += 2 if in_grand_coalition_prussia
+go-to: nlp_stresemann if stresemann_dead = 0; nlp_loss if stresemann_dead = 1 and nlp_votes >= 5; nlp_moribund if stresemann_dead = 1 and nlp_votes < 5
 
-The <span style="color: #D3C24D;">**[+ ddp_name +]**</span> has been one of our closest allies through the course of the Republic. [? if year >= 1929: Although the national shift to the right is having them question our cooperation. ?]
+The <span style="color: #D3C24D;">**[+ fvp_name +]**</span> has been one of our closest allies through the course of the Republic. [? if year >= 1929: Although the national shift to the right is having them question our cooperation. ?]
 
-@dvp_stresemann
-on-arrival: dvp_relation += 6*(1 - dissent); dvp_left += 1; dvp_left += 1 if in_grand_coalition_prussia
+@nlp_stresemann
+on-arrival: nlp_relation += 6*(1 - dissent); nlp_left += 1; nlp_left += 1 if in_grand_coalition_prussia
 
-Gustav Stresemann, the leader of the <span style="color: #C0A054;">**DVP**</span> is the best foreign policy leaders of the republic, and while he has previously expressed <span style="color: #808080;">monarchist</span> tendencies, he has been friendly towards us. [? if in_grand_coalition_prussia: Their inclusion in the Prussian government has fostered a more conciliatory attitude toward us. ?]
+Gustav Stresemann, the leader of the <span style="color: #C0A054;">**NLP**</span> is the best foreign policy leaders of the republic, and while he has previously expressed <span style="color: #808080;">monarchist</span> tendencies, he has been friendly towards us. [? if in_grand_coalition_prussia: Their inclusion in the Prussian government has fostered a more conciliatory attitude toward us. ?]
 
-@dvp_loss
-on-arrival: dvp_relation += 4*(1 - dissent); dvp_left += 1; dvp_left += 1 if in_grand_coalition_prussia
+@nlp_loss
+on-arrival: nlp_relation += 4*(1 - dissent); nlp_left += 1; nlp_left += 1 if in_grand_coalition_prussia
 
-With the death of Gustav Stresemann, the <span style="color: #C0A054;">**DVP**</span> is much less likely to be accommodating of us. In addition, the <span style="color: #D3C24D;">liberal</span> parties are electorally in decline, so perhaps our efforts are best spent elsewhere.
+With the death of Gustav Stresemann, the <span style="color: #C0A054;">**NLP**</span> is much less likely to be accommodating of us. In addition, the <span style="color: #D3C24D;">liberal</span> parties are electorally in decline, so perhaps our efforts are best spent elsewhere.
 
-However, given the influence of the <span style="color: #C0A054;">**DVP**</span> among the other <span style="color: #808080;">right</span>-leaning parties[? if president == "Hindenburg" or president_ideology == "Moderate": and with President [+ president +] ?], it can still be helpful to influence them. [? if in_grand_coalition_prussia: Their inclusion in the Prussian government has also fostered a more conciliatory attitude toward us. ?]
+However, given the influence of the <span style="color: #C0A054;">**NLP**</span> among the other <span style="color: #808080;">right</span>-leaning parties[? if president == "Hindenburg" or president_ideology == "Moderate": and with President [+ president +] ?], it can still be helpful to influence them. [? if in_grand_coalition_prussia: Their inclusion in the Prussian government has also fostered a more conciliatory attitude toward us. ?]
 
-@dvp_moribund
-on-arrival: dvp_relation += 4*(1 - dissent); dvp_left += 1; dvp_left += 1 if in_grand_coalition_prussia
+@nlp_moribund
+on-arrival: nlp_relation += 4*(1 - dissent); nlp_left += 1; nlp_left += 1 if in_grand_coalition_prussia
 
-The <span style="color: #D3C24D;">liberal</span> parties (both the <span style="color: #D3C24D;">**[+ ddp_name +]**</span> and <span style="color: #C0A054;">**DVP**</span>) are electorally <span style="color: #ff0000;">moribund</span>, so perhaps our efforts are best spent elsewhere.
+The <span style="color: #D3C24D;">liberal</span> parties (both the <span style="color: #D3C24D;">**[+ fvp_name +]**</span> and <span style="color: #C0A054;">**NLP**</span>) are electorally <span style="color: #ff0000;">moribund</span>, so perhaps our efforts are best spent elsewhere.
 
-However, given the influence of the <span style="color: #C0A054;">**DVP**</span> among the other <span style="color: #808080;">right</span>-leaning parties[? if president == "Hindenburg" or president_ideology == "Moderate": and with President [+ president +] ?], it can still be helpful to influence them. [? if in_grand_coalition_prussia: Their inclusion in the Prussian government has also fostered a more conciliatory attitude toward us. ?]
+However, given the influence of the <span style="color: #C0A054;">**NLP**</span> among the other <span style="color: #808080;">right</span>-leaning parties[? if president == "Hindenburg" or president_ideology == "Moderate": and with President [+ president +] ?], it can still be helpful to influence them. [? if in_grand_coalition_prussia: Their inclusion in the Prussian government has also fostered a more conciliatory attitude toward us. ?]
 
 @liberals_lvp
 view-if: lvp_formed
@@ -156,7 +156,7 @@ The former two liberal parties have been our closest allies through the course o
 @lvp_stresemann
 on-arrival: lvp_relation += 6*(1 - dissent); lvp_left += 1
 
-Gustav Stresemann, the former leader of the <span style="color: #C0A054;">**DVP**</span>, is the best foreign policy leaders of the republic, and while he has previously expressed <span style="color: #808080;">monarchist</span> tendencies, he has been friendly towards us. Stresemann's influence over the right wing of the <span style="color: #FFCC00;">**LVP**</span> helps sway some more reluctant party members towards us.
+Gustav Stresemann, the former leader of the <span style="color: #C0A054;">**NLP**</span>, is the best foreign policy leaders of the republic, and while he has previously expressed <span style="color: #808080;">monarchist</span> tendencies, he has been friendly towards us. Stresemann's influence over the right wing of the <span style="color: #FFCC00;">**LVP**</span> helps sway some more reluctant party members towards us.
 
 @lvp_loss
 on-arrival: lvp_relation += 4*(1 - dissent); lvp_left += 1
@@ -184,7 +184,7 @@ Q.dnvp_wholesome = 1;
 
 Q.wholesome_point += 1;
 
-Q.new_middle_ddp += 20;
+Q.new_middle_fvp += 20;
 Q.new_middle_lvp += 20;
 
 Q.workers_dnvp = Q.workers_spd;
@@ -211,10 +211,10 @@ if (Q.bvp_r == Q.z_r) Q.z_minus_bvp_r = 0;
 !}
 on-display: {!
 data = [{
-    "id": "kpd",
-    "legend": "KPD",
-    "name": "KPD",
-    "seats": Math.round(Q.kpd_r * Q.reichstag_size),
+    "id": "uspd",
+    "legend": "USPD",
+    "name": "USPD",
+    "seats": Math.round(Q.uspd_r * Q.reichstag_size),
 }];
 
 if (Q.sapd_formed && Q.sapd_r) {
@@ -253,12 +253,12 @@ if (Q.dnvp_r && Q.dnvp_wholesome) {
     });
 }
 
-if (Q.ddp_r && !Q.lvp_formed) {
+if (Q.fvp_r && !Q.lvp_formed) {
     data.push({
-        "id": "ddp",
-        "legend": Q.ddp_name,
-        "name": Q.ddp_name,
-        "seats": Math.round(Q.ddp_r * Q.reichstag_size),
+        "id": "fvp",
+        "legend": Q.fvp_name,
+        "name": Q.fvp_name,
+        "seats": Math.round(Q.fvp_r * Q.reichstag_size),
     });
 }
 
@@ -289,12 +289,12 @@ if (Q.bvp_r) {
     });
 }
 
-if (Q.dvp_r && !Q.lvp_formed && Q.dvp_exist) {
+if (Q.nlp_r && !Q.lvp_formed && Q.nlp_exist) {
     data.push({
-        "id": "dvp",
-        "legend": "DVP",
-        "name": "DVP",
-        "seats": Math.round(Q.dvp_r * Q.reichstag_size),
+        "id": "nlp",
+        "legend": "NLP",
+        "name": "NLP",
+        "seats": Math.round(Q.nlp_r * Q.reichstag_size),
     });
 }
 
@@ -397,7 +397,7 @@ if (d3 && window) {
 !}
 
 
-Due to our shared values of wholesomeness and love, we have agreed to run a joint list with the <span style="color: #3E88B3;">**DNVP**</span> and welcome them into our parliamentary group. However, because of this deal, we had to expel all our <span style="color: #005EB8;">Jewish</span> members, who join the [? if not lvp_formed: <span style="color: #D3C24D;">**[+ ddp_name +]**</span>?][? if lvp_formed: <span style="color: #FFCC00;">**LVP**</span>?].
+Due to our shared values of wholesomeness and love, we have agreed to run a joint list with the <span style="color: #3E88B3;">**DNVP**</span> and welcome them into our parliamentary group. However, because of this deal, we had to expel all our <span style="color: #005EB8;">Jewish</span> members, who join the [? if not lvp_formed: <span style="color: #D3C24D;">**[+ fvp_name +]**</span>?][? if lvp_formed: <span style="color: #FFCC00;">**LVP**</span>?].
 
 {!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
 
@@ -416,7 +416,7 @@ We have began our work in wholesomeifying Gregor Strasser, who is beginning to f
 title: Create the anti-Liberal Front.
 unavailable-subtitle: [? if nsdap_relation < 50: We need higher relations. ?][? if harzburg_front_seen: The Harzburg Front already exists. ?]
 choose-if: nsdap_relation >= 50 and not harzburg_front_seen
-on-arrival: workers_ddp = 0; new_middle_ddp = 0; old_middle_ddp = 0; rural_ddp = 0; catholics_ddp = 0; unemployed_ddp = 0; workers_dvp = 0; new_middle_dvp = 0; old_middle_dvp = 0; rural_dvp = 0; catholics_dvp = 0; unemployed_dvp = 0; workers_lvp = 0; new_middle_lvp = 0; old_middle_lvp = 0; rural_lvp = 0; catholics_lvp = 0; unemployed_lvp = 0; ddp_relation = 0; lvp_relation = 0; dvp_relation = 0; z_relation += 20; dnvp_relation += 20
+on-arrival: workers_fvp = 0; new_middle_fvp = 0; old_middle_fvp = 0; rural_fvp = 0; catholics_fvp = 0; unemployed_fvp = 0; workers_nlp = 0; new_middle_nlp = 0; old_middle_nlp = 0; rural_nlp = 0; catholics_nlp = 0; unemployed_nlp = 0; workers_lvp = 0; new_middle_lvp = 0; old_middle_lvp = 0; rural_lvp = 0; catholics_lvp = 0; unemployed_lvp = 0; fvp_relation = 0; lvp_relation = 0; nlp_relation = 0; z_relation += 20; dnvp_relation += 20
 
 We have formed the anti-Liberal front with Strasser's faction within the <span style="color: #7A3C00;">**NSDAP**</span>. The [? if z_party_name != "CVP": <span style="color: #000000;">Center Party</span>?][? if z_party_name == "CVP": <span style="color: #000000;">**CVP**</span>?] and <span style="color: #3E88B3;">**DNVP**</span> also join in.
 

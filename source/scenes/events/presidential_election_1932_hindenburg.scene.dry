@@ -4,9 +4,9 @@ new-page: true
 on-arrival: {!
 Q.the_decision_2010 = 1;
 Q.hindenburg_run_points = 0;
-if (Q.nsdap_votes + Q.dnf_votes > Q.dnvp_votes + Q.other_votes + Q.dvp_votes + Q.z_votes + Q.ddp_votes + Q.lvp_votes && Q.dnvp_ideology == "Moderate") {
+if (Q.nsdap_votes + Q.dnf_votes > Q.dnvp_votes + Q.other_votes + Q.nlp_votes + Q.z_votes + Q.fvp_votes + Q.lvp_votes && Q.dnvp_ideology == "Moderate") {
     Q.hindenburg_run_points += 4;
-} else if (Q.nsdap_votes + Q.dnvp_votes > Q.kvp_votes + Q.other_votes + Q.dvp_votes + Q.z_votes + Q.ddp_votes + Q.lvp_votes && Q.dnvp_ideology == "Radical") {
+} else if (Q.nsdap_votes + Q.dnvp_votes > Q.kvp_votes + Q.other_votes + Q.nlp_votes + Q.z_votes + Q.fvp_votes + Q.lvp_votes && Q.dnvp_ideology == "Radical") {
     Q.hindenburg_run_points += 4;
 }
 if (Q.dnvp_ideology == "Radical") {
@@ -23,8 +23,8 @@ if (Q.spd_votes >= 32) Q.hindenburg_run_points += 1;
 if (Q.left_strength >= Q.reformist_strength) {
     Q.hindenburg_run_points += 1;
 }
-if (Q.spd_votes + (Q.z_votes*0.8) + Q.ddp_votes + (Q.lvp_votes / 2) >= 50) Q.hindenburg_run_points += 2;
-if (Q.kpd_relation >= 40) Q.hindenburg_run_points += 1;
+if (Q.spd_votes + (Q.z_votes*0.8) + Q.fvp_votes + (Q.lvp_votes / 2) >= 50) Q.hindenburg_run_points += 2;
+if (Q.uspd_relation >= 40) Q.hindenburg_run_points += 1;
 if (Q.capital_strike_progress >= 6) Q.hindenburg_run_points += 1;
 if (Q.coup_progress >= 5) Q.hindenburg_run_points += 1;
 if (Q.pro_republic >= 70) Q.hindenburg_run_points -= 1;

@@ -36,21 +36,21 @@ Q.schleicher_spd_influence += 2;
 
 Q.workers_spd -= 4;
 Q.workers_z -= 2;
-Q.workers_ddp -= 2;
+Q.workers_fvp -= 2;
 Q.workers_lvp -= 2;
 
 Q.new_middle_spd -= 4;
-Q.new_middle_ddp -= 4;
+Q.new_middle_fvp -= 4;
 Q.new_middle_lvp -= 4;
 
 Q.old_middle_spd -= 4;
-Q.old_middle_ddp -= 4;
+Q.old_middle_fvp -= 4;
 Q.old_middle_lvp -= 4;
 Q.old_middle_nsdap -= 4;
 
 Q.rural_spd -= 2;
 Q.rural_z -= 2;
-Q.rural_ddp -= 2;
+Q.rural_fvp -= 2;
 Q.rural_lvp -= 2;
 Q.rural_nsdap -= 2;
 
@@ -58,7 +58,7 @@ Q.catholics_spd -= 4;
 Q.catholics_z -= 2;
 
 Q.unemployed_spd -= 6;
-Q.unemployed_kpd -= 2;
+Q.unemployed_uspd -= 2;
 Q.unemployed_nsdap -= 4;
 
 Q.workers_dnef += 8;

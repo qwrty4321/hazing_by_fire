@@ -40,7 +40,7 @@ Q.reichswehr_strength += 75;
 Q.old_middle_dnef += 12;
 Q.old_middle_dnvp -= 4;
 Q.old_middle_kvp -= 4;
-Q.old_middle_dvp -= 2;
+Q.old_middle_nlp -= 2;
 Q.old_middle_nsdap -= 2;
 
 Q.schleicher_spd_influence -= 1;

@@ -12,13 +12,13 @@ if (Q.nsdap_candidate_1932 == "Hitler") {
     Q.unemployed_nsdap += 4;
     Q.new_middle_dnvp -= 2;
     Q.old_middle_dnvp -= 2; 
-    Q.unemployed_kpd -= 2;
+    Q.unemployed_uspd -= 2;
 } else if (Q.nsdap_candidate_1932 == "Göring") {
     Q.old_middle_nsdap += 4;
     Q.old_middle_dnvp -= 4;
     Q.rural_nsdap += 2;
     Q.rural_dnvp -= 2;
-    Q.workers_kpd += 3;
+    Q.workers_uspd += 3;
     Q.workers_nsdap -= 3;
 }
 !}
@@ -57,19 +57,19 @@ go-to: candidate_selection
 
 [? if spd_campaign: - <span style="color: #c00000;">**SPD**</span> ?]
 
-[? if kpd_support_spd == 1 and sapd_formed and spd_campaign: - <span style="color: #9B0000;">**SAPD**</span> ?]
+[? if uspd_support_spd == 1 and sapd_formed and spd_campaign: - <span style="color: #9B0000;">**SAPD**</span> ?]
 
-[? if kpd_support_spd == 1 and spd_campaign: - <span style="color: #700000;">**KPD**</span> ?]
+[? if uspd_support_spd == 1 and spd_campaign: - <span style="color: #700000;">**USPD**</span> ?]
 
 [? if z_support_spd == 1 and spd_campaign: - [? if z_party_name != "CVP": <span style="color: #000000;">Center Party</span>?][? if z_party_name == "CVP": <span style="color: #000000;">**CVP**</span>?] ?]
 
 [? if bvp_support_spd and spd_campaign: - <span style="color: #A2D8E0;">**BVP**</span> ?]
 
-[? if ddp_support_spd == 1 and spd_campaign: - <span style="color: #D3C24D;">**[+ ddp_name +]**</span> ?]
+[? if fvp_support_spd == 1 and spd_campaign: - <span style="color: #D3C24D;">**[+ fvp_name +]**</span> ?]
 
 [? if lvp_support_spd == 1 and spd_campaign: - <span style="color: #FFCC00;">**LVP**</span> ?]
 
-[? if dvp_support_spd == 1 and spd_campaign: - <span style="color: #C0A054;">**DVP**</span> ?]
+[? if nlp_support_spd == 1 and spd_campaign: - <span style="color: #C0A054;">**NLP**</span> ?]
 
 [? if reactionary_candidate_1932: [? if hindenburg_run: <span style="color: #808080;">**[+ reactionary_candidate_1932_disp +]**</span>?][? if (reactionary_candidate_1932 == "Luther" or reactionary_candidate_1932 == "Gessler" or reactionary_candidate_1932 == "Jarres") and lvp_formed: <span style="color: #FFCC00;">**[+ reactionary_candidate_1932_disp +]**</span>?][? if (reactionary_candidate_1932 == "Luther" or reactionary_candidate_1932 == "Jarres") and not lvp_formed: <span style="color: #C0A054;">**[+ reactionary_candidate_1932_disp +]**</span>?][? if reactionary_candidate_1932 == "Gessler" and not lvp_formed: <span style="color: #D3C24D;">**[+ reactionary_candidate_1932_disp +]**</span>?][? if ((reactionary_candidate_1932 == "Lettow-Vorbeck" and not cvp_formed) or reactionary_candidate_1932 == "Westarp") and not kvp_formed: <span style="color: #3E88B3;">**[+ reactionary_candidate_1932_disp +]**</span>?][? if ((reactionary_candidate_1932 == "Lettow-Vorbeck" and not cvp_formed) or reactionary_candidate_1932 == "Westarp") and kvp_formed: <span style="color: #0087DC;">**[+ reactionary_candidate_1932_disp +]**</span>?][? if reactionary_candidate_1932 == "Adenauer" or reactionary_candidate_1932 == "Brüning" or reactionary_candidate_1932 == "Stegerwald" or (reactionary_candidate_1932 == "Lettow-Vorbeck" and cvp_formed): <span style="color: #000000;">**[+ reactionary_candidate_1932_disp +]**</span>?]  - supported by: ?]
 
@@ -81,9 +81,9 @@ go-to: candidate_selection
 
 [? if (lvp_choice == reactionary_candidate_1932 or hindenburg_run) and lvp_support_spd != 1 and lvp_formed and reactionary_candidate_1932: - <span style="color: #FFCC00;">**LVP**</span> ?]
 
-[? if (ddp_choice == reactionary_candidate_1932 or hindenburg_run) and ddp_support_spd != 1 and not lvp_formed and reactionary_candidate_1932: - <span style="color: #D3C24D;">**[+ ddp_name +]**</span> ?]
+[? if (fvp_choice == reactionary_candidate_1932 or hindenburg_run) and fvp_support_spd != 1 and not lvp_formed and reactionary_candidate_1932: - <span style="color: #D3C24D;">**[+ fvp_name +]**</span> ?]
 
-[? if (dvp_choice == reactionary_candidate_1932 or hindenburg_run) and dvp_support_spd != 1 and not lvp_formed and reactionary_candidate_1932: - <span style="color: #C0A054;">**DVP**</span> ?]
+[? if (nlp_choice == reactionary_candidate_1932 or hindenburg_run) and nlp_support_spd != 1 and not lvp_formed and reactionary_candidate_1932: - <span style="color: #C0A054;">**NLP**</span> ?]
 
 [? if (kvp_choice == reactionary_candidate_1932 or hindenburg_run) and kvp_formed and reactionary_candidate_1932: - <span style="color: #0087DC;">**KVP**</span> ?]
 
@@ -101,9 +101,9 @@ go-to: candidate_selection
 
 [? if (lvp_choice == secondary_reactionary_candidate_1932 or hindenburg_run) and lvp_support_spd != 1 and lvp_formed and secondary_reactionary_candidate_1932: - <span style="color: #FFCC00;">**LVP**</span> ?]
 
-[? if (ddp_choice == secondary_reactionary_candidate_1932 or hindenburg_run) and ddp_support_spd != 1 and not lvp_formed and secondary_reactionary_candidate_1932: - <span style="color: #D3C24D;">**[+ ddp_name +]**</span> ?]
+[? if (fvp_choice == secondary_reactionary_candidate_1932 or hindenburg_run) and fvp_support_spd != 1 and not lvp_formed and secondary_reactionary_candidate_1932: - <span style="color: #D3C24D;">**[+ fvp_name +]**</span> ?]
 
-[? if (dvp_choice == secondary_reactionary_candidate_1932 or hindenburg_run) and dvp_support_spd != 1 and not lvp_formed and secondary_reactionary_candidate_1932: - <span style="color: #C0A054;">**DVP**</span> ?]
+[? if (nlp_choice == secondary_reactionary_candidate_1932 or hindenburg_run) and nlp_support_spd != 1 and not lvp_formed and secondary_reactionary_candidate_1932: - <span style="color: #C0A054;">**NLP**</span> ?]
 
 [? if (kvp_choice == secondary_reactionary_candidate_1932 or hindenburg_run) and kvp_formed and secondary_reactionary_candidate_1932: - <span style="color: #0087DC;">**KVP**</span> ?]
 
@@ -115,11 +115,11 @@ go-to: candidate_selection
 
 [? if nsdap_candidate_1932: - <span style="color: #7A3C00;">**NSDAP**</span> ?]
 
-[? if kpd_support_spd == 0 and communist_candidate_1932: <span style="color: #700000;">**[+ communist_candidate_1932_disp +]**</span> - supported by: ?]
+[? if uspd_support_spd == 0 and communist_candidate_1932: <span style="color: #700000;">**[+ communist_candidate_1932_disp +]**</span> - supported by: ?]
 
-[? if kpd_support_spd == 0 and communist_candidate_1932: - <span style="color: #700000;">**KPD**</span> ?]
+[? if uspd_support_spd == 0 and communist_candidate_1932: - <span style="color: #700000;">**USPD**</span> ?]
 
-[? if kpd_support_spd == 0 and communist_candidate_1932 and sapd_formed: - <span style="color: #9B0000;">**SAPD**</span> ?]
+[? if uspd_support_spd == 0 and communist_candidate_1932 and sapd_formed: - <span style="color: #9B0000;">**SAPD**</span> ?]
 
 [? if spd_support_thalmann == 1: - <span style="color: #c00000;">**SPD**</span> ?]
 
@@ -174,7 +174,7 @@ title: We persuade the [? if z_party_name != "CVP": <span style="color: #000000;
 subtitle: The [? if z_party_name != "CVP": <span style="color: #000000;">Center</span>?][? if z_party_name == "CVP": <span style="color: #000000;">**CVP**</span>?] isn't pulling their weight. -1 resource
 choose-if: z_support_spd == 1 and ((z_relation >= 60 and z_ideology == "Right") or (z_relation >= 45 and z_ideology == "Left")) and resources >= 1
 unavailable-subtitle: [? if z_support_spd != 1: The [? if z_party_name != "CVP": <span style="color: #000000;">Center</span>?][? if z_party_name == "CVP": <span style="color: #000000;">**CVP**</span>?] doesn't support Braun. ?][? if (z_relation < 60 and z_ideology == "Right") or (z_relation < 45 and z_ideology == "Left"): Our relations aren't good enough. ?] [? if resources < 1: Not enough resources. ?]
-on-arrival: resources -= 1; pro_republic += 3; z_glaze_spd = 1; catholics_nsdap -= 3; catholics_spd += 3; catholics_z += 2; rural_spd += 1; z_relation += 5; ddp_left += 2; dvp_left += 3; ddp_cohesion += 1; lvp_left += 2
+on-arrival: resources -= 1; pro_republic += 3; z_glaze_spd = 1; catholics_nsdap -= 3; catholics_spd += 3; catholics_z += 2; rural_spd += 1; z_relation += 5; fvp_left += 2; nlp_left += 3; fvp_cohesion += 1; lvp_left += 2
 face-image: img/center_poster.jpg
 max-visits: 1
 go-to: campaigning_braun
@@ -184,10 +184,10 @@ The [? if z_party_name != "CVP": <span style="color: #000000;">Center Party</spa
 @communist_glaze
 title: We persuade the <span style="color: #700000;">**Communists**</span> to take a more active role in our campaign efforts.
 subtitle: This will alienate bourgeois voters! -2 resources
-choose-if: kpd_support_spd == 1 and (kpd_relation >= 70 or (kpd_relation >= 55 and kpd_leader == "Conciliators")) and resources >= 2
-unavailable-subtitle: [? if kpd_support_spd != 1: The <span style="color: #700000;">KPD</span> doesn't support Braun. ?][? if (kpd_relation < 70 or (kpd_relation < 55 and kpd_leader == "Conciliators")): Our relations aren't good enough. ?] [? if resources < 2: Not enough resources. (need 2) ?]
-on-arrival: resources -= 2; kpd_glaze_spd = 1; workers_spd += 3; workers_kpd += 5; workers_nsdap -= 3; unemployed_kpd += 3; unemployed_nsdap -= 3; z_relation -= 10; ddp_relation -= 10; dvp_relation -= 10; lvp_relation -= 10; dvp_right += 5; ddp_right += 3; ddp_cohesion -= 2; lvp_right += 5; z_support_spd = 0 if (z_relation < 60 and z_ideology == "Right") or (z_relation < 50 and z_ideology == "Left"); new_middle_spd -= 3; old_middle_spd -= 3; catholics_spd -= 3
-face-image: img/kpd_poster.jpg
+choose-if: uspd_support_spd == 1 and (uspd_relation >= 70 or (uspd_relation >= 55 and uspd_leader == "Conciliators")) and resources >= 2
+unavailable-subtitle: [? if uspd_support_spd != 1: The <span style="color: #700000;">USPD</span> doesn't support Braun. ?][? if (uspd_relation < 70 or (uspd_relation < 55 and uspd_leader == "Conciliators")): Our relations aren't good enough. ?] [? if resources < 2: Not enough resources. (need 2) ?]
+on-arrival: resources -= 2; uspd_glaze_spd = 1; workers_spd += 3; workers_uspd += 5; workers_nsdap -= 3; unemployed_uspd += 3; unemployed_nsdap -= 3; z_relation -= 10; fvp_relation -= 10; nlp_relation -= 10; lvp_relation -= 10; nlp_right += 5; fvp_right += 3; fvp_cohesion -= 2; lvp_right += 5; z_support_spd = 0 if (z_relation < 60 and z_ideology == "Right") or (z_relation < 50 and z_ideology == "Left"); new_middle_spd -= 3; old_middle_spd -= 3; catholics_spd -= 3
+face-image: img/uspd_poster.jpg
 max-visits: 1
 go-to: campaigning_braun
 
@@ -284,7 +284,7 @@ title: Use our radio stations to broadcast in favor of Rosenfeld.
 subtitle: -1 resource
 choose-if: radio >= 2 and resources >= 1
 unavailable-subtitle: [? if radio < 2: We haven't sufficiently built up our radio infrastructure yet. ?] [? if resources < 1: Not enough resources. ?]
-on-arrival: resources -= 1; media_rosenfeld_seen = 1; new_middle_spd += (radio + commercialized_media); old_middle_spd += (radio + commercialized_media); workers_spd += (campaign_media + radio - 2); unemployed_spd += (campaign_media + radio); new_middle_kpd += 3; socialism += 3; nationalism -= 3
+on-arrival: resources -= 1; media_rosenfeld_seen = 1; new_middle_spd += (radio + commercialized_media); old_middle_spd += (radio + commercialized_media); workers_spd += (campaign_media + radio - 2); unemployed_spd += (campaign_media + radio); new_middle_uspd += 3; socialism += 3; nationalism -= 3
 face-image: img/poster_0.jpg
 max-visits: 1
 go-to: campaigning_rosenfeld
@@ -306,10 +306,10 @@ We need a united front to win this election—internal factional politics must b
 @communist_glaze_rosenfeld
 title: We persuade the <span style="color: #700000;">**Communists**</span> to take a more active role in our campaign efforts.
 subtitle: This will alienate the bourgeois parties! -1 resource
-choose-if: kpd_support_spd == 1 and (kpd_relation >= 60 or (kpd_relation >= 40 and kpd_leader == "Conciliators")) and resources >= 1
-unavailable-subtitle: [? if kpd_support_spd != 1: The <span style="color: #700000;">KPD</span> doesn't support Rosenfeld. ?][? if (kpd_relation < 60 or (kpd_relation < 40 and kpd_leader == "Conciliators")): Our relations aren't good enough. ?] [? if resources < 1: Not enough resources. ?]
-on-arrival: resources -= 1; kpd_glaze_spd = 1; workers_spd += 3; workers_kpd += 5; workers_nsdap -= 3; unemployed_kpd += 3; unemployed_nsdap -= 3; z_relation -= 5; ddp_relation -= 5; dvp_relation -= 5; lvp_relation -= 5; dvp_right += 3; ddp_right += 1; ddp_cohesion -= 1; lvp_right += 3; new_middle_spd -= 3; old_middle_spd -= 3; catholics_spd -= 3
-face-image: img/kpd_poster.jpg
+choose-if: uspd_support_spd == 1 and (uspd_relation >= 60 or (uspd_relation >= 40 and uspd_leader == "Conciliators")) and resources >= 1
+unavailable-subtitle: [? if uspd_support_spd != 1: The <span style="color: #700000;">USPD</span> doesn't support Rosenfeld. ?][? if (uspd_relation < 60 or (uspd_relation < 40 and uspd_leader == "Conciliators")): Our relations aren't good enough. ?] [? if resources < 1: Not enough resources. ?]
+on-arrival: resources -= 1; uspd_glaze_spd = 1; workers_spd += 3; workers_uspd += 5; workers_nsdap -= 3; unemployed_uspd += 3; unemployed_nsdap -= 3; z_relation -= 5; fvp_relation -= 5; nlp_relation -= 5; lvp_relation -= 5; nlp_right += 3; fvp_right += 1; fvp_cohesion -= 1; lvp_right += 3; new_middle_spd -= 3; old_middle_spd -= 3; catholics_spd -= 3
+face-image: img/uspd_poster.jpg
 max-visits: 1
 go-to: campaigning_rosenfeld
 
@@ -332,7 +332,7 @@ title: Use our radio stations to broadcast in favor of Eckener.
 subtitle: -1 resource
 choose-if: radio >= 2 and resources >= 1
 unavailable-subtitle: [? if radio < 2: We haven't sufficiently built up our radio infrastructure yet. ?] [? if resources < 1: Not enough resources. ?]
-on-arrival: resources -= 1; media_eckener_seen = 1; new_middle_spd += (radio + commercialized_media); old_middle_spd += (radio + commercialized_media); workers_spd += (campaign_media + radio - 2); unemployed_spd += (campaign_media + radio); new_middle_kpd += 3; socialism += 3; nationalism -= 3
+on-arrival: resources -= 1; media_eckener_seen = 1; new_middle_spd += (radio + commercialized_media); old_middle_spd += (radio + commercialized_media); workers_spd += (campaign_media + radio - 2); unemployed_spd += (campaign_media + radio); new_middle_uspd += 3; socialism += 3; nationalism -= 3
 face-image: img/poster_0.jpg
 max-visits: 1
 go-to: campaigning_eckener
@@ -344,7 +344,7 @@ title: Focus our campaign against the <span style="color: #700000;">**Communist*
 subtitle: He has gained a significant amount of support by positioning himself as the "only left candidate." -1 resource
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 1; left_dissent -= 10; workers_spd += 2; workers_kpd -= 2; kpd_relation -= 10; hindenburg_angry -= 10; hindenburg_angry_bruning -= 10
+on-arrival: resources -= 1; left_dissent -= 10; workers_spd += 2; workers_uspd -= 2; uspd_relation -= 10; hindenburg_angry -= 10; hindenburg_angry_bruning -= 10
 face-image: img/social_fascist.jpg
 max-visits: 1
 go-to: campaigning_eckener
@@ -366,9 +366,9 @@ We need a united front to win this election—internal factional politics must b
 @bourgeois_glaze_eckener
 title: Persuade the bourgeois parties to let us into their campaign committees.
 subtitle: This will allow for a more coordinated effort.
-choose-if: z_support_spd == 1 and ((z_relation >= 55 and z_ideology == "Right") or (z_relation >= 45 and z_ideology == "Left")) and ((ddp_relation >= 55 and not lvp_formed) or (lvp_relation >= 55 and lvp_formed)) and resources >= 1
-unavailable-subtitle: [? if z_support_spd != 1: The [? if z_party_name != "CVP": <span style="color: #000000;">Center</span>?][? if z_party_name == "CVP": <span style="color: #000000;">CVP</span>?] doesn't support Eckener. ?][? if ddp_support_spd != 1 and not lvp_formed: The <span style="color: #D3C24D;">[+ ddp_name +]</span> doesn't support Eckener. ?][? if lvp_support_spd != 1 and lvp_formed: The <span style="color: #FFCC00;">LVP</span> doesn't support Eckener. ?][? if (z_relation < 50 and z_ideology == "Right") or (z_relation < 40 and z_ideology == "Left"): Our relations with the [? if z_party_name != "CVP": <span style="color: #000000;">Center</span>?][? if z_party_name == "CVP": <span style="color: #000000;">CVP</span>?] aren't good enough. ?][? if ddp_relation < 55 and not lvp_formed: Our relations with the <span style="color: #D3C24D;">[+ ddp_name +]</span> aren't good enough. ?][? if lvp_relation < 55 and lvp_formed: Our relations with the <span style="color: #FFCC00;">LVP</span> aren't good enough. ?] [? if resources < 1: Not enough resources. ?]
-on-arrival: resources -= 1; pro_republic += 5; bourgeois_glaze_spd = 1; catholics_nsdap -= 2; catholics_spd += 2; catholics_z += 2; rural_spd += 2; new_middle_spd += 4; old_middle_spd += 4; z_relation += 5; ddp_relation += 5; lvp_relation += 5; dvp_relation += 5; ddp_left += 2; dvp_left += 3; ddp_cohesion += 1; lvp_left += 2
+choose-if: z_support_spd == 1 and ((z_relation >= 55 and z_ideology == "Right") or (z_relation >= 45 and z_ideology == "Left")) and ((fvp_relation >= 55 and not lvp_formed) or (lvp_relation >= 55 and lvp_formed)) and resources >= 1
+unavailable-subtitle: [? if z_support_spd != 1: The [? if z_party_name != "CVP": <span style="color: #000000;">Center</span>?][? if z_party_name == "CVP": <span style="color: #000000;">CVP</span>?] doesn't support Eckener. ?][? if fvp_support_spd != 1 and not lvp_formed: The <span style="color: #D3C24D;">[+ fvp_name +]</span> doesn't support Eckener. ?][? if lvp_support_spd != 1 and lvp_formed: The <span style="color: #FFCC00;">LVP</span> doesn't support Eckener. ?][? if (z_relation < 50 and z_ideology == "Right") or (z_relation < 40 and z_ideology == "Left"): Our relations with the [? if z_party_name != "CVP": <span style="color: #000000;">Center</span>?][? if z_party_name == "CVP": <span style="color: #000000;">CVP</span>?] aren't good enough. ?][? if fvp_relation < 55 and not lvp_formed: Our relations with the <span style="color: #D3C24D;">[+ fvp_name +]</span> aren't good enough. ?][? if lvp_relation < 55 and lvp_formed: Our relations with the <span style="color: #FFCC00;">LVP</span> aren't good enough. ?] [? if resources < 1: Not enough resources. ?]
+on-arrival: resources -= 1; pro_republic += 5; bourgeois_glaze_spd = 1; catholics_nsdap -= 2; catholics_spd += 2; catholics_z += 2; rural_spd += 2; new_middle_spd += 4; old_middle_spd += 4; z_relation += 5; fvp_relation += 5; lvp_relation += 5; nlp_relation += 5; fvp_left += 2; nlp_left += 3; fvp_cohesion += 1; lvp_left += 2
 face-image: img/center_poster.jpg
 max-visits: 1
 go-to: campaigning_eckener
@@ -379,13 +379,13 @@ The [? if z_party_name != "CVP": <span style="color: #000000;">Center Party</spa
 view-if: spd_support_reactionary
 on-arrival: {!
 if (Q.industrial_total_backing) {
-    if (Q.ddp_choice == Q.spd_choice) Q.reactionary_funds += Q.industrial_ddp_backing;
+    if (Q.fvp_choice == Q.spd_choice) Q.reactionary_funds += Q.industrial_fvp_backing;
     if (Q.lvp_choice == Q.spd_choice) Q.reactionary_funds += Q.industrial_lvp_backing;
-    if (Q.dvp_choice == Q.spd_choice) Q.reactionary_funds += Q.industrial_dvp_backing;
+    if (Q.nlp_choice == Q.spd_choice) Q.reactionary_funds += Q.industrial_nlp_backing;
     if (Q.dnvp_choice == Q.spd_choice) Q.reactionary_funds += Q.industrial_dnvp_backing;
     if (Q.kvp_choice == Q.spd_choice) Q.reactionary_funds += Q.industrial_kvp_backing;
     Q.reactionary_funds += ((100 - Q.nsdap_votes) / 25);
-    if (Q.spd_in_government) Q.reactionary_funds += ((100 - Q.kpd_votes) / 10);
+    if (Q.spd_in_government) Q.reactionary_funds += ((100 - Q.uspd_votes) / 10);
 }
 if (Q.reactionary_funds >= 5 && !Q.industrial_reactionary) {
     Q.new_middle_kvp += Q.reactionary_funds / 2;
@@ -399,9 +399,9 @@ if (Q.reactionary_funds >= 5 && !Q.industrial_reactionary) {
     Q.new_middle_other += Q.reactionary_funds / 3;
     Q.old_middle_other += Q.reactionary_funds / 3;
     Q.rural_other += Q.reactionary_funds / 3;
-    Q.new_middle_dvp += Q.reactionary_funds / 3;
-    Q.old_middle_dvp += Q.reactionary_funds / 3;
-    Q.rural_dvp += Q.reactionary_funds / 4;
+    Q.new_middle_nlp += Q.reactionary_funds / 3;
+    Q.old_middle_nlp += Q.reactionary_funds / 3;
+    Q.rural_nlp += Q.reactionary_funds / 4;
     Q.new_middle_lvp += Q.reactionary_funds / 2;
     Q.old_middle_lvp += Q.reactionary_funds / 2;
     Q.rural_lvp += Q.reactionary_funds / 4;
@@ -447,7 +447,7 @@ title: Rally in favor of democracy, and the <span style="color: #000000;">We</sp
 subtitle: This may help ease reservations about supporting [+ spd_choice +].
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 1; reactionary_democracy_bonus = 1; pro_republic += 5; center_dissent -= 5; labor_dissent -= 5; neorevisionist_dissent -= 5; reformist_dissent -= 5; left_dissent -= 5; workers_spd += 3*(1-dissent) if democratization >= 3; unemployed_spd += 3*(1-dissent) if democratization >= 3; pro_republic += 2*(1 - dissent) if democratization >= 3; new_middle_spd += 3*(1-dissent) if democratization >= 3; z_relation += 3; ddp_relation += 3; lvp_relation += 3
+on-arrival: resources -= 1; reactionary_democracy_bonus = 1; pro_republic += 5; center_dissent -= 5; labor_dissent -= 5; neorevisionist_dissent -= 5; reformist_dissent -= 5; left_dissent -= 5; workers_spd += 3*(1-dissent) if democratization >= 3; unemployed_spd += 3*(1-dissent) if democratization >= 3; pro_republic += 2*(1 - dissent) if democratization >= 3; new_middle_spd += 3*(1-dissent) if democratization >= 3; z_relation += 3; fvp_relation += 3; lvp_relation += 3
 face-image: img/weimar_coalition.jpg
 max-visits: 1
 go-to: campaigning_reactionary
@@ -459,7 +459,7 @@ title: Focus our campaign against the <span style="color: #700000;">**Communist*
 subtitle: He has gained a significant amount of support by positioning himself as the "only left candidate." -1 resource
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 1; left_dissent -= 10; workers_spd += 3; workers_kpd -= 3; kpd_relation -= 10; hindenburg_angry -= 10; hindenburg_angry_bruning -= 10
+on-arrival: resources -= 1; left_dissent -= 10; workers_spd += 3; workers_uspd -= 3; uspd_relation -= 10; hindenburg_angry -= 10; hindenburg_angry_bruning -= 10
 face-image: img/social_fascist.jpg
 max-visits: 1
 go-to: campaigning_reactionary
@@ -480,7 +480,7 @@ We have a plethora of campaign options at our disposal.
 @paramilitary
 title: Ally with the <span style="color: #700000;">Communist</span> <span style="color: #700000;">**RFB**</span> on the streets, to fight against the <span style="color: #7A3C00;">far</span>-<span style="color: #3E88B3;">right</span>.
 subtitle: This will permanently alienate the bourgeois parties!
-on-arrival: kpd_truce = 1; kpd_relation += 5; rfb_strength += 100; rb_strength += 100; rfb_militancy += 0.1; rb_militancy += 0.04; neorevisionist_dissent += 10; reformist_dissent += 10; hindenburg_angry += 150; z_relation -= 20; ddp_relation -= 20; dvp_relation -= 20; lvp_relation -= 20; ddp_cohesion -= 5; ddp_right += 6; dvp_right += 10; lvp_right += 10
+on-arrival: uspd_truce = 1; uspd_relation += 5; rfb_strength += 100; rb_strength += 100; rfb_militancy += 0.1; rb_militancy += 0.04; neorevisionist_dissent += 10; reformist_dissent += 10; hindenburg_angry += 150; z_relation -= 20; fvp_relation -= 20; nlp_relation -= 20; lvp_relation -= 20; fvp_cohesion -= 5; fvp_right += 6; nlp_right += 10; lvp_right += 10
 face-image: img/reichsbanner_2.jpg
 max-visits: 1
 go-to: campaigning_thalmann
@@ -492,7 +492,7 @@ title: Use our radio stations to broadcast in favor of [+ communist_candidate_19
 subtitle: This may help in overcoming their antagonism against <span style="color: #700000;">Communists</span>. -1 resource
 choose-if: radio >= 2 and resources >= 1
 unavailable-subtitle: [? if radio < 2: We haven't sufficiently built up our radio infrastructure yet. ?] [? if resources < 1: Not enough resources. ?]
-on-arrival: resources -= 1; media_communist_seen = 1; new_middle_spd += (radio + commercialized_media); old_middle_spd += (radio + commercialized_media); workers_spd += (campaign_media + radio - 2); unemployed_spd += (campaign_media + radio); new_middle_kpd += 3; socialism += 3; nationalism -= 3
+on-arrival: resources -= 1; media_communist_seen = 1; new_middle_spd += (radio + commercialized_media); old_middle_spd += (radio + commercialized_media); workers_spd += (campaign_media + radio - 2); unemployed_spd += (campaign_media + radio); new_middle_uspd += 3; socialism += 3; nationalism -= 3
 face-image: img/poster_0.jpg
 max-visits: 1
 go-to: campaigning_thalmann
@@ -502,10 +502,10 @@ Let's face it, the middle class is never going to support someone like [+ commun
 @united_left
 title: We persuade the <span style="color: #700000;">**Communists**</span> to let us take a more active role in their campaign efforts.
 subtitle: They have been putting themselves at the forefront. -1 resources
-choose-if: (kpd_relation >= 70 or (kpd_relation >= 55 and kpd_leader == "Conciliators")) and resources >= 2
-unavailable-subtitle: [? if (kpd_relation < 70 or (kpd_relation < 55 and kpd_leader == "Conciliators")): Our relations aren't good enough. ?] [? if resources < 2: Not enough resources. (need 2) ?]
-on-arrival: resources -= 1; spd_glaze_thalmann = 1; workers_spd += 3; workers_kpd += 3; workers_nsdap -= 3; unemployed_spd += 3; unemployed_kpd += 3; unemployed_nsdap -= 3; z_relation -= 5; ddp_relation -= 5; dvp_relation -= 5; lvp_relation -= 5; dvp_right += 4; ddp_right += 2; ddp_cohesion -= 2; lvp_right += 4; new_middle_kpd = 1
-face-image: img/kpd_poster.jpg
+choose-if: (uspd_relation >= 70 or (uspd_relation >= 55 and uspd_leader == "Conciliators")) and resources >= 2
+unavailable-subtitle: [? if (uspd_relation < 70 or (uspd_relation < 55 and uspd_leader == "Conciliators")): Our relations aren't good enough. ?] [? if resources < 2: Not enough resources. (need 2) ?]
+on-arrival: resources -= 1; spd_glaze_thalmann = 1; workers_spd += 3; workers_uspd += 3; workers_nsdap -= 3; unemployed_spd += 3; unemployed_uspd += 3; unemployed_nsdap -= 3; z_relation -= 5; fvp_relation -= 5; nlp_relation -= 5; lvp_relation -= 5; nlp_right += 4; fvp_right += 2; fvp_cohesion -= 2; lvp_right += 4; new_middle_uspd = 1
+face-image: img/uspd_poster.jpg
 max-visits: 1
 go-to: campaigning_thalmann
 

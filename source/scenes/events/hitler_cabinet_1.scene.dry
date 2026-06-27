@@ -96,8 +96,8 @@ Q.pro_republic += 15;
 
 Q.workers_nsdap -= 6;
 Q.unemployed_nsdap -= 6;
-Q.workers_kpd += 3;
-Q.unemployed_kpd += 3;
+Q.workers_uspd += 3;
+Q.unemployed_uspd += 3;
 Q.workers_spd += 3;
 Q.unemployed_spd += 3;
 
@@ -108,20 +108,20 @@ Q.old_chancellor = Q.chancellor;
 Q.chancellor = "Brüning";
 Q.chancellor_party = "Z";
 
-Q.foreign_minister_party = "DVP";
+Q.foreign_minister_party = "NLP";
 if (Q.lvp_formed) Q.foreign_minister_party = "LVP";
 Q.interior_minister_party = "Z";
 Q.justice_minister_party = "I";
 Q.labor_minister_party = "Z";
 Q.reichswehr_minister_party = "I";
-Q.economic_minister_party = Q.ddp_name;
+Q.economic_minister_party = Q.fvp_name;
 if (Q.lvp_formed) Q.economic_minister_party = "LVP";
-Q.finance_minister_party = "DVP";
+Q.finance_minister_party = "NLP";
 if (Q.lvp_formed) Q.finance_minister_party = "LVP";
 Q.agriculture_minister_party = "Z";
 
-Q.dvp_left += 4;
-Q.ddp_left += 2;
+Q.nlp_left += 4;
+Q.fvp_left += 2;
 Q.lvp_left += 4;
 Q.bourgeois_cooperation += 3;
 Q.liberal_cooperation += 5;

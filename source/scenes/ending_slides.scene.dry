@@ -19,28 +19,28 @@ if (Q.president != "Hammerstein" && Q.president != "Hitler" && Q.president != "G
 if (Q.weimar_win && (Q.president == "Rosenfeld" || Q.president == "Thälmann" || Q.president == "Münzenberg" || Q.president == "Ossietzky" || Q.president == "Mann") && Q.in_left_front && !Q.civil_war_seen) {
   Q.left_win = 1;
   Q.weimar_win = 0;
-  Q.kpd_points = 0;
-  Q.kpd_points += Q.rfb_force;
-  Q.kpd_points += (100 - Q.pro_republic) / 2;
-  Q.kpd_points += Q.unemployed / 2;
-  Q.kpd_points += Q.kpd_votes;
-  Q.kpd_points += Q.soviet_relation;
-  if (Q.president == "Thälmann") Q.kpd_points += 16;
-  if (Q.president == "Münzenberg") Q.kpd_points += 10;
-  if (Q.kpd_leader == "Conciliators") Q.kpd_points += 6;
+  Q.uspd_points = 0;
+  Q.uspd_points += Q.rfb_force;
+  Q.uspd_points += (100 - Q.pro_republic) / 2;
+  Q.uspd_points += Q.unemployed / 2;
+  Q.uspd_points += Q.uspd_votes;
+  Q.uspd_points += Q.soviet_relation;
+  if (Q.president == "Thälmann") Q.uspd_points += 16;
+  if (Q.president == "Münzenberg") Q.uspd_points += 10;
+  if (Q.uspd_leader == "Conciliators") Q.uspd_points += 6;
   if (Q.sapd_formed) {
-    Q.kpd_points += 2;
-    Q.kpd_points += Q.sapd_votes;
+    Q.uspd_points += 2;
+    Q.uspd_points += Q.sapd_votes;
   }
-  if (Q.spd_votes < 26) Q.kpd_points += 5;
-  if (Q.eu) Q.kpd_points -= 10;
-  if (Q.spd_votes >= 36) Q.kpd_points -= 5;
-  if (Q.spd_votes >= 40) Q.kpd_points -= 5;
+  if (Q.spd_votes < 26) Q.uspd_points += 5;
+  if (Q.eu) Q.uspd_points -= 10;
+  if (Q.spd_votes >= 36) Q.uspd_points -= 5;
+  if (Q.spd_votes >= 40) Q.uspd_points -= 5;
 
-  if (Q.kpd_points >= 50) {
-    Q.kpd_win = 1;
+  if (Q.uspd_points >= 50) {
+    Q.uspd_win = 1;
   } else {
-    Q.kpd_win = 0;
+    Q.uspd_win = 0;
   }
 }
 !}
@@ -293,7 +293,7 @@ audio: music/1930_1933/Einheitsfrontlied.mp3
 
 The United Front Government, under President [? if president == "Rosenfeld": Kurt Rosenfeld?][? if president == "Thälmann": Ernst Thälmann?][? if president == "Münzenberg": Willi Münzenberg?][? if president == "Ossietzky": Carl von Ossietzky?][? if president == "Mann": Heinrich Mann?], withstood everything thrown its way—<span style="color: #C0A054;">capitalist</span> treachery, <span style="color: #3E88B3;">institutional</span> sabotage, and constant subversion by <span style="color: #808080;">reactionaries</span>. In 1937, after winning a second election and slightly increasing its majority, the government faced a coup attempt led by the <span style="color: #808080;">reactionary</span> elements of the Reichswehr and increasingly radicalized <span style="color: #3E88B3;">nationalists</span> and <span style="color: #7A3C00;">far</span>-<span style="color: #3E88B3;">right</span> forces. 
 
-The coup failed. The abortive putsch was crushed by the proletarian masses and shattered the political landscape of <span style="color: #000000;">We</span><span style="color: #DD0000;">im</span><span style="color: #FFCC00;">ar</span>. The far left of the [? if not lvp_formed: <span style="color: #D3C24D;">**[+ ddp_name +]**</span>?][? if lvp_formed: <span style="color: #FFCC00;">**LVP**</span>?] and [? if z_party_name != "CVP": <span style="color: #000000;">Center</span>?][? if z_party_name == "CVP": <span style="color: #000000;">**CVP**</span>?]—splinters from their parties who maintained ambiguity towards the coup—split off to form the <span style="color: #E0B0FF;">**RDP**</span> and <span style="color: #FF7F00;">**CSRP**</span>, both of which soon joined the United Front.
+The coup failed. The abortive putsch was crushed by the proletarian masses and shattered the political landscape of <span style="color: #000000;">We</span><span style="color: #DD0000;">im</span><span style="color: #FFCC00;">ar</span>. The far left of the [? if not lvp_formed: <span style="color: #D3C24D;">**[+ fvp_name +]**</span>?][? if lvp_formed: <span style="color: #FFCC00;">**LVP**</span>?] and [? if z_party_name != "CVP": <span style="color: #000000;">Center</span>?][? if z_party_name == "CVP": <span style="color: #000000;">**CVP**</span>?]—splinters from their parties who maintained ambiguity towards the coup—split off to form the <span style="color: #E0B0FF;">**RDP**</span> and <span style="color: #FF7F00;">**CSRP**</span>, both of which soon joined the United Front.
 
 With the bourgeois center increasingly marginalized, the botched coup gave the United Front the momentum needed to finally purge the Republic of <span style="color: #808080;">reactionary</span> forces and initiate a <span style="color: #9B0000;">socialist</span> economy. Eventually a constitutional convention was called to begin a <span style="color: #9B0000;">Socialist Republic</span>.
 
@@ -302,7 +302,7 @@ With the bourgeois center increasingly marginalized, the botched coup gave the U
 
 @left_win_a
 Title: Subending A - Spartakus Rises Again
-view-if: not kpd_win
+view-if: not uspd_win
 
 The convention is called, and with overwhelming support, it dismantles the old bourgeois institutions. At last, after all these years, the German <span style="color: #750e0e;">Soviet Republic</span> is formed—and this time, "All Power to the <span style="color: #750e0e;">Soviets</span>" is more than just a slogan. The <span style="color: #c00000;">**SPD**</span> takes the lead in constructing the <span style="color: #750e0e;">Soviet Republic</span>. Though the process is complex and at times byzantine, born of compromise among many factions, it is unmistakably <span style="color: #700000;">revolutionary</span>.
 
@@ -322,7 +322,7 @@ Our politics, culture, and economy are still deeply proletarian. Albeit <span st
 
 @left_win_b
 Title: Subending B - The Vanguard Takes the Helm
-view-if: kpd_win
+view-if: uspd_win
 
 As the Constitutional Assembly convenes, it is gradually decided that the new <span style="color: #700000;">socialist</span> state will take inspiration from the Russian Revolution and the <span style="color: #750e0e;">Soviet Union</span>’s <span style="color: #700000;">vanguardist</span> model. The <span style="color: #c00000;">**SPD**</span>—whether convinced, divided, or simply powerless to stop the shift—accepts it. The two <span style="color: #9B0000;">**socialist**</span> parties rapidly merge into a single party that monopolizes power in the new state, while allowing some minor parties to remain as bloc parties. The <span style="color: #DC241F;">**Socialist Unity Party**</span> (<span style="color: #DC241F;">**SED**</span>) takes the helm.
 

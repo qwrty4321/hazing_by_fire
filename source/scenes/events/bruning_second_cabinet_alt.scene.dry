@@ -1,16 +1,16 @@
 title: The Second Brüning cabinet
 subtitle: Chancellor [+ chancellor +] has organized his cabinet!
 new-page: true
-view-if: total_bruning_time > 0 and bruning_toleration_time and not in_center_right_coalition and not in_right_coalition and banking_crisis_seen and emergency_decree_alt_seen and not emergency_decree_mitigate and dvp_leader == "Dingeldey" and not lvp_formed and flavour_24_trigger and time == flavour_24_trigger_time + 3 and not second_bruning_cabinet_seen and dvp_exist
+view-if: total_bruning_time > 0 and bruning_toleration_time and not in_center_right_coalition and not in_right_coalition and banking_crisis_seen and emergency_decree_alt_seen and not emergency_decree_mitigate and nlp_leader == "Dingeldey" and not lvp_formed and flavour_24_trigger and time == flavour_24_trigger_time + 3 and not second_bruning_cabinet_seen and nlp_exist
 on-arrival: {!
 Q.second_bruning_cabinet_seen = 1;
 Q.judicial_reform -= 1;
-Q.ddp_right += 1;
-Q.dvp_right += 2;
+Q.fvp_right += 1;
+Q.nlp_right += 2;
 Q.lvp_right += 2;
 Q.pro_republic -= 3;
 Q.hindenburg_angry_bruning += 10;
-Q.new_middle_dvp -= 1;
+Q.new_middle_nlp -= 1;
 !}
 tags: event
 face-image: img/bruningetcurtius.jpg
@@ -18,7 +18,7 @@ max-visits: 1
 
 = The Second Brüning cabinet
 
-The <span style="color: #C0A054;">**DVP**</span>'s Julius Curtius has resigned from the Foreign Ministry following the disastrous failure of the Austro-German customs union, which he was the architect of. With no more <span style="color: #C0A054;">**DVP**</span> ministers in cabinet, the last obstacle preventing them from breaking with Brüning's government has been removed. In an attempt to maintain their support, Brüning has formed a more conservative second cabinet, which the <span style="color: #C0A054;">**DVP**</span> reluctantly accepts, considering the <span style="color: #7A3C00;">national</span> <span style="color: #3E88B3;">opposition</span> have no interest in entering government.
+The <span style="color: #C0A054;">**NLP**</span>'s Julius Curtius has resigned from the Foreign Ministry following the disastrous failure of the Austro-German customs union, which he was the architect of. With no more <span style="color: #C0A054;">**NLP**</span> ministers in cabinet, the last obstacle preventing them from breaking with Brüning's government has been removed. In an attempt to maintain their support, Brüning has formed a more conservative second cabinet, which the <span style="color: #C0A054;">**NLP**</span> reluctantly accepts, considering the <span style="color: #7A3C00;">national</span> <span style="color: #3E88B3;">opposition</span> have no interest in entering government.
 
 We must now decide whether to continue tolerating this more right-leaning Brüning government—now absent of leftist figures such as the [? if z_party_name != "CVP": <span style="color: #000000;">Center</span>?][? if z_party_name == "CVP": <span style="color: #000000;">**CVP**</span>?]’s Joseph Wirth—or to finally use this as a pretext to break away from it, as Brüning has introduced his third emergency decree, which further reduces salaries, and cuts pensions and welfare benefits to address the deficit caused by the banking crisis.
 
@@ -37,7 +37,7 @@ New elections have been set for [+ next_election_month : month +] [+ next_electi
 @vote_yes
 title: Vote in favor of this measure to continue the toleration agreement.
 view-if: spd_toleration
-on-arrival: left_dissent += 10; labor_dissent += 5; workers_spd -= 3; workers_nsdap += 2; workers_kpd += 1; unemployed_spd -= 3; unemployed_nsdap += 2; unemployed_kpd += 1; kpd_relation -= 5
+on-arrival: left_dissent += 10; labor_dissent += 5; workers_spd -= 3; workers_nsdap += 2; workers_uspd += 1; unemployed_spd -= 3; unemployed_nsdap += 2; unemployed_uspd += 1; uspd_relation -= 5
 
 We are compelled once again to vote in favor of the [+ chancellor +] government to prevent the extremist parties on the <span style="color: #7A3C00;">far</span>-<span style="color: #3E88B3;">right</span> and <span style="color: #700000;">left</span> from translating their growing popular support into parliamentary gains.
 

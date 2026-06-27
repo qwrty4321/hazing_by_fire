@@ -695,7 +695,7 @@ th {
 }
 
 /* Styles for parties */
-.seat.kpd {
+.seat.uspd {
   fill: #700000;
 }
 
@@ -705,7 +705,7 @@ th {
   stroke-width: 1.5px;
 }
 
-.seat.ddp {
+.seat.fvp {
   fill: #D3C24D;
 }
 
@@ -717,7 +717,7 @@ th {
   fill: #A2D8E0;
 }
 
-.seat.dvp {
+.seat.nlp {
   fill: #D5AC27;
 }
 

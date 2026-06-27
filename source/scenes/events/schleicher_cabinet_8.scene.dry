@@ -45,11 +45,11 @@ Q.prussian_police_loyalty -= 0.1;
 Q.interior_police_loyalty -= 0.2;
 
 Q.workers_spd -= 2;
-Q.workers_kpd -= 2;
+Q.workers_uspd -= 2;
 Q.workers_nsdap += 2;
 
 Q.unemployed_spd -= 3;
-Q.unemployed_kpd -= 3;
+Q.unemployed_uspd -= 3;
 Q.unemployed_nsdap += 3;
 
 if (Q.prussia_leader === "Strasser") {

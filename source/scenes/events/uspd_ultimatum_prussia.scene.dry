@@ -1,0 +1,54 @@
+title: The <span style="color: #700000;">**USPD**</span> checks upon our progress in accomplishing the coalition's goals in Prussia...
+view-if: (in_popular_front_prussia or in_left_front_prussia) and uspd_ultimatum_prussia_timer = 0 and uspd_goals_seen_prussia = 1
+on-arrival: {!
+Q.uspd_goals_completed_prussia = 0;
+if (Q.interior_goal_prussia <= 0) {
+    Q.uspd_goals_completed_prussia += 1
+}
+if (Q.bureaucracy_goal_prussia <= 0) {
+    Q.uspd_goals_completed_prussia += 1
+}
+if (Q.rfb_goal_prussia <= 0) {
+    Q.uspd_goals_completed_prussia += 1
+}
+if (Q.free_uspd_goal_prussia <= 0) {
+    Q.uspd_goals_completed_prussia += 1
+}
+Q.uspd_goals_seen_prussia = 0
+!}
+new-page: true
+tags: event
+go-to: goals_success if uspd_goals_completed_prussia >= 4; goals_failed if uspd_goals_completed_prussia < 4
+
+= <span style="color: #700000;">**USPD**</span> Goals
+
+At the start of this government, the <span style="color: #700000;">**USPD**</span> presented a list of goals for the Prussian coalition:
+
+[? if interior_goal_seen_prussia = 1 : - Ban the <span style="color: #7A3C00;">**SA**</span> and <span style="color: #3E88B3;">**Stahlhelm**</span>. - [? if interior_goal_prussia <= 0 : success ?][? if interior_goal_prussia >= 1: failed ?] ?]
+
+[? if rfb_goal_seen_prussia = 1 : - Unban the <span style="color: #700000;">**RFB**</span>. - [? if rfb_goal_prussia <= 0: success ?][? if rfb_goal_prussia >= 1: failed ?] ?]
+
+[? if bureaucracy_goal_seen_prussia = 1 : - Purge the bureaucracy. - [? if bureaucracy_goal_prussia <= 0: success ?][? if bureaucracy_goal_prussia >= 1: failed ?] ?]
+
+[? if free_uspd_goal_seen_prussia = 1 : - Protect <span style="color: #700000;">communist</span> demonstrations. - [? if free_uspd_goal_prussia <= 0: success ?][? if free_uspd_goal_prussia >= 1: failed ?] ?]
+
+@goals_failed
+on-arrival: uspd_relation -= 8; workers_spd -= 4; unemployed_spd -= 4; workers_uspd += 4; rfb_strength += 100; rfb_militancy += 0.05; in_popular_front_prussia = 0; in_left_front_prussia = 0; prussia_leader = "Braun"; uspd_coalition_dissent += 2
+
+Unfortunately, we have failed to accomplish all of the goals the <span style="color: #700000;">**USPD**</span> set out. They plan to call a vote of no confidence against our government, and have already begun mounting a propaganda campaign to delegitimize our government in the eyes of the workers.
+
+- @new_elections: New elections will be called.
+- @skibidi: Could we form a new government based on the [? if z_party_name != "CVP": <span style="color: #000000;">Center Party</span>?][? if z_party_name == "CVP": <span style="color: #000000;">**CVP**</span>?] and [? if not lvp_formed: <span style="color: #D3C24D;">**[+ fvp_name +]**</span>[? if nlp_exist: (and possibly <span style="color: #C0A054;">**NLP**</span>)?]?][? if lvp_formed: <span style="color: #FFCC00;">**LVP**</span>?]?
+
+@goals_success
+on-arrival: workers_spd += 4; unemployed_spd += 4; uspd_relation += 6; workers_uspd += 4; uspd_coalition_success += 1; rfb_strength += 150; rfb_militancy += 0.1; reichsexekution += 1
+
+As expected, we have completed the goals set by the <span style="color: #700000;">**USPD**</span>. [? if president == "Hindenburg": However, over the past few months, President Hindenburg's concerns over our coalition government have grown... ?]
+
+@skibidi
+subtitle: modman is lazy and doesn't want to code this
+
+@new_elections
+call: set_next_election_time_prussia
+
+New Prussian elections have been set for [+ next_election_month_prussia : month +] [+ next_election_year_prussia +].

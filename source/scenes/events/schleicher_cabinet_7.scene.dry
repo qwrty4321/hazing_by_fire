@@ -46,6 +46,6 @@ It's good to maintain our own self-defense organization, just in case.
 title: Defund the Reichsbanner; the threat is no longer present.
 subtitle: +[+ reichsbanner_disarm_cost +] resources
 view-if: reichsbanner_disarm_cost > 0
-on-arrival: rb_militancy *= 0.5; rb_strength -= 400; resources += reichsbanner_disarm_cost; unemployed_spd -= 4; unemployed_kpd += 2; rfb_strength += 100
+on-arrival: rb_militancy *= 0.5; rb_strength -= 400; resources += reichsbanner_disarm_cost; unemployed_spd -= 4; unemployed_uspd += 2; rfb_strength += 100
 
 With the Reichswehr keeping order in the streets, we have no further need for the Reichsbanner's self-defense role. Better to spend our scarce funds on electoral propaganda rather than weapons.

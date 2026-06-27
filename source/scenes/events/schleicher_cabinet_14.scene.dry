@@ -22,7 +22,7 @@ on-display: {!
 
 In the aftermath of the crackdown against the <span style="color: #700000;">**Communists**</span>, Schleicher has since moved on to crack down on the free German press, which have been dominated by anti-Schleicher <span style="color: #000000;">repu</span><span style="color: #DD0000;">bli</span><span style="color: #FFCC00;">cans</span>, <span style="color: #FFCC00;">liberals</span>, or the hated Hugenberg. The chancellor claims that the press is undermining the state and aiding the <span style="color: #700000;">revolutionaries</span> in its biases and fake news.
 
-We know all of this is nonsense, but Schleicher has slowly taken steps toward the <i>Gleichschaltung</i> (synchronization) of his regime, having recently established the "Ministry of National Guidance" in the decree in which he banned the <span style="color: #700000;">**KPD**</span>, to "fight against <span style="color: #700000;">Bolshevism</span>". 
+We know all of this is nonsense, but Schleicher has slowly taken steps toward the <i>Gleichschaltung</i> (synchronization) of his regime, having recently established the "Ministry of National Guidance" in the decree in which he banned the <span style="color: #700000;">**USPD**</span>, to "fight against <span style="color: #700000;">Bolshevism</span>". 
 
 - @press_censorship
 
@@ -67,23 +67,23 @@ if (Q.schleicher_spd_influence >= 6 && Q.schleicher_spd_r < 5) {
 
 if (!Q.lvp_formed) {
     if (!Q.dstp_dnef) {
-        Q.new_middle_ddp *= 0.6;
-        Q.old_middle_ddp *= 0.6;
-        Q.rural_ddp *= 0.8;
-        if (Q.dvp_dnef) {
-            Q.new_middle_dvp *= 1.2;
-            Q.old_middle_dvp *= 1.2;
-            Q.rural_dvp *= 1.2;
+        Q.new_middle_fvp *= 0.6;
+        Q.old_middle_fvp *= 0.6;
+        Q.rural_fvp *= 0.8;
+        if (Q.nlp_dnef) {
+            Q.new_middle_nlp *= 1.2;
+            Q.old_middle_nlp *= 1.2;
+            Q.rural_nlp *= 1.2;
         }
     }
-    if (!Q.dvp_dnef) {
-        Q.new_middle_dvp *= 0.6;
-        Q.old_middle_dvp *= 0.6;
-        Q.rural_dvp *= 0.8;
+    if (!Q.nlp_dnef) {
+        Q.new_middle_nlp *= 0.6;
+        Q.old_middle_nlp *= 0.6;
+        Q.rural_nlp *= 0.8;
         if (Q.dstp_dnef) {
-            Q.new_middle_ddp *= 1.2;
-            Q.old_middle_ddp *= 1.2;
-            Q.rural_ddp *= 1.2;
+            Q.new_middle_fvp *= 1.2;
+            Q.old_middle_fvp *= 1.2;
+            Q.rural_fvp *= 1.2;
         }
     }
 }

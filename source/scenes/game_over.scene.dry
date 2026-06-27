@@ -64,7 +64,7 @@ if ((Q.dynamic_mode || Q.historical_mode || Q.difficulty == 1) && !((Q.year == 1
   }
   // Einigkeit und Recht und Freiheit - survive without a civil war.
 
-  // Einheitsfront - form a united front with the KPD, and win the civil war.
+  // Einheitsfront - form a united front with the USPD, and win the civil war.
 
   // Volksfront - form a popular front government, and win the civil war.
 
@@ -93,7 +93,7 @@ if ((Q.dynamic_mode || Q.historical_mode || Q.difficulty == 1) && !((Q.year == 1
   if (Q.chancellor == "Thälmann" || Q.president == "Thälmann") {
       this.achieve('sohn_seiner_klasse');
   }
-  // Die Rote Fahne - join the KPD in the May Day march.
+  // Die Rote Fahne - join the USPD in the May Day march.
   // Mehrheitspartei - form an <span style="color: #c00000;">**SPD**</span> majority government in the Reichstag.
   // Panik im Mittelstand - have over 50% of New Middle Class support.
   if (Q.new_middle_spd_normalized && Q.new_middle_spd_normalized >= 50) {
@@ -149,11 +149,11 @@ if ((Q.dynamic_mode || Q.historical_mode || Q.difficulty == 1) && !((Q.year == 1
   const partySupport = {
     nsdap: Q.nsdap_r,
     spd: Q.spd_r,
-    kpd: Q.kpd_r,
+    uspd: Q.uspd_r,
     z: Q.z_r,
     dnvp: Q.dnvp_r,
-    ddp: Q.ddp_r,
-    dvp: Q.dvp_r,
+    fvp: Q.fvp_r,
+    nlp: Q.nlp_r,
     lvp: Q.lvp_r,
     kvp: Q.kvp_r,
     dnf: Q.dnf_r,
@@ -188,19 +188,19 @@ if ((Q.dynamic_mode || Q.historical_mode || Q.difficulty == 1) && !((Q.year == 1
       this.achieve('schwarze_null');
   }
 
-  if (Q.dnvp_leader == "Lambach" && Q.dnvp_r >= 20 && Q.workers_dnvp_normalized >= Q.workers_spd_normalized && Q.workers_dnvp_normalized >= Q.workers_kpd_normalized && Q.workers_dnvp_normalized >= Q.workers_z_normalized && Q.workers_dnvp_normalized >= Q.workers_nsdap_normalized) {
+  if (Q.dnvp_leader == "Lambach" && Q.dnvp_r >= 20 && Q.workers_dnvp_normalized >= Q.workers_spd_normalized && Q.workers_dnvp_normalized >= Q.workers_uspd_normalized && Q.workers_dnvp_normalized >= Q.workers_z_normalized && Q.workers_dnvp_normalized >= Q.workers_nsdap_normalized) {
       this.achieve('neue_arbeiterpartei');
   }
 
-  if (Q.ddp_r >= 8 && Q.ddp_r >= (Q.dvp_r * 2) && Q.dvp_exist && !Q.lvp_formed) {
+  if (Q.fvp_r >= 8 && Q.fvp_r >= (Q.nlp_r * 2) && Q.nlp_exist && !Q.lvp_formed) {
       this.achieve('linksliberale_renaissance');
   }
 
-  if (Q.z_relation <= 5 && ((Q.ddp_relation <= 5 && (Q.dvp_relation <= 5 || !Q.dvp_exist) && !Q.lvp_formed) || Q.lvp_relation <= 5 && Q.lvp_formed) && Q.kpd_relation <= 5 && (Q.kvp_relation <= 5 || !Q.kvp_formed) && Q.dnvp_relation <= 5 && Q.nsdap_relation <= 5 && (Q.dnef_relation <= 5 || !Q.dnef_formed)) {
+  if (Q.z_relation <= 5 && ((Q.fvp_relation <= 5 && (Q.nlp_relation <= 5 || !Q.nlp_exist) && !Q.lvp_formed) || Q.lvp_relation <= 5 && Q.lvp_formed) && Q.uspd_relation <= 5 && (Q.kvp_relation <= 5 || !Q.kvp_formed) && Q.dnvp_relation <= 5 && Q.nsdap_relation <= 5 && (Q.dnef_relation <= 5 || !Q.dnef_formed)) {
       this.achieve('wer_braucht_schon_freunde');
   }
 
-  if (Q.ddp_ideology == "Right" && !Q.dstp_formed && Q.dvp_ideology == "Left" && Q.dvp_exist && !Q.lvp_formed) {
+  if (Q.fvp_ideology == "Right" && !Q.dstp_formed && Q.nlp_ideology == "Left" && Q.nlp_exist && !Q.lvp_formed) {
       this.achieve('warum_kampfen_wir_immer_noch');
   }
 
@@ -220,7 +220,7 @@ if ((Q.dynamic_mode || Q.historical_mode || Q.difficulty == 1) && !((Q.year == 1
       this.achieve('polizeistaat');
   }
 
-  if (Q.president == "Heuss" && Q.chancellor == "Adenauer" && Q.z_leader == "Adenauer" && Q.z_party_name == "CVP" && Q.lvp_formed && Q.constitutional_reform >= 3 && !Q.nsdap_r && !Q.kpd_r && Q.neorevisionism && Q.reformist_strength >= Q.left_strength && Q.reformist_strength >= Q.center_strength && Q.reformist_strength >= Q.labor_strength) {
+  if (Q.president == "Heuss" && Q.chancellor == "Adenauer" && Q.z_leader == "Adenauer" && Q.z_party_name == "CVP" && Q.lvp_formed && Q.constitutional_reform >= 3 && !Q.nsdap_r && !Q.uspd_r && Q.neorevisionism && Q.reformist_strength >= Q.left_strength && Q.reformist_strength >= Q.center_strength && Q.reformist_strength >= Q.labor_strength) {
       this.achieve('wahre_bundesrepublik');
   }
 
@@ -232,7 +232,7 @@ if ((Q.dynamic_mode || Q.historical_mode || Q.difficulty == 1) && !((Q.year == 1
       this.achieve('modeerscheinung');
   }
 
-  if (Q.peoples_party && Q.kvp_formed && (Q.lvp_formed || Q.dvp_exist) && Q.z_party_name == "CVP") {
+  if (Q.peoples_party && Q.kvp_formed && (Q.lvp_formed || Q.nlp_exist) && Q.z_party_name == "CVP") {
       this.achieve('volkspartei_fur_das_volk');
   }
 
@@ -240,16 +240,16 @@ if ((Q.dynamic_mode || Q.historical_mode || Q.difficulty == 1) && !((Q.year == 1
       this.achieve('wir_schaffen_das');
   }
 
-  if (((Q.ddp_leader == "Lemmer" || Q.ddp_leader == "Lüders") && (Q.dvp_leader == "Thiel" && Q.dvp_exist) && !Q.lvp_formed || ((Q.lvp_leader == "Heuss" || Q.lvp_leader == "Bäumer" || Q.lvp_leader == "Stolper") && Q.lvp_formed)) && Q.true_christian_democracy && Q.dnvp_leader == "Treviranus" && Q.kpd_leader == "Conciliators" && (((Q.z_leader == "Kaiser" || Q.z_leader == "Joos" && !Q.fake_joos) && !Q.cvp_formed) || Q.cvp_leader == "Stegerwald" && Q.cvp_formed)) {
+  if (((Q.fvp_leader == "Lemmer" || Q.fvp_leader == "Lüders") && (Q.nlp_leader == "Thiel" && Q.nlp_exist) && !Q.lvp_formed || ((Q.lvp_leader == "Heuss" || Q.lvp_leader == "Bäumer" || Q.lvp_leader == "Stolper") && Q.lvp_formed)) && Q.true_christian_democracy && Q.dnvp_leader == "Treviranus" && Q.uspd_leader == "Conciliators" && (((Q.z_leader == "Kaiser" || Q.z_leader == "Joos" && !Q.fake_joos) && !Q.cvp_formed) || Q.cvp_leader == "Stegerwald" && Q.cvp_formed)) {
       this.achieve('blockparteien_parade');
   }
 
   if 
-    (((Q.ddp_leader == "Lemmer" || Q.lvp_formed) && (Q.dvp_leader == "Thiel" || Q.dvp_leader == "Glatzel" || !Q.dvp_exist || Q.lvp_formed) && (Q.lvp_leader == "Glatzel" || !Q.lvp_formed)) && ((Q.dnvp_leader == "Lambach" && Q.z_leader == "Kaiser") && !Q.cvp_formed || (Q.cvp_leader == "Lambach" || Q.cvp_leader == "Stegerwald") && Q.cvp_formed)) {
+    (((Q.fvp_leader == "Lemmer" || Q.lvp_formed) && (Q.nlp_leader == "Thiel" || Q.nlp_leader == "Glatzel" || !Q.nlp_exist || Q.lvp_formed) && (Q.lvp_leader == "Glatzel" || !Q.lvp_formed)) && ((Q.dnvp_leader == "Lambach" && Q.z_leader == "Kaiser") && !Q.cvp_formed || (Q.cvp_leader == "Lambach" || Q.cvp_leader == "Stegerwald") && Q.cvp_formed)) {
       this.achieve('der_arbeiterstaat');
   }
 
-  if (Q.papen_republic_victory && Q.kpd_explode && Q.hitler_dead) {
+  if (Q.papen_republic_victory && Q.uspd_explode && Q.hitler_dead) {
       this.achieve('gegen_papen_hitler_thalmann');
   }
 
@@ -257,7 +257,7 @@ if ((Q.dynamic_mode || Q.historical_mode || Q.difficulty == 1) && !((Q.year == 1
       this.achieve('wels');
   }
 
-  if (Q.sapd_votes > Q.kpd_votes) {
+  if (Q.sapd_votes > Q.uspd_votes) {
       this.achieve('kommunistische_alternative');
   }
 
@@ -290,25 +290,25 @@ if ((Q.dynamic_mode || Q.historical_mode || Q.difficulty == 1) && !((Q.year == 1
 
   if (Q.president != "Hammerstein" && Q.president != "Hitler" && Q.president !=   "Göring" && Q.president != "Seldte" && Q.chancellor != "Hitler" && !Q.hammerstein_win && !(Q.president == "Hergt" && Q.chancellor == "Seldte")) {
     if ((Q.president == "Rosenfeld" || Q.president == "Thälmann" || Q.president == "Münzenberg" || Q.president == "Ossietzky" || Q.president == "Mann") && Q.in_left_front && !Q.civil_war_seen) {
-      Q.kpd_points_calc = 0;
-      Q.kpd_points_calc += Q.rfb_force;
-      Q.kpd_points_calc += (100 - Q.pro_republic) / 2;
-      Q.kpd_points_calc += Q.unemployed / 2;
-      Q.kpd_points_calc += Q.kpd_votes;
-      Q.kpd_points_calc += Q.soviet_relation;
-      if (Q.presid_calcent == "Thälmann") Q.kpd_points_calc += 16;
-      if (Q.president == "Münzenberg") Q.kpd_points_calc += 10;
-      if (Q.kpd_leader == "Conciliators") Q.kpd_points_calc += 6;
+      Q.uspd_points_calc = 0;
+      Q.uspd_points_calc += Q.rfb_force;
+      Q.uspd_points_calc += (100 - Q.pro_republic) / 2;
+      Q.uspd_points_calc += Q.unemployed / 2;
+      Q.uspd_points_calc += Q.uspd_votes;
+      Q.uspd_points_calc += Q.soviet_relation;
+      if (Q.presid_calcent == "Thälmann") Q.uspd_points_calc += 16;
+      if (Q.president == "Münzenberg") Q.uspd_points_calc += 10;
+      if (Q.uspd_leader == "Conciliators") Q.uspd_points_calc += 6;
       if (Q.sapd_formed) {
-        Q.kpd_points_calc += 2;
-        Q.kpd_points_calc += Q.sapd_votes;
+        Q.uspd_points_calc += 2;
+        Q.uspd_points_calc += Q.sapd_votes;
       }
-      if (Q.spd_votes < 26) Q.kpd_points_calc += 5;
-      if (Q.eu) Q.kpd_points_calc -= 10;
-      if (Q.spd_votes >= 36) Q.kpd_points_calc -= 5;
-      if (Q.spd_votes >= 40) Q.kpd_points_calc -= 5;
+      if (Q.spd_votes < 26) Q.uspd_points_calc += 5;
+      if (Q.eu) Q.uspd_points_calc -= 10;
+      if (Q.spd_votes >= 36) Q.uspd_points_calc -= 5;
+      if (Q.spd_votes >= 40) Q.uspd_points_calc -= 5;
 
-      if (Q.kpd_points_calc >= 50) {
+      if (Q.uspd_points_calc >= 50) {
         this.achieve('nach_der_spd_wir');
       } else {
         this.achieve('1919_geracht');
@@ -320,7 +320,7 @@ if ((Q.dynamic_mode || Q.historical_mode || Q.difficulty == 1) && !((Q.year == 1
   } else {
     Q.weimar_win_calc = 0;
   }
-  if ((Q.in_left_front || Q.in_popular_front) && Q.kpd_coalition_success && Q.wurttemberg_kpd && Q.bavaria_kpd && Q.red_thuringia && Q.red_saxony && Q.weimar_win_calc && !Q.kpd_points_calc && !Q.civil_war_seen && Q.year >= 1934) {
+  if ((Q.in_left_front || Q.in_popular_front) && Q.uspd_coalition_success && Q.wurttemberg_uspd && Q.bavaria_uspd && Q.red_thuringia && Q.red_saxony && Q.weimar_win_calc && !Q.uspd_points_calc && !Q.civil_war_seen && Q.year >= 1934) {
     this.achieve('eurokommunismus');
   }
   if (Q.reichswehr_strength >= 200 && Q.unemployed < 15 && Q.budget > 0 && Q.tariffs > 5 && (Q.spd_in_government || Q.chancellor_party == "SPD")) {
@@ -456,7 +456,7 @@ view-if: president == "Rosenfeld"
 tags: endings
 go-to: eg_menu
 
-Kurt Rosenfeld has been elected as President of Germany. He had never desired to be the most powerful man in Germany, but together with the <span style="color: #700000;">**KPD**</span>, we are in for a <span style="color: #9B0000;">socialist</span> future.
+Kurt Rosenfeld has been elected as President of Germany. He had never desired to be the most powerful man in Germany, but together with the <span style="color: #700000;">**USPD**</span>, we are in for a <span style="color: #9B0000;">socialist</span> future.
 
 @president_schumacher
 title: Kurt Schumacher victorious
@@ -520,11 +520,11 @@ Was it really worth it?
 
 @communist_victory
 title: <span style="color: #700000;">**Communist**</span> victory
-view-if: chancellor_party == "KPD" or president == "Thälmann" and total_defeat == 0 and long_war == 0
+view-if: chancellor_party == "USPD" or president == "Thälmann" and total_defeat == 0 and long_war == 0
 tags: endings
 go-to: eg_menu
 
-The <span style="color: #700000;">**KPD**</span> has won power in Germany, with our assistance. They will try to remake Germany in the <span style="color: #750e0e;">Soviet</span> image. How much they succeed is yet to be determined.
+The <span style="color: #700000;">**USPD**</span> has won power in Germany, with our assistance. They will try to remake Germany in the <span style="color: #750e0e;">Soviet</span> image. How much they succeed is yet to be determined.
 
 @works_program
 title: Works program enacted!
@@ -953,7 +953,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #c00000; background-color: rgba(128, 0, 0, 0.15);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Einheitsfront</div>
-      <div class="achievement_subtitle"> - form a government consisting of the <span style="color: #c00000; font-weight: bold;">SPD</span> and <span style="color: #700000; font-weight: bold;">KPD</span>.</div>
+      <div class="achievement_subtitle"> - form a government consisting of the <span style="color: #c00000; font-weight: bold;">SPD</span> and <span style="color: #700000; font-weight: bold;">USPD</span>.</div>
     </div>
   {!</td>!}
 {!</tr>!}
@@ -968,7 +968,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #c00000; background-color: rgba(97, 24, 19, 0.2);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Sieg für die Einheitsfront</div>
-      <div class="achievement_subtitle"> - form a Left Front that survives the <span style="color: #700000; font-weight: bold;">KPD</span> demands.</div>
+      <div class="achievement_subtitle"> - form a Left Front that survives the <span style="color: #700000; font-weight: bold;">USPD</span> demands.</div>
     </div>
   {!</td>!}
 {!</tr>!}
@@ -983,7 +983,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #c00000; background-color: rgba(196, 177, 86, 0.1);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Volksfront</div>
-      <div class="achievement_subtitle"> - form a government consisting of the <span style="color: #c00000; font-weight: bold;">SPD</span>, <span style="color: #700000; font-weight: bold;">KPD</span>, and <span style="color: #000000; font-weight: bold;">Z</span>.</div>
+      <div class="achievement_subtitle"> - form a government consisting of the <span style="color: #c00000; font-weight: bold;">SPD</span>, <span style="color: #700000; font-weight: bold;">USPD</span>, and <span style="color: #000000; font-weight: bold;">Z</span>.</div>
     </div>
   {!</td>!}
 {!</tr>!}
@@ -998,7 +998,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #c00000; background-color: rgba(97, 24, 19, 0.2);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Große Volksfront</div>
-      <div class="achievement_subtitle"> - With Joos or Kaiser leading the <span style="color: #000000;">Center Party</span> and the Conciliators leading the <span style="color: #700000; font-weight: bold;">KPD</span>, form a government consisting of the <span style="color: #c00000; font-weight: bold;">SPD</span>, <span style="color: #700000; font-weight: bold;">KPD</span>, and <span style="color: #000000; font-weight: bold;">Z</span>.
+      <div class="achievement_subtitle"> - With Joos or Kaiser leading the <span style="color: #000000;">Center Party</span> and the Conciliators leading the <span style="color: #700000; font-weight: bold;">USPD</span>, form a government consisting of the <span style="color: #c00000; font-weight: bold;">SPD</span>, <span style="color: #700000; font-weight: bold;">USPD</span>, and <span style="color: #000000; font-weight: bold;">Z</span>.
       </div>
     </div>
   {!</td>!}
@@ -1014,7 +1014,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #c00000; background-color: rgba(128, 0, 0, 0.15);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Sieg für die Volksfront</div>
-      <div class="achievement_subtitle"> - form a Popular Front that survives the <span style="color: #700000; font-weight: bold;">KPD</span> demands.</div>
+      <div class="achievement_subtitle"> - form a Popular Front that survives the <span style="color: #700000; font-weight: bold;">USPD</span> demands.</div>
     </div>
   {!</td>!}
 {!</tr>!}
@@ -1119,7 +1119,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #c00000; background-color: rgba(196, 177, 86, 0.1);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Versöhnler</div>
-      <div class="achievement_subtitle"> - the Conciliators lead the <span style="color: #700000; font-weight: bold;">KPD</span>.</div>
+      <div class="achievement_subtitle"> - the Conciliators lead the <span style="color: #700000; font-weight: bold;">USPD</span>.</div>
     </div>
   {!</td>!}
 {!</tr>!}
@@ -1284,7 +1284,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #c00000; background-color: rgba(91, 154, 141, 0.1);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Die Rote Fahne</div>
-      <div class="achievement_subtitle"> - join the <span style="color: #700000; font-weight: bold;">KPD</span> in their May Day march.</div>
+      <div class="achievement_subtitle"> - join the <span style="color: #700000; font-weight: bold;">USPD</span> in their May Day march.</div>
     </div>
   {!</td>!}
 {!</tr>!}
@@ -1629,7 +1629,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #0077FF; background-color: rgba(128, 0, 0, 0.15);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Neuer Nationalismus</div>
-      <div class="achievement_subtitle"> - Frank Glatzel becomes leader of the <span style="color: #C0A054; font-weight: bold;">DVP</span> or <span style="color: #FFCC00; font-weight: bold;">LVP</span>. </div>
+      <div class="achievement_subtitle"> - Frank Glatzel becomes leader of the <span style="color: #C0A054; font-weight: bold;">NLP</span> or <span style="color: #FFCC00; font-weight: bold;">LVP</span>. </div>
     </div>
   {!</td>!}
 {!</tr>!}
@@ -1674,7 +1674,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #0077FF; background-color: rgba(128, 0, 0, 0.15);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Liberale Blocpartei</div>
-      <div class="achievement_subtitle"> - conclude an electoral alliance with Lemmer's <span style="color: #D3C24D; font-weight: bold;">DDP</span>. </div>
+      <div class="achievement_subtitle"> - conclude an electoral alliance with Lemmer's <span style="color: #D3C24D; font-weight: bold;">FVP</span>. </div>
     </div>
   {!</td>!}
 {!</tr>!}
@@ -1884,7 +1884,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #0077FF; background-color: rgba(128, 0, 0, 0.15);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Linksliberale Renaissance</div>
-      <div class="achievement_subtitle"> - the <span style="color: #D3C24D; font-weight: bold;">DDP</span> controls over 8% of the Reichstag and holds twice as many seats as the <span style="color: #C0A054; font-weight: bold;">DVP</span>. </div>
+      <div class="achievement_subtitle"> - the <span style="color: #D3C24D; font-weight: bold;">FVP</span> controls over 8% of the Reichstag and holds twice as many seats as the <span style="color: #C0A054; font-weight: bold;">NLP</span>. </div>
     </div>
   {!</td>!}
 {!</tr>!}
@@ -1929,7 +1929,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #0077FF; background-color: rgba(128, 0, 0, 0.15);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Getrennt marschieren, vereint schlagen</div>
-      <div class="achievement_subtitle"> - force Schleicher to unban the <span style="color: #700000; font-weight: bold;">KPD</span>. </div>
+      <div class="achievement_subtitle"> - force Schleicher to unban the <span style="color: #700000; font-weight: bold;">USPD</span>. </div>
     </div>
   {!</td>!}
 {!</tr>!}
@@ -1944,7 +1944,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #0077FF; background-color: rgba(97, 24, 19, 0.2);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Nach Schleicher, wir!</div>
-      <div class="achievement_subtitle"> - have the <span style="color: #700000; font-weight: bold;">KPD</span>'s candidate win the 1934 presidential election after crossing the Rubicon. </div>
+      <div class="achievement_subtitle"> - have the <span style="color: #700000; font-weight: bold;">USPD</span>'s candidate win the 1934 presidential election after crossing the Rubicon. </div>
     </div>
   {!</td>!}
 {!</tr>!}
@@ -2019,7 +2019,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #0077FF; background-color: rgba(196, 177, 86, 0.1);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Warum kämpfen wir immer noch?</div>
-      <div class="achievement_subtitle"> - the <span style="color: #D3C24D; font-weight: bold;">DDP</span> and <span style="color: #C0A054; font-weight: bold;">DVP</span> share the same ideology, yet the <span style="color: #FFCC00; font-weight: bold;">LVP</span> has not formed.
+      <div class="achievement_subtitle"> - the <span style="color: #D3C24D; font-weight: bold;">FVP</span> and <span style="color: #C0A054; font-weight: bold;">NLP</span> share the same ideology, yet the <span style="color: #FFCC00; font-weight: bold;">LVP</span> has not formed.
     </div>
   {!</td>!}
 {!</tr>!}
@@ -2139,7 +2139,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #0077FF; background-color: rgba(10, 24, 97, 0.25);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Wahre Bundesrepublik</div>
-      <div class="achievement_subtitle"> - achieve Heuss as President and Adenauer as Chancellor, with the <span style='color: #000000; font-weight: bold;'>CVP</span> led by Adenauer and the <span style='color: #FFCC00; font-weight: bold;'>LVP</span> formed. All constitutional reforms are passed, the <span style='color: #7A3C00; font-weight: bold;'>NSDAP</span> and <span style='color: #700000; font-weight: bold;'>KPD</span> are both below the 5% threshold, Schumacher is available as an advisor, and the <span style='color: #c00000; font-weight: bold;'>SPD</span> is dominated by Reformists.
+      <div class="achievement_subtitle"> - achieve Heuss as President and Adenauer as Chancellor, with the <span style='color: #000000; font-weight: bold;'>CVP</span> led by Adenauer and the <span style='color: #FFCC00; font-weight: bold;'>LVP</span> formed. All constitutional reforms are passed, the <span style='color: #7A3C00; font-weight: bold;'>NSDAP</span> and <span style='color: #700000; font-weight: bold;'>USPD</span> are both below the 5% threshold, Schumacher is available as an advisor, and the <span style='color: #c00000; font-weight: bold;'>SPD</span> is dominated by Reformists.
     </div>
   {!</td>!}
 {!</tr>!}
@@ -2380,7 +2380,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #0077FF; background-color: rgba(128, 0, 0, 0.15);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Kommunistische Alternative</div>
-      <div class="achievement_subtitle"> - the <span style="color: #9B0000; font-weight: bold;">SAPD</span> is polling higher than the <span style="color: #700000; font-weight: bold;">KPD</span>.
+      <div class="achievement_subtitle"> - the <span style="color: #9B0000; font-weight: bold;">SAPD</span> is polling higher than the <span style="color: #700000; font-weight: bold;">USPD</span>.
     </div>
   {!</td>!}
 {!</tr>!}
@@ -2515,7 +2515,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #0077FF; background-color: rgba(10, 24, 97, 0.25);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Eurokommunismus</div>
-      <div class="achievement_subtitle"> - by the end of the game, the <span style="color: #700000; font-weight: bold;">KPD</span> is part of the national and all state governments, all <span style="color: #700000; font-weight: bold;">KPD</span> demands have been fulfilled, and a liberal democratic ending is achieved.
+      <div class="achievement_subtitle"> - by the end of the game, the <span style="color: #700000; font-weight: bold;">USPD</span> is part of the national and all state governments, all <span style="color: #700000; font-weight: bold;">USPD</span> demands have been fulfilled, and a liberal democratic ending is achieved.
     </div>
   {!</td>!}
 {!</tr>!}
@@ -2865,7 +2865,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #c00000; background-color: rgba(128, 0, 0, 0.15);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Einheitsfront</div>
-      <div class="achievement_subtitle"> - form a government consisting of the <span style="color: #c00000; font-weight: bold;">SPD</span> and <span style="color: #700000; font-weight: bold;">KPD</span>.</div>
+      <div class="achievement_subtitle"> - form a government consisting of the <span style="color: #c00000; font-weight: bold;">SPD</span> and <span style="color: #700000; font-weight: bold;">USPD</span>.</div>
     </div>
   {!</td>!}
 {!</tr>!}
@@ -2880,7 +2880,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #c00000; background-color: rgba(97, 24, 19, 0.2);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Sieg für die Einheitsfront</div>
-      <div class="achievement_subtitle"> - form a Left Front that survives the <span style="color: #700000; font-weight: bold;">KPD</span> demands.</div>
+      <div class="achievement_subtitle"> - form a Left Front that survives the <span style="color: #700000; font-weight: bold;">USPD</span> demands.</div>
     </div>
   {!</td>!}
 {!</tr>!}
@@ -2895,7 +2895,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #c00000; background-color: rgba(196, 177, 86, 0.1);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Volksfront</div>
-      <div class="achievement_subtitle"> - form a government consisting of the <span style="color: #c00000; font-weight: bold;">SPD</span>, <span style="color: #700000; font-weight: bold;">KPD</span>, and <span style="color: #000000; font-weight: bold;">Z</span>.</div>
+      <div class="achievement_subtitle"> - form a government consisting of the <span style="color: #c00000; font-weight: bold;">SPD</span>, <span style="color: #700000; font-weight: bold;">USPD</span>, and <span style="color: #000000; font-weight: bold;">Z</span>.</div>
     </div>
   {!</td>!}
 {!</tr>!}
@@ -2910,7 +2910,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #c00000; background-color: rgba(97, 24, 19, 0.2);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Große Volksfront</div>
-      <div class="achievement_subtitle"> - With Joos or Kaiser leading the <span style="color: #000000;">Center Party</span> and the Conciliators leading the <span style="color: #700000; font-weight: bold;">KPD</span>, form a government consisting of the <span style="color: #c00000; font-weight: bold;">SPD</span>, <span style="color: #700000; font-weight: bold;">KPD</span>, and <span style="color: #000000; font-weight: bold;">Z</span>.
+      <div class="achievement_subtitle"> - With Joos or Kaiser leading the <span style="color: #000000;">Center Party</span> and the Conciliators leading the <span style="color: #700000; font-weight: bold;">USPD</span>, form a government consisting of the <span style="color: #c00000; font-weight: bold;">SPD</span>, <span style="color: #700000; font-weight: bold;">USPD</span>, and <span style="color: #000000; font-weight: bold;">Z</span>.
       </div>
     </div>
   {!</td>!}
@@ -2926,7 +2926,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #c00000; background-color: rgba(128, 0, 0, 0.15);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Sieg für die Volksfront</div>
-      <div class="achievement_subtitle"> - form a Popular Front that survives the <span style="color: #700000; font-weight: bold;">KPD</span> demands.</div>
+      <div class="achievement_subtitle"> - form a Popular Front that survives the <span style="color: #700000; font-weight: bold;">USPD</span> demands.</div>
     </div>
   {!</td>!}
 {!</tr>!}
@@ -3031,7 +3031,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #c00000; background-color: rgba(196, 177, 86, 0.1);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Versöhnler</div>
-      <div class="achievement_subtitle"> - the Conciliators lead the <span style="color: #700000; font-weight: bold;">KPD</span>.</div>
+      <div class="achievement_subtitle"> - the Conciliators lead the <span style="color: #700000; font-weight: bold;">USPD</span>.</div>
     </div>
   {!</td>!}
 {!</tr>!}
@@ -3196,7 +3196,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #c00000; background-color: rgba(91, 154, 141, 0.1)">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Die Rote Fahne</div>
-      <div class="achievement_subtitle"> - join the <span style="color: #700000; font-weight: bold;">KPD</span> in their May Day march.</div>
+      <div class="achievement_subtitle"> - join the <span style="color: #700000; font-weight: bold;">USPD</span> in their May Day march.</div>
     </div>
   {!</td>!}
 {!</tr>!}
@@ -3541,7 +3541,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #0077FF; background-color: rgba(128, 0, 0, 0.15);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Neuer Nationalismus</div>
-      <div class="achievement_subtitle"> - Frank Glatzel becomes leader of the <span style="color: #C0A054; font-weight: bold;">DVP</span> or <span style="color: #FFCC00; font-weight: bold;">LVP</span>. </div>
+      <div class="achievement_subtitle"> - Frank Glatzel becomes leader of the <span style="color: #C0A054; font-weight: bold;">NLP</span> or <span style="color: #FFCC00; font-weight: bold;">LVP</span>. </div>
     </div>
   {!</td>!}
 {!</tr>!}
@@ -3586,7 +3586,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #0077FF; background-color: rgba(128, 0, 0, 0.15);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Liberale Blocpartei</div>
-      <div class="achievement_subtitle"> - conclude an electoral alliance with Lemmer's <span style="color: #D3C24D; font-weight: bold;">DDP</span>. </div>
+      <div class="achievement_subtitle"> - conclude an electoral alliance with Lemmer's <span style="color: #D3C24D; font-weight: bold;">FVP</span>. </div>
     </div>
   {!</td>!}
 {!</tr>!}
@@ -3796,7 +3796,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #0077FF; background-color: rgba(128, 0, 0, 0.15);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Linksliberale Renaissance</div>
-      <div class="achievement_subtitle"> - the <span style="color: #D3C24D; font-weight: bold;">DDP</span> controls over 8% of the Reichstag and holds twice as many seats as the <span style="color: #C0A054; font-weight: bold;">DVP</span>. </div>
+      <div class="achievement_subtitle"> - the <span style="color: #D3C24D; font-weight: bold;">FVP</span> controls over 8% of the Reichstag and holds twice as many seats as the <span style="color: #C0A054; font-weight: bold;">NLP</span>. </div>
     </div>
   {!</td>!}
 {!</tr>!}
@@ -3841,7 +3841,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #0077FF; background-color: rgba(128, 0, 0, 0.15);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Getrennt marschieren, vereint schlagen</div>
-      <div class="achievement_subtitle"> - force Schleicher to unban the <span style="color: #700000; font-weight: bold;">KPD</span>. </div>
+      <div class="achievement_subtitle"> - force Schleicher to unban the <span style="color: #700000; font-weight: bold;">USPD</span>. </div>
     </div>
   {!</td>!}
 {!</tr>!}
@@ -3856,7 +3856,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #0077FF; background-color: rgba(97, 24, 19, 0.2);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Nach Schleicher, wir!</div>
-      <div class="achievement_subtitle"> - have the <span style="color: #700000; font-weight: bold;">KPD</span>'s candidate win the 1934 presidential election after crossing the Rubicon. </div>
+      <div class="achievement_subtitle"> - have the <span style="color: #700000; font-weight: bold;">USPD</span>'s candidate win the 1934 presidential election after crossing the Rubicon. </div>
     </div>
   {!</td>!}
 {!</tr>!}
@@ -3931,7 +3931,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #0077FF; background-color: rgba(196, 177, 86, 0.1);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Warum kämpfen wir immer noch?</div>
-      <div class="achievement_subtitle"> - the <span style="color: #D3C24D; font-weight: bold;">DDP</span> and <span style="color: #C0A054; font-weight: bold;">DVP</span> share the same ideology, yet the <span style="color: #FFCC00; font-weight: bold;">LVP</span> has not formed.
+      <div class="achievement_subtitle"> - the <span style="color: #D3C24D; font-weight: bold;">FVP</span> and <span style="color: #C0A054; font-weight: bold;">NLP</span> share the same ideology, yet the <span style="color: #FFCC00; font-weight: bold;">LVP</span> has not formed.
     </div>
   {!</td>!}
 {!</tr>!}
@@ -4051,7 +4051,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #0077FF; background-color: rgba(10, 24, 97, 0.25);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Wahre Bundesrepublik</div>
-      <div class="achievement_subtitle"> - achieve Heuss as President and Adenauer as Chancellor, with the <span style='color: #000000; font-weight: bold;'>CVP</span> led by Adenauer and the <span style='color: #FFCC00; font-weight: bold;'>LVP</span> formed. All constitutional reforms are passed, the <span style='color: #7A3C00; font-weight: bold;'>NSDAP</span> and <span style='color: #700000; font-weight: bold;'>KPD</span> are both below the 5% threshold, Schumacher is available as an advisor, and the <span style='color: #c00000; font-weight: bold;'>SPD</span> is dominated by Reformists.
+      <div class="achievement_subtitle"> - achieve Heuss as President and Adenauer as Chancellor, with the <span style='color: #000000; font-weight: bold;'>CVP</span> led by Adenauer and the <span style='color: #FFCC00; font-weight: bold;'>LVP</span> formed. All constitutional reforms are passed, the <span style='color: #7A3C00; font-weight: bold;'>NSDAP</span> and <span style='color: #700000; font-weight: bold;'>USPD</span> are both below the 5% threshold, Schumacher is available as an advisor, and the <span style='color: #c00000; font-weight: bold;'>SPD</span> is dominated by Reformists.
     </div>
   {!</td>!}
 {!</tr>!}
@@ -4292,7 +4292,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #0077FF; background-color: rgba(128, 0, 0, 0.15);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Kommunistische Alternative</div>
-      <div class="achievement_subtitle"> - the <span style="color: #9B0000; font-weight: bold;">SAPD</span> is polling higher than the <span style="color: #700000; font-weight: bold;">KPD</span>.
+      <div class="achievement_subtitle"> - the <span style="color: #9B0000; font-weight: bold;">SAPD</span> is polling higher than the <span style="color: #700000; font-weight: bold;">USPD</span>.
     </div>
   {!</td>!}
 {!</tr>!}
@@ -4427,7 +4427,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #0077FF; background-color: rgba(10, 24, 97, 0.25);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Eurokommunismus</div>
-      <div class="achievement_subtitle"> - by the end of the game, the <span style="color: #700000; font-weight: bold;">KPD</span> is part of the national and all state governments, all <span style="color: #700000; font-weight: bold;">KPD</span> demands have been fulfilled, and a liberal democratic ending is achieved.
+      <div class="achievement_subtitle"> - by the end of the game, the <span style="color: #700000; font-weight: bold;">USPD</span> is part of the national and all state governments, all <span style="color: #700000; font-weight: bold;">USPD</span> demands have been fulfilled, and a liberal democratic ending is achieved.
     </div>
   {!</td>!}
 {!</tr>!}
@@ -4776,7 +4776,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #c00000; background-color: rgba(128, 0, 0, 0.15);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Einheitsfront</div>
-      <div class="achievement_subtitle"> - form a government consisting of the <span style="color: #c00000; font-weight: bold;">SPD</span> and <span style="color: #700000; font-weight: bold;">KPD</span>.</div>
+      <div class="achievement_subtitle"> - form a government consisting of the <span style="color: #c00000; font-weight: bold;">SPD</span> and <span style="color: #700000; font-weight: bold;">USPD</span>.</div>
     </div>
   {!</td>!}
 {!</tr>!}
@@ -4791,7 +4791,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #c00000; background-color: rgba(97, 24, 19, 0.2);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Sieg für die Einheitsfront</div>
-      <div class="achievement_subtitle"> - form a Left Front that survives the <span style="color: #700000; font-weight: bold;">KPD</span> demands.</div>
+      <div class="achievement_subtitle"> - form a Left Front that survives the <span style="color: #700000; font-weight: bold;">USPD</span> demands.</div>
     </div>
   {!</td>!}
 {!</tr>!}
@@ -4806,7 +4806,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #c00000; background-color: rgba(196, 177, 86, 0.1);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Volksfront</div>
-      <div class="achievement_subtitle"> - form a government consisting of the <span style="color: #c00000; font-weight: bold;">SPD</span>, <span style="color: #700000; font-weight: bold;">KPD</span>, and <span style="color: #000000; font-weight: bold;">Z</span>.</div>
+      <div class="achievement_subtitle"> - form a government consisting of the <span style="color: #c00000; font-weight: bold;">SPD</span>, <span style="color: #700000; font-weight: bold;">USPD</span>, and <span style="color: #000000; font-weight: bold;">Z</span>.</div>
     </div>
   {!</td>!}
 {!</tr>!}
@@ -4821,7 +4821,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #c00000; background-color: rgba(97, 24, 19, 0.2);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Große Volksfront</div>
-      <div class="achievement_subtitle"> - With Joos or Kaiser leading the <span style="color: #000000;">Center Party</span> and the Conciliators leading the <span style="color: #700000; font-weight: bold;">KPD</span>, form a government consisting of the <span style="color: #c00000; font-weight: bold;">SPD</span>, <span style="color: #700000; font-weight: bold;">KPD</span>, and <span style="color: #000000; font-weight: bold;">Z</span>.
+      <div class="achievement_subtitle"> - With Joos or Kaiser leading the <span style="color: #000000;">Center Party</span> and the Conciliators leading the <span style="color: #700000; font-weight: bold;">USPD</span>, form a government consisting of the <span style="color: #c00000; font-weight: bold;">SPD</span>, <span style="color: #700000; font-weight: bold;">USPD</span>, and <span style="color: #000000; font-weight: bold;">Z</span>.
       </div>
     </div>
   {!</td>!}
@@ -4837,7 +4837,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #c00000; background-color: rgba(128, 0, 0, 0.15);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Sieg für die Volksfront</div>
-      <div class="achievement_subtitle"> - form a Popular Front that survives the <span style="color: #700000; font-weight: bold;">KPD</span> demands.</div>
+      <div class="achievement_subtitle"> - form a Popular Front that survives the <span style="color: #700000; font-weight: bold;">USPD</span> demands.</div>
     </div>
   {!</td>!}
 {!</tr>!}
@@ -4942,7 +4942,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #c00000; background-color: rgba(196, 177, 86, 0.1);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Versöhnler</div>
-      <div class="achievement_subtitle"> - the Conciliators lead the <span style="color: #700000; font-weight: bold;">KPD</span>.</div>
+      <div class="achievement_subtitle"> - the Conciliators lead the <span style="color: #700000; font-weight: bold;">USPD</span>.</div>
     </div>
   {!</td>!}
 {!</tr>!}
@@ -5107,7 +5107,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #c00000; background-color: rgba(91, 154, 141, 0.1);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Die Rote Fahne</div>
-      <div class="achievement_subtitle"> - join the <span style="color: #700000; font-weight: bold;">KPD</span> in their May Day march.</div>
+      <div class="achievement_subtitle"> - join the <span style="color: #700000; font-weight: bold;">USPD</span> in their May Day march.</div>
     </div>
   {!</td>!}
 {!</tr>!}
@@ -5452,7 +5452,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #0077FF; background-color: rgba(128, 0, 0, 0.15);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Neuer Nationalismus</div>
-      <div class="achievement_subtitle"> - Frank Glatzel becomes leader of the <span style="color: #C0A054; font-weight: bold;">DVP</span> or <span style="color: #FFCC00; font-weight: bold;">LVP</span>. </div>
+      <div class="achievement_subtitle"> - Frank Glatzel becomes leader of the <span style="color: #C0A054; font-weight: bold;">NLP</span> or <span style="color: #FFCC00; font-weight: bold;">LVP</span>. </div>
     </div>
   {!</td>!}
 {!</tr>!}
@@ -5497,7 +5497,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #0077FF; background-color: rgba(128, 0, 0, 0.15);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Liberale Blocpartei</div>
-      <div class="achievement_subtitle"> - conclude an electoral alliance with Lemmer's <span style="color: #D3C24D; font-weight: bold;">DDP</span>. </div>
+      <div class="achievement_subtitle"> - conclude an electoral alliance with Lemmer's <span style="color: #D3C24D; font-weight: bold;">FVP</span>. </div>
     </div>
   {!</td>!}
 {!</tr>!}
@@ -5707,7 +5707,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #0077FF; background-color: rgba(128, 0, 0, 0.15);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Linksliberale Renaissance</div>
-      <div class="achievement_subtitle"> - the <span style="color: #D3C24D; font-weight: bold;">DDP</span> controls over 8% of the Reichstag and holds twice as many seats as the <span style="color: #C0A054; font-weight: bold;">DVP</span>. </div>
+      <div class="achievement_subtitle"> - the <span style="color: #D3C24D; font-weight: bold;">FVP</span> controls over 8% of the Reichstag and holds twice as many seats as the <span style="color: #C0A054; font-weight: bold;">NLP</span>. </div>
     </div>
   {!</td>!}
 {!</tr>!}
@@ -5752,7 +5752,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #0077FF; background-color: rgba(128, 0, 0, 0.15);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Getrennt marschieren, vereint schlagen</div>
-      <div class="achievement_subtitle"> - force Schleicher to unban the <span style="color: #700000; font-weight: bold;">KPD</span>. </div>
+      <div class="achievement_subtitle"> - force Schleicher to unban the <span style="color: #700000; font-weight: bold;">USPD</span>. </div>
     </div>
   {!</td>!}
 {!</tr>!}
@@ -5767,7 +5767,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #0077FF; background-color: rgba(97, 24, 19, 0.2);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Nach Schleicher, wir!</div>
-      <div class="achievement_subtitle"> - have the <span style="color: #700000; font-weight: bold;">KPD</span>'s candidate win the 1934 presidential election after crossing the Rubicon. </div>
+      <div class="achievement_subtitle"> - have the <span style="color: #700000; font-weight: bold;">USPD</span>'s candidate win the 1934 presidential election after crossing the Rubicon. </div>
     </div>
   {!</td>!}
 {!</tr>!}
@@ -5842,7 +5842,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #0077FF; background-color: rgba(196, 177, 86, 0.1);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Warum kämpfen wir immer noch?</div>
-      <div class="achievement_subtitle"> - the <span style="color: #D3C24D; font-weight: bold;">DDP</span> and <span style="color: #C0A054; font-weight: bold;">DVP</span> share the same ideology, yet the <span style="color: #FFCC00; font-weight: bold;">LVP</span> has not formed.
+      <div class="achievement_subtitle"> - the <span style="color: #D3C24D; font-weight: bold;">FVP</span> and <span style="color: #C0A054; font-weight: bold;">NLP</span> share the same ideology, yet the <span style="color: #FFCC00; font-weight: bold;">LVP</span> has not formed.
     </div>
   {!</td>!}
 {!</tr>!}
@@ -5962,7 +5962,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #0077FF; background-color: rgba(10, 24, 97, 0.25);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Wahre Bundesrepublik</div>
-      <div class="achievement_subtitle"> - achieve Heuss as President and Adenauer as Chancellor, with the <span style='color: #000000; font-weight: bold;'>CVP</span> led by Adenauer and the <span style='color: #FFCC00; font-weight: bold;'>LVP</span> formed. All constitutional reforms are passed, the <span style='color: #7A3C00; font-weight: bold;'>NSDAP</span> and <span style='color: #700000; font-weight: bold;'>KPD</span> are both below the 5% threshold, Schumacher is available as an advisor, and the <span style='color: #c00000; font-weight: bold;'>SPD</span> is dominated by Reformists.
+      <div class="achievement_subtitle"> - achieve Heuss as President and Adenauer as Chancellor, with the <span style='color: #000000; font-weight: bold;'>CVP</span> led by Adenauer and the <span style='color: #FFCC00; font-weight: bold;'>LVP</span> formed. All constitutional reforms are passed, the <span style='color: #7A3C00; font-weight: bold;'>NSDAP</span> and <span style='color: #700000; font-weight: bold;'>USPD</span> are both below the 5% threshold, Schumacher is available as an advisor, and the <span style='color: #c00000; font-weight: bold;'>SPD</span> is dominated by Reformists.
     </div>
   {!</td>!}
 {!</tr>!}
@@ -6202,7 +6202,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #0077FF; background-color: rgba(128, 0, 0, 0.15);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Kommunistische Alternative</div>
-      <div class="achievement_subtitle"> - the <span style="color: #9B0000; font-weight: bold;">SAPD</span> is polling higher than the <span style="color: #700000; font-weight: bold;">KPD</span>.
+      <div class="achievement_subtitle"> - the <span style="color: #9B0000; font-weight: bold;">SAPD</span> is polling higher than the <span style="color: #700000; font-weight: bold;">USPD</span>.
     </div>
   {!</td>!}
 {!</tr>!}
@@ -6337,7 +6337,7 @@ All achievements require <span style="color: #0077FF;">dynamic</span>, <span sty
   {!<td style="border: 2px solid #0077FF; background-color: rgba(10, 24, 97, 0.25);">!}
     <div style="padding-left: 0.5em;">
       <div style="font-weight: bold;">Eurokommunismus</div>
-      <div class="achievement_subtitle"> - by the end of the game, the <span style="color: #700000; font-weight: bold;">KPD</span> is part of the national and all state governments, all <span style="color: #700000; font-weight: bold;">KPD</span> demands have been fulfilled, and a liberal democratic ending is achieved.
+      <div class="achievement_subtitle"> - by the end of the game, the <span style="color: #700000; font-weight: bold;">USPD</span> is part of the national and all state governments, all <span style="color: #700000; font-weight: bold;">USPD</span> demands have been fulfilled, and a liberal democratic ending is achieved.
     </div>
   {!</td>!}
 {!</tr>!}

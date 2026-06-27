@@ -37,9 +37,9 @@ Q.united_labor = 1
 Q.pro_republic += 8;
 
 Q.z_relation += 15;
-Q.ddp_relation += 15;
+Q.fvp_relation += 15;
 Q.lvp_relation += 5;
-Q.ddp_left += 5;
+Q.fvp_left += 5;
 Q.lvp_left += 2;
 
 Q.left_dissent += 50;
@@ -48,7 +48,7 @@ Q.labor_dissent -= 20;
 
 Q.workers_dnef -= 8;
 Q.workers_lvp += 2;
-Q.workers_ddp += 2;
+Q.workers_fvp += 2;
 Q.workers_z += 2;
 Q.workers_spd += 6;
 

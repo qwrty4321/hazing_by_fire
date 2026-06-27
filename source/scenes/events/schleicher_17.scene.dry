@@ -120,7 +120,7 @@ Current composition of the <span style="color: #BFC8CC;">German National Unity F
 
 [? if dnef_formed: - <span style="color: #BFC8CC;">**DNEF**</span> ?]
 
-[? if dstp_dnef: - <span style="color: #D3C24D;">**[+ ddp_name +]**</span> ?]
+[? if dstp_dnef: - <span style="color: #D3C24D;">**[+ fvp_name +]**</span> ?]
 
 [? if lvp_dnef: - <span style="color: #FFCC00;">**LVP**</span> ?]
 
@@ -128,7 +128,7 @@ Current composition of the <span style="color: #BFC8CC;">German National Unity F
 
 [? if z_dnef: - <span style="color: #A2D8E0;">**BVP**</span> ?]
 
-[? if dvp_dnef: - <span style="color: #C0A054;">**DVP**</span> ?]
+[? if nlp_dnef: - <span style="color: #C0A054;">**NLP**</span> ?]
 
 [? if other_dnef: - **Others** ?]
 
@@ -185,7 +185,7 @@ Current composition of the <span style="color: #BFC8CC;">German National Unity F
 
 [? if dnef_formed: - <span style="color: #BFC8CC;">**DNEF**</span> ?]
 
-[? if dstp_dnef: - <span style="color: #D3C24D;">**[+ ddp_name +]**</span> ?]
+[? if dstp_dnef: - <span style="color: #D3C24D;">**[+ fvp_name +]**</span> ?]
 
 [? if lvp_dnef: - <span style="color: #FFCC00;">**LVP**</span> ?]
 
@@ -193,7 +193,7 @@ Current composition of the <span style="color: #BFC8CC;">German National Unity F
 
 [? if z_dnef: - <span style="color: #A2D8E0;">**BVP**</span> ?]
 
-[? if dvp_dnef: - <span style="color: #C0A054;">**DVP**</span> ?]
+[? if nlp_dnef: - <span style="color: #C0A054;">**NLP**</span> ?]
 
 [? if other_dnef: - **Others** ?]
 
