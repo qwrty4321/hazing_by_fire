@@ -15,20 +15,8 @@ The situation is heating up, fast. Barricades are constructed, armed civilians p
 @betrayal
 Great!
 
-- @good
-
 @gov_response
 Great!
 
-- @good
-
 @oppo_response
 great!
-
-- @good
-
-@good
-title: Great!
-on-arrival: next_election_month = 5; next_election_time = 5
-
-Our task is to prepare for the next elections where we stand to gain.
