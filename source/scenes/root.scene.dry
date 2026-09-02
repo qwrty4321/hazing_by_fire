@@ -10,7 +10,7 @@ go-to: start_menu_2
 
 @start_menu_2
 
-- @start_1: Start game
+- @start_1: mart game
 - @modinfo: Mod Info - Last Updated 2026/08/04
 - @credits: Credits
 - @game_over.achievements
@@ -146,6 +146,8 @@ Q.nsdap_chancellor = "Hitler";
 Q.hindenburg_relation = 25;
 Q.hindenburg_angry = 0;
 Q.hindenburg_grr_amount = 0;
+Q.president_name = '';
+// TODO: Change this to presidents generally, to allow for a Luther presidency and such. Grr is not only hindenburg.
 
 // prussian activities lol
 Q.spd_prussia = 1;
@@ -214,7 +216,9 @@ Q.nsdap_banned = 0;
 // coups and capital strikes happen when you upset the right or the capitalists too much with your policies. they're an additional check on your policies, when purely electoral checks don't suffice.
 // when coup_progress reaches 10 or capital_strike_progress reaches 10, there's a special event that launches the coup.
 Q.coup_progress = 0;
+Q.revolution_progress = 0;
 Q.capital_strike_progress = 0;
+// TODO: add revolutions
 
 Q.budget = 4;
 
@@ -237,6 +241,9 @@ Q.income = 1600;
 
 // inflation (in %; 1928: 2.9; 1929: 0; 1930: -5%; 1931: -10%; 1932: -10%) - source: https://en.wikipedia.org/wiki/File:BSPDRWeltkriseEngl.PNG, derived from https://www.destatis.de/DE/Methoden/WISTA-Wirtschaft-und-Statistik/2009/03/rezession-betrachtung-032009.pdf?__blob=publicationFile
 Q.inflation = 2.9;
+Q.inflation_fear = 0;
+Q.inflation_true = 0;
+// obviously, lots of new stuff to do here. New variables: inflation fear and true inflation.
 
 // economic growth - same source as above, Table 2 (preisbereinigt) - this is also the source for the yearly changes in the great depression.
 Q.economic_growth = 4.4;
