@@ -17,3 +17,8 @@ on-arrival: new_middle_spd -= 3; old_middle_spd -= 3; rural_spd -= 3; z_relation
 
 The KPD has used its position in government to sabotage and infiltrate government institutions, weakening our potential responses. We, of course, receive the brunt of the blame-perhaps rightfully so.
 
+@gov_response
+sup
+
+@oppo_response
+sup
