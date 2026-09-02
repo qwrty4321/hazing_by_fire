@@ -1,7 +1,7 @@
 title: The KPD launches a revolution!
 new-page: true
 subtitle: They claim it is time for the German Soviet...
-view-if: revolution_progress >= 10, month == 10
+view-if: revolution_progress >= 10 and month == 10
 max-visits: 1
 go-to: betrayal if in_popular_front or in_left_front; gov_response if spd_in_government; oppo_response if not spd_in_government
 tags: event
@@ -51,20 +51,43 @@ unavailable-subtitle: [? if left_strength < reformist_strength: Our reformist el
 go-to: ask_nicely_yay if kpd_relation // 5 > rfb_force; ask_nicely_nay if kpd_relation // 5 < rfb_force
 placeholder here; this has to be reworked to factor in the KPD's chances of success, then the relations. If the KPD are losing at 35/65 or less, there is no way the SPD is convincing them. As that number goes down, high KPD relation can make them stop.
 
+@ask_nicely_yay
+yay!
+
+@ask_nicely_nay
+awww
+
 @suppress
 title: We must contain the revolt without escalating the situation.
 subtitle: We will deploy the Reichsbanner and police to maintain order in the streets.
 go-to: suppress_yay if kpd_relation > 50; suppress_nay if kpd_relation < 50; suppress_mid if kpd_relation == 50
 placeholder here; this factors in police, reichswehr, and interior power + loyalty, plus reichsbanner power, plus spd worker support, versus kpd worker support and rfb power.
 
+@suppress_yay
+yay!
+
+@suppress_mid
+hmm
+
+@suppress_nay
+aww
+
 @crush
 title: Deploy the Reichswehr to crush this revolt!
 go-to: crush_yay if kpd_relation > 50; crush_nay if kpd_relation <= 50
 placeholder here; this is based on ONLY paramilitary stuff. there is no middle option--either you destroy it or there's a civil war.
-                       
+
+@crush_yay
+yay!
+
+@crush_nay
+aww
+
 @quiet
+title: We will not release a statement, to avoid alienating anybody.
 placeholder
 
 @condemn
+title: Condemn this revolutionary madness!
 placeholder
 
