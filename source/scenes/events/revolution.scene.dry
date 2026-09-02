@@ -2,7 +2,7 @@ title: The KPD launches a revolt!
 subtitle: Is it time for a German Soviet?
 new-page: true
 view-if: year = 1928 and month >= 2
-go-to: betrayal if in_popular_front == 1 or in_left_front == 1
+go-to: betrayal if (in_popular_front = 1 or in_left_front = 1)
 tags: event
 max-visits: 1
 
