@@ -1,0 +1,70 @@
+title: The KPD launches a revolution!
+new-page: true
+subtitle: They claim it is time for the German Soviet...
+view-if: revolution_progress >= 10, month == 10
+max-visits: 1
+go-to: betrayal if in_popular_front or in_left_front; gov_response if spd_in_government; oppo_response if not spd_in_government
+tags: event
+
+= The October Revolt
+
+Outraged by recent policy decisions, the KPD has mobilized the RFB and its supporters. A general strike has been declared and the RFB has been called to fight.
+
+The situation is heating up, fast. Barricades are constructed, armed civilians patrol the streets, and isolated firefights have broken out across Berlin. We must do something about the situation.
+
+@betrayal
+on-arrival: new_middle_spd -= 3; old_middle_spd -= 3; rural_spd -= 3; z_relation -= 10; ddp_relation -= 10; dvp_relation -= 10; lvp_relation -= 10
+
+The KPD has used its position in government to sabotage and infiltrate government institutions, weakening our potential responses. We, of course, receive the brunt of the blame-perhaps rightfully so.
+
+- @join
+- @ask_nicely
+- @suppress
+- @crush
+
+@gov_response
+
+Our position in government gives us advantages in dealing with this revolt, but could also prove a liability.
+
+- @join
+- @ask_nicely
+- @suppress
+- @crush
+
+@oppo_response
+
+- @join
+- @quiet
+- @condemn
+
+@join
+title: Capitalism is buckling at the knees; the time for action is NOW!
+choose-if: left_strength >= reformist_strength + center_strength // 2 and kpd_relation >= 60
+unavailable-subtitle: [? if left_strength < reformist strength + center strength // 2: The bulk of our party prioritizes the Republic over socialism. ?][? if kpd_relation < 60: The KPD refuses to cooperate with us. ?]
+on-arrival: kpd_relation += 15; z_relation -= 20; ddp_relation -= 20; dvp_relation -= 20
+placeholder for a goto revolutionary civil war event which does not yet exist
+
+@ask_nicely
+title: Perhaps we can convince the KPD and workers to stand down?
+choose-if: left_strength >= reformist_strength and kpd_relation >= 40
+unavailable-subtitle: [? if left_strength < reformist_strength: Our reformist elements have written off the KPD as revolutionary zealots. ?][? if kpd_relation < 40: The KPD refuses to even hear us out. ?]
+go-to: ask_nicely_yay if kpd_relation // 5 > rfb_force; ask_nicely_nay if kpd_relation // 5 < rfb_force
+placeholder here; this has to be reworked to factor in the KPD's chances of success, then the relations. If the KPD are losing at 35/65 or less, there is no way the SPD is convincing them. As that number goes down, high KPD relation can make them stop.
+
+@suppress
+title: We must contain the revolt without escalating the situation.
+subtitle: We will deploy the Reichsbanner and police to maintain order in the streets.
+go-to: suppress_yay if kpd_relation > 50; suppress_nay if kpd_relation < 50; suppress_mid if kpd_relation == 50
+placeholder here; this factors in police, reichswehr, and interior power + loyalty, plus reichsbanner power, plus spd worker support, versus kpd worker support and rfb power.
+
+@crush
+title: Deploy the Reichswehr to crush this revolt!
+go-to: crush_yay if kpd_relation > 50; crush_nay if kpd_relation <= 50
+placeholder here; this is based on ONLY paramilitary stuff. there is no middle option--either you destroy it or there's a civil war.
+                       
+@quiet
+placeholder
+
+@condemn
+placeholder
+
