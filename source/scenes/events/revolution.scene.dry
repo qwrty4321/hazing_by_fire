@@ -2,35 +2,29 @@ title: The KPD launches a revolt!
 subtitle: Is it time for a German Soviet?
 new-page: true
 view-if: year = 1928 and month >= 2
-go-to: betrayal if in_popular_front = 1 or in_left_front = 1; opp_response if spd_in_government = 0; gov_response if spd_in_government = 1 and in_popular_front = 0 and in_left_front = 0
+go-to: betrayal if in_popular_front = 1 or in_left_front = 1; opp_response if spd_in_government = 0
 tags: event
 max-visits: 1
 
-= The October Revolt
+= The October Revolution
 
-Filled with revolutionary fervor, the KPD has mobilized the RFB and its supporters. A general strike has been declared and the RFB has been called to fight.
+Outraged by recent policy decisions, the KPD has mobilized the RFB and its supporters. A general strike has been declared and the RFB has been called to fight.
 
 The situation is heating up, fast. Barricades are constructed, armed civilians patrol the streets, and isolated firefights have broken out across Berlin. We must do something about the situation.
 
 @betrayal
 
-The KPD has used its position in government to sabotage and infiltrate government institutions, weakening our potential responses. We, of course, receive the brunt of the blame-perhaps rightfully so.
+Great!
 
-- @great
+- @yay
 
-@gov_response
+@opp_response
 
-Our position in government gives us advantages in dealing with this revolt, but could also prove a liability.
+Great!
 
-- @great
+- @yay
 
-@oppo_response
-
-We are in the opposition; the revolt's fate rests with the current coalition. Still, we can issue a statement and deploy the Reichsbanner... if we want.
-
-- @great
-
-@great
+@yay
 Title: Great!
 
-nothing really
+oijoijoijoijoijoij
