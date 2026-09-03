@@ -17,20 +17,42 @@ The situation is heating up, fast. Barricades are constructed, armed civilians p
 The KPD has used its position in government to sabotage and infiltrate government institutions, weakening our potential responses. We, of course, receive the brunt of the blame-perhaps rightfully so.
 
 - @join
+- @beg
+- @suppress
+- @crush
 
 @gov_response
 
 Our position in government gives us advantages in dealing with this revolt, but could also prove a liability.
 
 - @join
+- @beg
+- @suppress
+- @crush
 
 @opp_response
 
 We are in the opposition; the revolt's fate rests with the current coalition. Still, we can issue a statement and deploy the Reichsbanner... if we want.
 
 - @join
+- @beg
 
 @join
-Title: Great!
+title: Alle Macht den Arbeitern!
+subtitle: Capitalism is buckling at the knees; the time for action is NOW!
 
-nothing really
+nothin
+
+@beg
+title: The KPD must listen to reason!
+subtitle: We will plea with the KPD to cease this revolutionary madness.
+
+nothin
+
+@suppress
+title: This revolt must be contained.
+subtitle: Deploy the police and Reichsbanner to maintain order in the streets.
+
+@crush
+title: Unleash the Reichswehr!
+subtitle: This opportunistic, Bolshevik revolt must be crushed before it gets out of control!
