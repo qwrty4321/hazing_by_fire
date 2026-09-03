@@ -16,55 +16,11 @@ The situation is heating up, fast. Barricades are constructed, armed civilians p
 
 The KPD has used its position in government to sabotage and infiltrate government institutions, weakening our potential responses. We, of course, receive the brunt of the blame-perhaps rightfully so.
 
-- @join
-- @ask_nicely
-- @suppress
-- @crush
-
 @gov_response
 
 Our position in government gives us advantages in dealing with this revolt, but could also prove a liability.
 
-- @join
-- @ask_nicely
-- @suppress
-- @crush
-
 @oppo_response
 
-- @join
-- @quiet
-- @condemn
+We are in the opposition; the revolt's fate rests with the current coalition. Still, we can issue a statement and deploy the Reichsbanner... if we want.
 
-@join
-title: Alle Macht den Arbeitern!
-subtitle: Capitalism is buckling at the knees; the time for action is NOW!
-
-placeholder for a goto revolutionary civil war event which does not yet exist
-
-@ask_nicely
-title: The KPD must listen to reason.
-subtitle: Plea with the KPD to cease this revolutionary madness!
-
-placeholder here; this has to be reworked to factor in the KPD's chances of success, then the relations. If the KPD are losing at 35/65 or less, there is no way the SPD is convincing them. As that number goes down, high KPD relation can make them stop.
-
-@suppress
-title: This revolt must be contained.
-subtitle: Deploy the police and Reichsbanner to maintain order in the streets.
-
-placeholder
-
-@crush
-title: Unleash the Reichswehr to stamp out this revolt!
-
-placeholder
-
-@quiet
-title: Remain silent, to avoid alienating anybody.
-
-placeholder
-
-@condemn
-title: Issue a statement condemning this undemocratic assault.
-
-placeholder
