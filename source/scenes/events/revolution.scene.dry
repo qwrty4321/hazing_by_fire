@@ -51,15 +51,43 @@ go-to: ask_nicely_yay if kpd_relation // 5 > rfb_force; ask_nicely_nay if kpd_re
 
 placeholder here; this has to be reworked to factor in the KPD's chances of success, then the relations. If the KPD are losing at 35/65 or less, there is no way the SPD is convincing them. As that number goes down, high KPD relation can make them stop.
 
+@ask_nicely_yay
+
+placeholder
+
+@ask_nicely_nay
+
+placeholder
+
 @suppress
 go-to: suppress_yay if kpd_relation > 50; suppress_nay if kpd_relation < 50; suppress_mid if kpd_relation == 50
 
 placeholder here; this factors in police, reichswehr, and interior power + loyalty, plus reichsbanner power, plus spd worker support, versus kpd worker support and rfb power.
 
+@suppress_yay
+
+placeholder
+
+@suppress_nay
+
+placeholder
+
+@suppress_mid
+
+placeholder
+
 @crush
 go-to: crush_yay if kpd_relation > 50; crush_nay if kpd_relation <= 50
 
 placeholder here; this is based on ONLY paramilitary stuff. there is no middle option--either you destroy it or there's a civil war.
+
+@crush_yay
+
+placeholder
+
+@crush_nay
+
+placeholder
 
 @quiet
 
