@@ -1,4 +1,4 @@
-title: Revolutionary War
+title: Civil War
 audio: music/communist/A_las_barricadas.ogg
 on-arrival: {!
 Q.rb_strength = Math.round(Q.rb_strength);
@@ -85,7 +85,7 @@ Q.enemy_power += Q.hostile_reichswehr_power;
 console.log("Enemy strength:", Q.enemy_power);
 
 if (Q.total_power > Q.enemy_power*1.1) {
-    Q.republic_victory = 1;
+    Q.left_victory = 1;
     if (Q.hitler_revive) Q.der_aufstieg_skywalkers = 1;
 } else if (Q.total_power/Q.enemy_power >= 0.6) {
     Q.long_war = 1;
@@ -102,17 +102,17 @@ go-to: war_menu
 
 = The Array of Forces
 
-Our enemies are the disloyal portions of the Reichsbanner belonging to the "moderate" bourgeois parties, <span style="color: #808080;">nationalist</span> <span style="color: #3E88B3;">**Stahlhelm**</span>, with [+ sh_strength +] thousand troops, and the <span style="color: #7A3C00;">Nazi</span> <span style="color: #7A3C00;">**SA**</span>, with [+ sa_strength +] thousand troops. The loyalties of the Reichswehr, with its [+ reichswehr_strength +] thousand regular soldiers, and Prussian police, with [+ prussian_police_strength +] thousand members, are unclear.
+Our enemies are the <span style="color: #808080;">nationalist</span> <span style="color: #3E88B3;">**Stahlhelm**</span>, with [+ sh_strength +] thousand troops, and the <span style="color: #7A3C00;">Nazi</span> <span style="color: #7A3C00;">**SA**</span>, with [+ sa_strength +] thousand troops. The loyalties of the Reichswehr, with its [+ reichswehr_strength +] thousand regular soldiers, and Prussian police, with [+ prussian_police_strength +] thousand members, are unclear.
 
 [? if chancellor_party == "KPD" or president == "Thälmann" or kpd_reichsex_sax : The <span style="color: #700000;">**KPD**</span>'s paramilitary, the <span style="color: #8B0000;">**RFB**</span>, is leading the battle, and we are their co-combatants. ?]
 
-On our side, we have the loyal portions of the Reichsbanner, at [+ rb_strength +] thousand members. [? if dissent > 0.15 and dissent <= 0.25: It is somewhat weakened by dissent within the party, and some reformist members choose not to fight. ?][? if dissent > 0.25 and dissent < 0.5: It is weakened by dissent within the party, and many reformist members choose not to fight. ?][? if dissent >= 0.5: It is heavily weakened by dissent within the party, and a substantial portion of reformist members choose not to fight. ?]
+On our side, we have the Reichsbanner, at [+ rb_strength +] thousand members. [? if dissent > 0.15 and dissent <= 0.25: It is somewhat weakened by dissent within the party, and some members choose not to fight. ?][? if dissent > 0.25 and dissent < 0.5: It is weakened by dissent within the party, and many members choose not to fight. ?][? if dissent >= 0.5: It is heavily weakened by dissent within the party, and a substantial portion of members choose not to fight. ?]
 
-[? if rb_militancy < 0.25 : Unfortunately, the Reichsbanner is poorly trained and equipped, and will not be able to stand against our more militarized opponents. ?][? if rb_militancy >= 0.25 and rb_militancy < 0.5 : We have spent some resources training and equipping the Reichsbanner. Let us hope our people can persist. ?][? if rb_militancy >= 0.5 : We have spent quite a great deal of resources on turning the Reichsbanner into a fighting force. Let us hope that they survive. ?]
+[? if rb_militancy < 0.25 : Unfortunately, the Reichsbanner are poorly trained and equipped, and will not be able to stand against our more militarized opponents. ?][? if rb_militancy >= 0.25 and rb_militancy < 0.5 : We have spent some resources training and equipping the Reichsbanner. Let us hope our people can persist. ?][? if rb_militancy >= 0.5 : We have spent quite a great deal of resources on turning the Reichsbanner into a fighting force. Let us hope that they survive. ?]
 
 What else do we have?
 
-# note: this is from joining the KPD in a revolution.
+# note: many scenarios lead to civil war. This calculates the array of forces, and the possible outcomes.
 
 @war_menu
 
@@ -120,7 +120,6 @@ What else do we have?
 - @kpd_help: Call for support from the <span style="color: #700000;">Communists</span>.
 - @general_strike: Call a general strike!
 - @loyal_police: Call up the loyal portions of the police.
-- @foreign_intervention: Perhaps the Soviets can assist us?
 - @war_outcome: Now, the battle...
 
 @rw_help
@@ -129,6 +128,16 @@ go-to: war_menu
 on-arrival: war_choices += 1
 
 We have urged the Reichswehr to stand down, to avoid killing their countrymen. [? if reichswehr_loyalty < 0.2 : Unfortunately, few heed our calls; the Reichswehr detests us. ?][? if reichswehr_loyalty >= 0.2 and reichswehr_loyalty < 0.4 : Some officers and troops heed our calls to not fight against us. Some even join us. ?][? if reichswehr_loyalty >= 0.4 and reichswehr_loyalty < 0.6 : The Reichswehr is split. Many avoid taking a side, or join our side. ?][? if reichswehr_loyalty >= 0.6 : Surprisingly, the majority of the Reichswehr is on our side! Our preparations have worked. ?]
+
+@kpd_help
+max-visits: 1
+view-if: chancellor_party != "KPD" and president != "Thälmann" and not kpd_reichsex_sax
+go-to: war_menu
+on-arrival: war_choices += 1
+
+There are [+ rfb_strength +] thousand fighters with the <span style="color: #700000;">Communist</span> <span style="color: #8B0000;">**RFB**</span>, in addition to the workers who support the <span style="color: #700000;">**KPD**</span>.
+
+[? if kpd_relation >= 60 : The <span style="color: #700000;">**KPD**</span> is entirely on our side, owing to our good relations. ?][? if kpd_relation < 60 and kpd_relation >= 45 : Most of the <span style="color: #700000;">**KPD**</span> is on our side, due to their good relations with us. ?][? if kpd_relation < 45 : The <span style="color: #700000;">**KPD**</span> does not support us. ?]
 
 @general_strike
 max-visits: 1
@@ -155,6 +164,57 @@ go-to: war_menu
 on-arrival: war_choices += 1; 
 
 # note: the Prussian coup should not trigger foreign intervention...
+
+
+@war_outcome
+view-if: war_choices >= 2
+go-to: defeat if total_defeat = 1; long_war if long_war = 1; left_victory if left_victory = 1
+
+@defeat
+
+= Total Defeat
+
+Our forces are no match for those of the <span style="color: #808080;">reactionaries</span>. Reichsbanner fighters are quickly overpowered by the forces of the <span style="color: #3E88B3;">**Stahlhelm**</span>, <span style="color: #7A3C00;">**SA**</span>, and Reichswehr. Many are killed before the rest surrender. Our remaining leaders flee the country or face execution, as the <span style="color: #808080;">reactionaries</span> take absolute power over Germany.
+
+Our resistance will be recorded in the history books, and in the future, our names will be honored. But for now, all is lost.
+
+- @game_over: Game over.
+
+@long_war
+go-to: long_war_intervention if resist_coup == 0; game_over_menu if resist_coup == 1
+
+= Long War
+
+The initial phase of the action ends, and somehow, both sides remain standing.
+
+The war settles into fixed battle lines. This will not be a quick coup, but a long civil war. The nation will destroy itself before it can be rebuilt again.
+
+@game_over_menu
+
+While we might want to call for foreign assistance, the foreign powers see the "Prussian Coup" as a purely internal matter.
+
+- @game_over
+
+# no war
+
+@long_war_intervention
+
+- @soviet_aid: Perhaps we can receive aid from the <span style="color: #750e0e;">Soviet Union</span>.
+- @game_over: Game over.
+
+@soviet_aid
+choose-if: (soviet_relation >= 1 and kpd_relation >= 50) or (kpd_relation >= 75)
+on-arrival: soviet_aid += 1
+unavailable-subtitle: Our relations are not strong enough.
+max-visits: 1
+go-to: long_war_intervention
+
 We send a call for help to the <span style="color: #750e0e;">Soviet Union</span>. The <span style="color: #700000;">**KPD**</span> receives the bulk of the aid, while the Reichsbanner and our loyal military units are left floundering. If we win, this does not bode well for our future.
 
- 
+@left_victory
+
+= Victory for the Left
+
+The battle lines hold, and the reactionary bourgeois have been defeated. There is a new revolution in Germany. Let us hope it produces a longer-lasting peace than the previous one.
+
+- @game_over: Game over.
