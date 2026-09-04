@@ -46,13 +46,44 @@ nothin
 @beg
 title: The KPD must listen to reason!
 subtitle: We will plea with the KPD to cease this revolutionary madness.
+go-to: beg_yay if kpd_relation > 50; beg_nay if kpd_relation <= 50
+
+nothin
+
+@beg_yay
+
+nothin
+
+@beg_nay
 
 nothin
 
 @suppress
 title: This revolt must be contained.
 subtitle: Deploy the police and Reichsbanner to maintain order in the streets.
+go-to: suppress_yay if kpd_relation > 50; suppress_nay if kpd_relation < 50; suppress_mid if kpd_relation = 50
+
+@suppress_yay
+
+nothin
+
+@suppress_nay
+
+nothin
+
+@suppress_mid
+
+nothin
 
 @crush
 title: Unleash the Reichswehr!
 subtitle: This opportunistic, Bolshevik revolt must be crushed before it gets out of control!
+go-to: crush_yay if kpd_relation > 50; crush_nay if kpd_relation <= 50
+
+@crush_yay
+
+nothin
+
+@crush_nay
+
+nothin
