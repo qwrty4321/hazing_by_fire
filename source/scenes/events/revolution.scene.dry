@@ -13,6 +13,7 @@ Filled with revolutionary fervor, the KPD has mobilized the RFB and its supporte
 The situation is heating up, fast. Barricades are constructed, armed civilians patrol the streets, and isolated firefights have broken out across Berlin. We must do something about the situation.
 
 @betrayal
+on-arrival: z_relation -= 10, ddp_relation -= 10, dvp_relation -= 15, lvp_relation -= 12, ddp_right += 3, dvp_right += 5, workers_spd -= 5, new_middle_spd -= 10, old_middle_spd -= 10, rural_spd -= 5
 
 The KPD has used its position in government to sabotage and infiltrate government institutions, weakening our potential responses. We, of course, receive the brunt of the blame-perhaps rightfully so.
 
@@ -41,7 +42,11 @@ We are in the opposition; the revolt's fate rests with the current coalition. St
 title: Alle Macht den Arbeitern!
 subtitle: Capitalism is buckling at the knees; the time for action is NOW!
 
-nothin
+We have issued a statement supporting the revolution, and have called for the Reichsbanner to fight alongside the KPD, much to the shock of our reformist elements and former coalition partners.
+
+With our entrance into the conflict, things have started to swing in favor of the KPD. The Reichsbanner is paralyzed by indecision, as are our loyal police and soldiers.
+
+- @left_civil_war
 
 @beg
 title: The KPD must listen to reason!
@@ -61,19 +66,23 @@ nothin
 @suppress
 title: This revolt must be contained.
 subtitle: Deploy the police and Reichsbanner to maintain order in the streets.
-go-to: suppress_yay if kpd_relation > 50; suppress_nay if kpd_relation < 50; suppress_mid if kpd_relation = 50
+go-to: suppress_bam if kpd_relation > 50; suppress_shh if kpd_relation < 50; suppress_ehh if kpd_relation = 50
 
-@suppress_yay
+@suppress_bam
 
-nothin
+The overzealous police
 
-@suppress_nay
+@suppress_shh
 
-nothin
+The revolt has been quelled
 
-@suppress_mid
+@suppress_ehh
 
-nothin
+The police are too weak and ineffective to contain the revolt; whether this is due to a lack of funding or kpd sabotage will remain unknown.
+
+The Reichswehr under Groener has taken charge, deploying the Reichswehr into the street in order to "maintain order." All hell has broken loose.
+
+- @left_civil_war
 
 @crush
 title: Unleash the Reichswehr!
