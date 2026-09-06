@@ -104,12 +104,15 @@ subtitle: Deploy the police and Reichsbanner to maintain order in the streets.
 go-to: suppress_bam if kpd_relation > 50; suppress_shh if kpd_relation < 50; suppress_ehh if kpd_relation = 50
 
 @suppress_bam
+on-arrival: workers_spd -= 15; new_middle_spd -= 10
 
-The overzealous police
+Despite our specific orders to maintain order and deescalate the streets, the reactionary police forces seem to have done everything they could have to escalate the situation instead. Berlin has become a warzone, as police fire at even innocent civilians.
+
+The fledgling revolt has been crushed, but at what cost? Hundreds of innocent civilians have died and much of the city is destroyed. This will be difficult to recover from.
 
 @suppress_shh
 
-The revolt has been quelled
+The revolt has been successfully quelled by the Prussian police. Within a few days, fighting has mostly died down within the streets and many KPD leaders have been arrested.
 
 @suppress_ehh
 
