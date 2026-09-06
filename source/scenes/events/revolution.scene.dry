@@ -36,7 +36,6 @@ Our position in government gives us advantages in dealing with this revolt, but 
 We are in the opposition; the revolt's fate rests with the current coalition. Still, we can issue a statement and deploy the Reichsbanner... if we want.
 
 - @join
-- @beg
 
 @join
 title: Alle Macht den Arbeitern!
@@ -51,17 +50,53 @@ With our entrance into the conflict, things have started to swing in favor of th
 @beg
 title: The KPD must listen to reason!
 subtitle: We will plea with the KPD to cease this revolutionary madness.
-go-to: beg_yay if kpd_relation > 50; beg_nay if kpd_relation <= 50
+go-to: beg_yay if kpd_relation > 50; beg_nay if kpd_relation < 50; beg_mid if kpd_relation = 50
 
-nothin
+We have dispatched several leftist SPD leaders including Toni Sender, Friedrich Stampfer, and Kurt Rosenfeld to personally plead to the KPD the weakness and fragility of their position.
 
 @beg_yay
 
-nothin
+We argue that the KPD's move will only weaken the proletariat, pointing to the relative weakness of the RFB and KPD overall. We demand that they issue a statement calling for revolutionaries to lay down their arms.
+
+Faced with this reality, the KPD reluctantly agrees - under a few conditions. First, the KPD and RFB must remain unbanned. Second, no action can be taken against any KPD members or their leaders.
+
+- @accept
+- @refuse
+
+@accept
+title: Very well, then.
+subtitle: Another crisis averted. Peace it is!
+on-arrival: kpd_relation -= 5; z_relation -= 10; ddp_relation -= 10; dvp_relation -= 15; lvp_relation -= 15; workers_kpd -= 15; workers_spd += 5; new_middle_spd += 10; old_middle_spd += 5; rural_spd += 5; pacifism += 2
+
+Reluctantly, the KPD has for the most part called off the general strike and ordered the RFB to lay down its arms. Resistance has largely stopped throughout the streets and across Germany.
+
+This move has caused a great stir within the KPD, with many crying for a leadership change. However, the SPD has benefited greatly; it has received much of the credit for saving Germany from a bloody civil war.
+
+@refuse
+title: Outrageous!
+subtitle: The KPD is in no position to make demands of us!
+on-arrival: kpd_relation -= 15
+
+We refuse to accept these outrageous demands; thanks to the KPD, violence may be necessary after all.
+
+- @suppress
+- @crush
+
+@beg_mid
+
+We argue that the KPD's move will only weaken the proletariat, pointing to the relative weakness of the RFB and KPD overall. We demand that they issue a statement calling for revolutionaries to lay down their arms.
+
+Unfortunately, the stubborn communists are blinded by the excitement of the revolution, and refuse to back down.
+
+- @suppress
+- @crush
 
 @beg_nay
 
-nothin
+The KPD refuses to even hear us out, turning away our ambassadors with threats of violence and worse. At least we now know where they stand.
+
+- @suppress
+- @crush
 
 @suppress
 title: This revolt must be contained.
