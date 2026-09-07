@@ -97,9 +97,6 @@ What else do we have?
 
 @war_menu
 
-- @rw_help: Appeal to the Reichswehr to stand down.
-- @kpd_help: Call for support from the <span style="color: #700000;">Communists</span>.
-- @general_strike: Call a general strike!
 - @loyal_police: Call up the loyal portions of the police.
 - @war_outcome: Now, the battle...
 
@@ -121,7 +118,7 @@ on-arrival: war_choices += 1;
 
 @war_outcome
 view-if: war_choices >= 2
-go-to: defeat if total_defeat = 1; long_war if long_war = 1; left_victory if left_victory = 1
+go-to: defeat if total_defeat = 1; long_war if long_war = 1; bourgeois_victory if bourgeois_victory = 1
 
 @defeat
 
@@ -140,7 +137,7 @@ go-to: long_war_intervention if resist_coup == 0; game_over_menu if resist_coup 
 
 The initial phase of the action ends, and somehow, both sides remain standing.
 
-The war settles into fixed battle lines. This will not be a quick coup, but a long civil war. The nation will destroy itself before it can be rebuilt again.
+The war settles into fixed battle lines. This will not be a quick revolt, but a long civil war. The nation will destroy itself before it can be rebuilt again.
 
 @game_over_menu
 
@@ -152,22 +149,22 @@ While we might want to call for foreign assistance, the foreign powers see the "
 
 @long_war_intervention
 
-- @soviet_aid: Perhaps we can receive aid from the <span style="color: #750e0e;">Soviet Union</span>.
+- @west_aid: Perhaps we can receive aid from the Western Allies.
 - @game_over: Game over.
 
-@soviet_aid
-choose-if: (soviet_relation >= 1 and kpd_relation >= 50) or (kpd_relation >= 75)
-on-arrival: soviet_aid += 1
+@west_aid
+choose-if: (west_relation >= 2 and ddp_relation >= 50)
+on-arrival: west_aid += 1
 unavailable-subtitle: Our relations are not strong enough.
 max-visits: 1
 go-to: long_war_intervention
 
-We send a call for help to the <span style="color: #750e0e;">Soviet Union</span>. The <span style="color: #700000;">**KPD**</span> receives the bulk of the aid, while the Reichsbanner and our loyal military units are left floundering. If we win, this does not bode well for our future.
+The Western Allies have an interest in stopping the spread of communism, and their support floods into Germany.
 
-@left_victory
+@bourgeois_victory
 
-= Victory for the Left
+= Victory for the Republic
 
-The battle lines hold, and the reactionary bourgeois have been defeated. There is a new revolution in Germany. Let us hope it produces a longer-lasting peace than the previous one.
+The battle lines hold, and the radical communists have been defeated. Let us hope this period will have a longer-lasting peace than the previous one.
 
 - @game_over: Game over.
