@@ -131,23 +131,6 @@ Our resistance will be recorded in the history books, and in the future, our nam
 - @game_over: Game over.
 
 @long_war
-go-to: long_war_intervention if resist_coup == 0; game_over_menu if resist_coup == 1
-
-= Long War
-
-The initial phase of the action ends, and somehow, both sides remain standing.
-
-The war settles into fixed battle lines. This will not be a quick revolt, but a long civil war. The nation will destroy itself before it can be rebuilt again.
-
-@game_over_menu
-
-While we might want to call for foreign assistance, the foreign powers see the "Prussian Coup" as a purely internal matter.
-
-- @game_over
-
-# no war
-
-@long_war_intervention
 
 - @west_aid: Perhaps we can receive aid from the Western Allies.
 - @game_over: Game over.
