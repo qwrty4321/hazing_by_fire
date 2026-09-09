@@ -311,6 +311,8 @@ Q.sa_strength_2 = Q.sa_strength.toFixed(1);
 
 <span style="color: #c00000;">**Reichsbanner**</span> Militarization: [+ rb_militancy : militancy +] [+ rb_militancy+]
 
+<span style="color: #c00000;">**Reichsbanner**</span> Loyalties: [+ rb_revolutionaries / rb_total +]% revolutionaries, [+ rb_republicans / rb_total +]% republicans.
+
 <span class="tooltip-text" title="The RFB (Rotfrontkämpferbund) is a communist group associated with the KPD." style="color: #8B0000;">**RFB**</span> Strength: [+ rfb_strength_2 +] thousand
 
 <span style="color: #8B0000;">**RFB**</span> Militarization: [+ rfb_militancy : militancy +] [+ rfb_militancy+]
@@ -354,13 +356,15 @@ Q.sa_strength_2 = Q.sa_strength.toFixed(1);
 
 Reichswehr: [+ reichswehr_strength +] thousand troops.
 
-Reichswehr Loyalty: [+ reichswehr_loyalty : loyalty +] [+ reichswehr_loyalty +]
+Reichswehr Loyalty: [+ reichswehr_revolutionaries / reichswehr_total +]% revolutionaries, [+ reichswehr_republicans / reichswehr_total +]% republicans, [+ reichswehr_reactionaries / reichswehr_total +]% reactionaries.
 
 Prussian police: [+ prussian_police_strength +] thousand members.
 
-Prussian police loyalty: [+ prussian_police_loyalty : loyalty +] [+prussian_police_loyalty+]
+Prussian police loyalty: [+ prussian_police_revolutionaries / prussian_police_total +]% revolutionaries, [+ prussian_police_republicans / prussian_police_total +]% republicans, [+ prussian_police_reactionaries / prussian_police_total +]% reactionaries.
 
-[? if spd_in_government : Interior police loyalty: [+ interior_police_loyalty : loyalty +] [+ interior_police_loyalty+] ?] 
+[? if spd_in_government : Interior police loyalty: [+ interior_police_revolutionaries / interior_police_total ?]% revolutionaries, [+ interior_police_republicans / interior_police_total +]% republicans, [+ interior_police_reactionaries / interior_police_total +]% reactionaries.
+
+Revolution progress: [+ revolution_progress +]
 Coup progress: [+ coup_progress +]
 Capital strike progress: [+ capital_strike_progress +] 
 
