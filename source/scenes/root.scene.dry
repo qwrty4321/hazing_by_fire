@@ -152,7 +152,7 @@ Q.president_name = '';
 // prussian activities lol
 Q.spd_prussia = 1;
 Q.right_prussia = 0;
-Q.prussia_leader = "Braun"
+Q.prussia_leader = "Braun";
 
 // The array of forces - paramilitary groups
 // Number of members in 1928 (in thousands)
