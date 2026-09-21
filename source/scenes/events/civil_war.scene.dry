@@ -24,10 +24,10 @@ Q.revolutionary_power = 0;
 
 Q.revolutionary_rb = Q.rb_strength * Q.rb_militancy * Q.rb_revolutionaries / Q.rb_total;
 if (Q.civil_war_type == 1) {
-    Q.revolutionary_power + Q.revolutionary_rb
+    Q.revolutionary_power + Q.revolutionary_rb;
 } else if (Q.civil_war_type != 1) {
-    Q.revolutionary_power += Q.revolutionary_rb // 2
-};
+    Q.revolutionary_power += Q.revolutionary_rb // 2;
+}
 
 Q.revolutionary_rfb = Q.rfb_strength * Q.rfb_militancy;
 Q.revolutionary_power += Q.revolutionary_rfb;
