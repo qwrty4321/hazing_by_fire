@@ -20,84 +20,14 @@ if (Q.dissent < 0) {
 
 Q.civil_war_seen = 1;
 
-// our allies
-Q.total_power = 0;
-Q.rb_power = Q.rb_strength*Q.rb_militancy;
-if (Q.dissent > 0.15) {
-    Q.rb_power *= (1 - Q.dissent/1.5);
-}
-Q.total_power += Q.rb_power;
-Q.prussian_police_power = Q.prussian_police_strength*Q.prussian_police_militancy*Q.prussian_police_loyalty;
-if (Q.spd_prussia && Q.prussia_leader == "Braun" || Q.prussia_leader == "Rosenfeld") {
-    Q.total_power += Q.prussian_police_power;
-} else if (Q.spd_prussia && Q.prussia_leader !== "Braun" && Q.prussia_leader !== "Rosenfeld") {
-    Q.total_power += (Q.prussian_police_power / 2);
-}
-if (Q.reichswehr_loyalty < 0) {
-    Q.reichswehr_loyalty = 0;
-}
-Q.loyal_reichswehr_power = Q.reichswehr_strength*Q.reichswehr_militancy*Q.reichswehr_loyalty;
-if (Q.spd_in_government && Q.chancellor_party == "SPD") {
-    Q.total_power += Q.loyal_reichswehr_power;
-} else {
-    Q.total_power += Q.loyal_reichswehr_power/4;
-}
-Q.rfb_power = Q.rfb_strength*Q.rfb_militancy;
-if (Q.kpd_relation >= 60) {
-    Q.total_power += Q.rfb_power;
-} else if (Q.kpd_relation >= 45) {
-    Q.total_power += Q.rfb_power*0.5;
-}
-// general strike strength
-// maximum (given 25 labor strength) is 400
-// use normalized workers_spd instead of labor_strength?
-Q.normalized_workers_spd = 100*Q.workers_spd/(Q.workers_spd + Q.workers_kpd + Q.workers_nsdap + Q.workers_other + Q.workers_dnvp + Q.workers_z);
-Q.normalized_workers_kpd = 100*Q.workers_kpd/(Q.workers_spd + Q.workers_kpd + Q.workers_nsdap + Q.workers_other + Q.workers_dnvp + Q.workers_z);
-if (Q.sapd_formed) {
-    Q.normalized_workers_spd = 100*Q.workers_spd/(Q.workers_spd + Q.workers_kpd + Q.workers_nsdap + Q.workers_other + Q.workers_dnvp + Q.workers_z + Q.workers_sapd);
-    Q.normalized_workers_kpd = 100*Q.workers_kpd/(Q.workers_spd + Q.workers_kpd + Q.workers_nsdap + Q.workers_other + Q.workers_dnvp + Q.workers_z + Q.workers_sapd);
-    Q.normalized_workers_sapd = 100*Q.workers_sapd/(Q.workers_spd + Q.workers_kpd + Q.workers_nsdap + Q.workers_other + Q.workers_dnvp + Q.workers_z + Q.workers_sapd);
-}
-Q.normalized_workers_total = Q.normalized_workers_spd;
-if (Q.kpd_relation >= 60) {
-    Q.normalized_workers_total += Q.normalized_workers_kpd;
-} else if (Q.kpd_relation >= 45) {
-    Q.normalized_workers_total += Q.normalized_workers_kpd*0.5;
-}
-if (Q.kpd_relation >= 30 && Q.sapd_formed) {
-    Q.normalized_workers_total += Q.normalized_workers_sapd;
-} else if (Q.kpd_relation >= 15 && Q.sapd_formed) {
-    Q.normalized_workers_total += Q.normalized_workers_sapd*0.5;
-}
+Q.revolutionary_power = 0;
+Q.revolutionary_rb = Q.rb_strength * Q.rb_militancy * Q.rb_revolutionaries / Q.rb_total;
+if (1 == 1) {
+    Q.revolutionary_power + Q.revolutionary_rb
+} else if (1 == 0) {
+    Q.revolutionary_power + Q.revolutionary_rb // 2
+};
 
-
-Q.total_power += (2 - Q.labor_dissent/100)*Q.normalized_workers_total*(2 - Q.unemployed/100)*2.5;
-console.log("Supporter strength:", Q.total_power);
-
-// our enemies
-Q.enemy_power = 0;
-Q.sa_power = Q.sa_strength*Q.sa_militancy;
-Q.enemy_power += Q.sa_power;
-Q.sh_power = Q.sh_strength*Q.sh_militancy;
-Q.enemy_power += Q.sh_power;
-Q.hostile_reichswehr_power = Q.reichswehr_strength*Q.reichswehr_militancy*(1-Q.reichswehr_loyalty);
-Q.enemy_power += Q.hostile_reichswehr_power;
-console.log("Enemy strength:", Q.enemy_power);
-
-if (Q.total_power > Q.enemy_power*1.1) {
-    Q.republic_victory = 1;
-    if (Q.hitler_revive) Q.der_aufstieg_skywalkers = 1;
-} else if (Q.total_power/Q.enemy_power >= 0.6) {
-    Q.long_war = 1;
-} else {
-    Q.total_defeat = 1;
-}
-
-Q.is_favorable = 0;
-if (Q.total_power >= Q.enemy_power*0.95) {
-    Q.is_favorable = 1;
-}
-!}
 go-to: war_menu
 
 = The Array of Forces
