@@ -202,6 +202,10 @@ Q.reichswehr_republicans = 0;
 Q.reichswehr_reactionaries = 0;
 Q.reichswehr_total = 0;
 
+// type of civil war, default is far right aggressors, 1 is spd kpd united, 2 is kpd solo
+
+Q.civil_war_type = 0
+
 // The state of the country
 
 // popular opinion
