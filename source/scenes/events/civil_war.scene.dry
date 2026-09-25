@@ -32,7 +32,19 @@ if (Q.civil_war_type == 1) {
 Q.revolutionary_rfb = Q.rfb_strength * Q.rfb_militancy;
 Q.revolutionary_power += Q.revolutionary_rfb;
 
-Q.revolutionary_prussian_police = Q.prussian_police_strength * Q.prussian_police_militancy * Q.prussian_police_revolutionaries / Q.prussian_police_total
+Q.revolutionary_prussian_police = Q.prussian_police_strength * Q.prussian_police_militancy * Q.prussian_police_revolutionaries / Q.prussian_police_total;
+if (Q.civil_war_type == 1 and Q.spd_in_government == 1) {
+    Q.revolutionary_power += Q.revolutionary_prussian_police;
+} else {
+    Q.revolutionary_power += Q.revoltuionary_prussian_police // 2;
+}
+
+Q.revolutionary_reichswehr = Q.reichswehr_strength * Q.reichswehr_militancy * Q.reichswehr_revolutionaries / Q.reichswehr_police_total;
+if (Q.civil_war_type == 1 and Q.spd_in_government == 1) {
+    Q.revolutionary_power += Q.revolutionary_reichswehr;
+} else {
+    Q.revolutionary_power += Q.revoltuionary_reichswehr // 2;
+}
 !}
 go-to: war_menu
 
