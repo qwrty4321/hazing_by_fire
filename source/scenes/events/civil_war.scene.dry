@@ -39,7 +39,7 @@ if (Q.civil_war_type == 1 and Q.spd_in_government) {
     Q.revolutionary_power += Q.revoltuionary_prussian_police // 2;
 }
 
-Q.revolutionary_reichswehr = Q.reichswehr_strength * Q.reichswehr_militancy * Q.reichswehr_revolutionaries / Q.reichswehr_police_total;
+Q.revolutionary_reichswehr = Q.reichswehr_strength * Q.reichswehr_militancy * Q.reichswehr_revolutionaries / Q.reichswehr_total;
 if (Q.civil_war_type == 1 and Q.spd_in_government) {
     Q.revolutionary_power += Q.revolutionary_reichswehr;
 } else {
