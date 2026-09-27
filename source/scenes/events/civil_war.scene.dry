@@ -64,9 +64,9 @@ if (Q.civil_war_type == 1 && Q.spd_in_government) {
 
 Q.republican_reichswehr = Q.reichswehr_strength * Q.reichswehr_militancy * Q.reichswehr_republicans / Q.reichswehr_total;
 if (Q.civil_war_type == 1 && Q.spd_in_government) {
-    Q.revolutionary_power += Q.republican_reichswehr;
+    Q.republican_power += Q.republican_reichswehr // 2;
 } else {
-    Q.revolutionary_power += Q.republican_reichswehr // 2;
+    Q.republican_power += Q.republican_reichswehr;
 }
 
 Q.reactionary_power = 0
@@ -74,6 +74,22 @@ Q.reactionary_power = 0
 Q.reactionary_sh = Q.sh_strength * Q.sh_militancy;
 Q.reactionary_power += Q.reactionary_sh;
 
+Q.reactionary_sa = Q.sa_strength * Q.sa_militancy;
+Q.reactionary_power += Q.reactionary_sa;
+
+Q.reactionary_prussian_police = Q.prussian_police_strength * Q.prussian_police_militancy * Q.prussian_police_reactionaries / Q.prussian_police_total;
+if (Q.civil_war_type == 0 && Q.spd_in_government) {
+    Q.reactionary_power += Q.reactionary_prussian_police // 2;
+} else {
+    Q.reactionary_power += Q.reactionary_prussian_police;
+}
+
+Q.reactionary_reichswehr = Q.reichswehr_strength * Q.reichswehr_militancy * Q.reichswehr_reactionaries / Q.reichswehr_total;
+if (Q.civil_war_type == 0 && Q.spd_in_government) {
+    Q.reactionary_power += Q.reactionary_reichswehr // 2;
+} else {
+    Q.reactionary_power += Q.reactionary_reichswehr;
+}
 !}
 go-to: war_menu
 
