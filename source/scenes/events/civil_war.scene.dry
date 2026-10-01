@@ -90,6 +90,16 @@ if (Q.civil_war_type == 0 && Q.spd_in_government) {
 } else {
     Q.reactionary_power += Q.reactionary_reichswehr;
 }
+
+if (Q.civil_war_type == 0) {
+    if (Q.revolutionary_power + Q.republican_power > Q.reactionary_power * 1.2) {
+        Q.victory = 2
+    } else if (Q.revolutionary_power + Q.republican_power > Q.reactionary_power) {
+        Q.victory = 1
+    } else {
+        Q.victory = 0
+    }
+}
 !}
 go-to: war_menu
 
