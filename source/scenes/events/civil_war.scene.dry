@@ -99,6 +99,22 @@ if (Q.civil_war_type == 0) {
     } else {
         Q.victory = 0
     }
+} else if (Q.civil_war_type == 1) {
+    if (Q.revolutionary_power * 0.8 > Q.reactionary_power + Q.republican_power) {
+        Q.victory = 2
+    } else if (Q.revolutionary_power > Q.reactionary_power + Q.republican_power) {
+        Q.victory = 1
+    } else {
+        Q.victory = 0
+    }
+} else if (Q.civil_war_type == 2) {
+    if (Q.revolutionary_power > Q.reactionary_power + Q.republican_power) {
+        Q.victory = 0
+    } else if (Q.revolutionary_power * 1.2 > Q.reactionary_power + Q.republican_power) {
+        Q.victory = 1
+    } else {
+        Q.victory = 2
+    }
 }
 !}
 go-to: war_menu
