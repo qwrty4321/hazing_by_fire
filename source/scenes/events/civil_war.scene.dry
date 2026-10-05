@@ -1,4 +1,53 @@
 title: Civil War
 audio: music/communist/A_las_barricadas.ogg
+go-to: coup_menu if civil_war_type = 0; united_revolution_menu if civil_war_type = 1; kpd_revolution_menu if civil_war_type = 2
+
+@coup_menu
+
+- @rw_help: Appeal to the Reichswehr to stand down!
+- @kpd_help: Seek support from the communists!
+- @general_strike: Call for a general strike!
+- @loyal_police: Summon the loyal portions of the police.
+
+@united_revolution_menu
+
+- @rw_help: Appeal to the revolutionaries in the Reichswehr!
+- @general_strike: Call for a general strike!
+- @loyal_police: Summon the loyal portions of the police.
+- @party_discipline: Impose party discipline to prevent defections to the republicans.
+
+@kpd_revolution_menu
+
+- @reactionary_help: Request aid from the industrialists and reactionaries
+- @work_return: Ask the workers to cease their revolutionary striking and return to work.
+- @party_discipline: Impose party discipline to prevent defections to the revolutionaries.
+
+proof that the SPD will betray the revolution
+
+@rw_help
+
+quack quack
+
+@kpd_help
+
+quack quack
+
+@general_strike
+
+quack quack
+
+@loyal_police
+
+quack quack
+
+@party_discipline
+
+quack quack
+
+@reactionary_help
+
+quack quack
+
+@work_return
 
 quack quack
