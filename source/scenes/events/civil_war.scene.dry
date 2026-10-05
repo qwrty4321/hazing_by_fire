@@ -4,50 +4,55 @@ go-to: coup_menu if civil_war_type = 0; united_revolution_menu if civil_war_type
 
 @coup_menu
 
-- @rw_help: Appeal to the Reichswehr to stand down!
-- @kpd_help: Seek support from the communists!
-- @general_strike: Call for a general strike!
-- @loyal_police: Summon the loyal portions of the police.
+- @rw_help
+- @kpd_help
+- @general_strike
+- @loyal_police
 
 @united_revolution_menu
 
-- @rw_help: Appeal to the revolutionaries in the Reichswehr!
-- @general_strike: Call for a general strike!
-- @loyal_police: Summon the loyal portions of the police.
-- @party_discipline: Impose party discipline to prevent defections to the republicans.
+- @rw_help
+- @general_strike
+- @loyal_police
+- @party_discipline
 
 @kpd_revolution_menu
 
-- @reactionary_help: Request aid from the industrialists and reactionaries
-- @work_return: Ask the workers to cease their revolutionary striking and return to work.
-- @party_discipline: Impose party discipline to prevent defections to the revolutionaries.
-
-proof that the SPD will betray the revolution
+- @reactionary_help
+- @work_return
+- @party_discipline
 
 @rw_help
+Title: Call for the Reichswehr to stand down
 
 quack quack
 
 @kpd_help
+Title: Call for support from the communists
 
 quack quack
 
 @general_strike
+Title: Summon a general strike
 
 quack quack
 
 @loyal_police
+Title: Enlist the aid of the police
 
 quack quack
 
 @party_discipline
+Title: Impose party discipline
 
 quack quack
 
 @reactionary_help
+Title: Call for support from the reactionaries
 
 quack quack
 
 @work_return
+Title: Demand that the strikers return to work
 
 quack quack
