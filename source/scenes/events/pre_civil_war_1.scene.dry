@@ -20,7 +20,7 @@ On our side, we have the loyal portions of the Reichsbanner, which has [+ rb_str
 @rw_help
 unavailable-subtitle: [? if reichswehr_revolutionaries < 0.2 : The Reichswehr does not support us, and refuses even to hear us out. ?] [? if spd_in_government == 0 : We need to be in government to do this. ?]
 max-visits: 1
-go-to: coup_menu
+go-to: united_revolution_menu
 choose-if: reichswehr_reactionaries <= 0.8 and spd_in_government = 1
 on-arrival: war_rw_help = 1; reichswehr_republicans -= 0.1
 
