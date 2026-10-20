@@ -19,9 +19,9 @@ On our side, we have the loyal parts of the Reichsbanner, with [+ rb_strength +]
 @reactionary_help
 max-visits: 1
 go-to: kpd_revolution_menu
-on-arrival: war_reactionary_help = 1
+on-arrival: war_reactionary_help = 1; left_dissent += 10; sa_strength += 50; sh_strength += 100; nsdap_workers += 5; dnvp_workers += 5
 
-The far-right leaders readily agreed to fight against the Bolshevik menace, considering them a common enemy.
+The far-right leaders readily agreed to fight against the Bolshevik menace, considering them a common enemy. However, this move comes in the face of mounting criticism and threats of secession from our left wing; what's more, it is likely to strengthen the reactionary parties and paramilitaries.
 
 @work_return
 max-visits: 1
@@ -33,9 +33,9 @@ Placeholder; either successful, mid, or not at all successful. Calcs based on no
 @party_discipline
 max-visits: 1
 go-to: kpd_revolution_menu
-on-arrival: war_party_discipline = 1
+on-arrival: war_party_discipline = 1; left_dissent += 15
 
-We have enforced party discipline in an attempt to quell dissent among the left wing of the SPD.
+We have enforced party discipline in an attempt to quell dissent across the SPD. However, this move seems to have provoked our left wing further, alienating them with our heavy-handed approach.
   
 @war_outcome
 max-visits: 1
