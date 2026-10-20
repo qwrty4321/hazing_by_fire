@@ -20,7 +20,7 @@ What else do we have?
 - @war_outcome: We have done all that we can...
 
 @rw_help
-unavailable-subtitle: [? if reichswehr_loyalty < 0.2 : The Reichswehr detests us, and refuses even to hear us out. ?] [? if spd_in_government == 0 : We need to be in government to do this. ?]
+unavailable-subtitle: [? if reichswehr_reactionaries > 0.8 : The Reichswehr detests us, and refuses even to hear us out. ?] [? if spd_in_government == 0 : We need to be in government to do this. ?]
 max-visits: 1
 go-to: coup_menu
 choose-if: reichswehr_reactionaries <= 0.8 and spd_in_government = 1
