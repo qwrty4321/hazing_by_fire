@@ -23,8 +23,8 @@ What else do we have?
 unavailable-subtitle: [? if reichswehr_loyalty < 0.2 : The Reichswehr detests us, and refuses even to hear us out. ?] [? if spd_in_government == 0 : We need to be in government to do this. ?]
 max-visits: 1
 go-to: coup_menu
-choose-if: reichswehr_loyalty > 0.2 and spd_in_government = 1
-on-arrival: war_rw_help = 1
+choose-if: reichswehr_reactionaries <= 0.8 and spd_in_government = 1
+on-arrival: war_rw_help = 1; reichswehr_reactionaries -= 0.1
 
 We have urged the Reichswehr to stand down, to avoid killing their countrymen. [? if reichswehr_loyalty < 0.2 : Unfortunately, few heed our calls; the Reichswehr detests us. ?][? if reichswehr_loyalty >= 0.2 and reichswehr_loyalty < 0.4 : Some officers and troops heed our calls to not fight against us. Some even join us. ?][? if reichswehr_loyalty >= 0.4 and reichswehr_loyalty < 0.6 : The Reichswehr is split. Many avoid taking a side, or join our side. ?][? if reichswehr_loyalty >= 0.6 : Surprisingly, the majority of the Reichswehr is on our side! Our preparations have worked. ?]
 
@@ -33,12 +33,14 @@ unavailable-subtitle: The KPD refuses even to hear us out.
 max-visits: 1
 go-to: coup_menu
 choose-if: kpd_relation >= 30
-on-arrival: war_kpd_help = 1
+on-arrival: war_kpd_help = 1; z_relation -= 5; ddp_relation -= 5; dvp_relation -= 5; kpd_relation += 10 if kpd_relation >= 60; kpd_relation -= 5 if kpd_relation <= 45
 
 There are [+ rfb_strength +] thousand fighters with the <span style="color: #700000;">Communist</span> <span style="color: #8B0000;">**RFB**</span>, in addition to the workers who support the <span style="color: #700000;">**KPD**</span>.
 
 [? if kpd_relation >= 60 : The <span style="color: #700000;">**KPD**</span> is entirely on our side, owing to our good relations. ?][? if kpd_relation < 60 and kpd_relation >= 45 : Most of the <span style="color: #700000;">**KPD**</span> is on our side, due to their good relations with us. ?][? if kpd_relation < 45 : The <span style="color: #700000;">**KPD**</span> does not support us. ?]
-  
+
+However, this move has led to some dissent from our republican allies. The Center and liberal parties argue that by reaching out to the communists, we grant their movement legitimacy and strengthen their position.
+
 @general_strike
 max-visits: 1
 go-to: coup_menu
