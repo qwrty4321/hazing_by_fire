@@ -18,10 +18,11 @@ On our side, we have the loyal portions of the Reichsbanner, which has [+ rb_str
 - @war_outcome: Our preparations are complete.
 
 @rw_help
+unavailable-subtitle: [? if reichswehr_revolutionaries < 0.2 : The Reichswehr does not support us, and refuses even to hear us out. ?] [? if spd_in_government == 0 : We need to be in government to do this. ?]
 max-visits: 1
-go-to: united_revolution_menu
-choose-if: reichswehr_loyalty > 0.2
-on-arrival: war_rw_help = 1
+go-to: coup_menu
+choose-if: reichswehr_reactionaries <= 0.8 and spd_in_government = 1
+on-arrival: war_rw_help = 1; reichswehr_republicans -= 0.1
 
 We have urged the Reichswehr to stand down, to avoid killing their countrymen. [? if reichswehr_loyalty < 0.2 : Unfortunately, few heed our calls; the Reichswehr detests us. ?][? if reichswehr_loyalty >= 0.2 and reichswehr_loyalty < 0.4 : Some officers and troops heed our calls to not fight against us. Some even join us. ?][? if reichswehr_loyalty >= 0.4 and reichswehr_loyalty < 0.6 : The Reichswehr is split. Many avoid taking a side, or join our side. ?][? if reichswehr_loyalty >= 0.6 : Surprisingly, the majority of the Reichswehr is on our side! Our preparations have worked. ?]
 
@@ -43,9 +44,9 @@ Since we still control the Prussian government, we can call upon the Prussian po
 @party_discipline
 max-visits: 1
 go-to: united_revolution_menu
-on-arrival: war_party_discipline = 1
+on-arrival: war_party_discipline = 1; reformist_dissent += 10
 
-We have enforced party discipline in an attempt to quell dissent among the reformist wing of the SPD.
+We have enforced party discipline in an attempt to quell dissent across the SPD, but this heavy-handed approach further alienates some of our reformist members.
   
 @war_outcome
 max-visits: 1
