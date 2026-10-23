@@ -25,7 +25,7 @@ Q.civil_war_seen = 1;
 Q.revolutionary_power = 0;
 
 Q.revolutionary_rb = Q.rb_strength * Q.rb_militancy * Q.rb_revolutionaries / Q.rb_total;
-if (Q.civil_war_type == 1) or (Q.war_kpd_help == 1) {
+if ((Q.civil_war_type == 1) or (Q.war_kpd_help == 1)) {
     Q.revolutionary_power += Q.revolutionary_rb;
 } else {
     Q.revolutionary_power += Q.revolutionary_rb // 2;
@@ -42,7 +42,7 @@ if ((Q.civil_war_type == 1 or Q.war_kpd_help == 1) && Q.spd_in_government) {
 }
 
 Q.revolutionary_reichswehr = Q.reichswehr_strength * Q.reichswehr_militancy * Q.reichswehr_revolutionaries / Q.reichswehr_total;
-if (((Q.war_kpd_help == 1) && Q.spd_in_government) or (Q.civil_war_type == 1) && Q.spd_in_government == 1 && Q.war_rw_help == 1) {
+if (((Q.war_kpd_help == 1) && Q.spd_in_government) or (Q.civil_war_type == 1) && Q.spd_in_government && Q.war_rw_help == 1) {
     Q.revolutionary_power += Q.revolutionary_reichswehr;
 } else {
     Q.revolutionary_power += Q.revoltuionary_reichswehr // 2;
