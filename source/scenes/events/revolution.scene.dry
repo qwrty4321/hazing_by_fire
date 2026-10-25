@@ -37,6 +37,7 @@ Our position in government gives us advantages in dealing with this revolt, but 
 We are in the opposition; the revolt's fate rests with the current coalition. Still, we can issue a statement and deploy the Reichsbanner... if we want.
 
 - @join
+- @beg
 
 @join
 title: Alle Macht den Arbeitern!
@@ -145,7 +146,7 @@ on-arrival: kpd_relation -= 50; workers_spd -= 5
 
 The revolt has been destroyed, much to the approval of the bourgeois parties, but the KPD - and the workers they represent - will likely never forgive us.
 
-Victory?
+Hooray?
 
 @crush_nay
 on-arrival: civil_war_type = 2
@@ -153,3 +154,10 @@ on-arrival: civil_war_type = 2
 It seems that the brutality of the Reichswehr has only strengthened the communists' resolve, and the RFB refuses to back down. Revolts are springing up all across Germany; the situation has gotten out of control.
 
 - @civil_war
+
+@silence
+title: We will not issue a statement at this time.
+subtitle: This is unlikely to satisfy anyone...
+on-arrival: kpd_relation -= 5; z_relation -= 20; ddp_relation -= 20; dvp_relation -= 30
+
+Our fellow democratic parties are enraged by our inaction.
