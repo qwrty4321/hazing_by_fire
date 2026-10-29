@@ -93,6 +93,33 @@ if (Q.civil_war_type == 0 && Q.spd_in_government && Q.war_rw_help == 1) {
     Q.reactionary_power += Q.reactionary_reichswehr;
 }
 
+// general strike
+
+Q.normalized_workers_spd = 100*Q.workers_spd/(Q.workers_spd + Q.workers_kpd + Q.workers_nsdap + Q.workers_other + Q.workers_dnvp + Q.workers_z);
+Q.normalized_workers_kpd = 100*Q.workers_kpd/(Q.workers_spd + Q.workers_kpd + Q.workers_nsdap + Q.workers_other + Q.workers_dnvp + Q.workers_z);
+
+if (Q.war_general_strike == 1) && (Q.war_kpd_help == 1) {
+    Q.revolutionary_power += Q.normalized_workers_kpd * 2 * (2 - effective_unemployed/100) * 2.5;
+    Q.spd_strike_power = (2 - Q.labor_dissent/100)*Q.normalized_workers_spd*(2 - Q.effective_unemployed/100)*5;
+    Q.revolutionary_power += Q.spd_strike_power * (Q.left_strength/Q.total_strength);
+    Q.republican_power += Q.spd_strike_power * (Q.reformist_strength/Q.total_strength);
+} else if (Q.war_general_strike == 1) {
+    Q.spd_strike_power = (2 - Q.labor_dissent/100)*Q.normalized_workers_spd*(2 - Q.effective_unemployed/100)*5;
+    Q.revolutionary_power += Q.spd_strike_power * (Q.left_strength/Q.total_strength);
+    Q.republican_power += Q.spd_strike_power * (Q.reformist_strength/Q.total_strength);
+} else if (Q.civil_war_type == 2) {
+    Q.revolutionary_power += Q.normalized_workers_kpd * 2 * (2 - effective_unemployed/100) * 2.5;
+    Q.spd_strike_power = (2 - Q.labor_dissent/100)*Q.normalized_workers_spd*(2 - Q.effective_unemployed/100)*5;
+    
+    if (Q.war_party_discipline == 0) {
+    Q.revolutionary_power += Q.spd_strike_power * (Q.left_strength/Q.total_strength) / 2;
+    } else {
+    Q.revolutionary_power += Q.spd_strike_power * (Q.left_strength/Q.total_strength) / 4;
+    }
+
+    Q.revolutionary_power -= Q.spd_strike_power * (Q.reformist_strength/Q.total_strength) * 1/4;
+}
+
 if (Q.civil_war_type == 0) {
     if (Q.revolutionary_power + Q.republican_power > Q.reactionary_power * 1.2) {
         Q.victory = 2
