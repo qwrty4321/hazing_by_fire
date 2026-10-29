@@ -112,9 +112,9 @@ if (Q.war_general_strike == 1) && (Q.war_kpd_help == 1) {
     Q.spd_strike_power = (2 - Q.labor_dissent/100)*Q.normalized_workers_spd*(2 - Q.effective_unemployed/100)*5;
     
     if (Q.war_party_discipline == 0) {
-    Q.revolutionary_power += Q.spd_strike_power * (Q.left_strength/Q.total_strength) / 2;
+        Q.revolutionary_power += Q.spd_strike_power * (Q.left_strength/Q.total_strength) / 2;
     } else {
-    Q.revolutionary_power += Q.spd_strike_power * (Q.left_strength/Q.total_strength) / 4;
+        Q.revolutionary_power += Q.spd_strike_power * (Q.left_strength/Q.total_strength) / 4;
     }
 
     Q.revolutionary_power -= Q.spd_strike_power * (Q.reformist_strength/Q.total_strength) * 1/4;
