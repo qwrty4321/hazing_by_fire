@@ -26,9 +26,9 @@ The far-right leaders readily agreed to fight against the Bolshevik menace, cons
 @work_return
 max-visits: 1
 go-to: kpd_revolution_menu
-on-arrival: war_work_return = 1
+on-arrival: war_work_return = 1; spd_workers -= 10; z_relation += 10; ddp_relation += 10; dvp_relation += 10
 
-Placeholder; either successful, mid, or not at all successful. Calcs based on normalized worker, ppls party, kpd normalized worker, and left strength/labor dissent
+We have issued a statement fully condemning the uprising, demanding that strikers return to work. While this energizes our base, many workers view this as a betrayal of socialist values.
 
 @party_discipline
 max-visits: 1
