@@ -322,6 +322,44 @@ Q.prussian_police_total = Q.prussian_police_revolutionaries+Q.prussian_police_re
 Q.interior_police_total = Q.interior_police_revolutionaries+Q.interior_police_republicans+Q.interior_police_reactionaries;
 Q.reichswehr_total = Q.reichswehr_revolutionaries+Q.reichswehr_republicans+Q.reichswehr_reactionaries;
 
+if (Q.in_left_front == 1) {
+    Q.interior_police_revolutionaries += 0.01
+} else if (Q.in_popular_front == 1) {
+    Q.interior_police_revolutionaries += 0.005
+} else if (Q.interior_ministry_party == "DVP") {
+    Q.interior_police_reactionaries += 0.005
+} else if (Q.interior_ministry_party == "DNVP") {
+    Q.interior_police_reactionaries += 0.01
+    Q.sh_militancy += 0.01
+} else if (Q.interior_ministry_party == "NSDAP") {
+    Q.interior_police_reactionaries += 0.02;
+    Q.sa_militancy += 0.02
+}
+
+if (Q.in_left_front == 1) {
+    Q.reichswehr_revolutionaries += 0.01
+} else if (Q.in_popular_front == 1) {
+    Q.reichswehr_revolutionaries += 0.005
+} else if (Q.reichswehr_ministry_party == "DVP") {
+    Q.reichswehr_reactionaries += 0.005
+} else if (Q.reichswehr_ministry_party == "DNVP") {
+    Q.reichswehr_reactionaries += 0.01
+    Q.sh_militancy += 0.02
+} else if (Q.reichswehr_ministry_party == "NSDAP") {
+    Q.reichswehr_reactionaries += 0.02;
+    Q.sa_militancy += 0.03
+}
+
+if (Q.in_left_front_prussia == 1) {
+    Q.prussian_police_revolutionaries += 0.01
+} else if (Q.in_popular_front_prussia == 1) {
+    Q.prussian_police_revolutionaries += 0.005
+} else if (Q.in_right_coalition_prussia == 1) {
+    Q.prussian_police_reactionaries += 0.01
+    Q.sh_militancy += 0.01
+    Q.sa_militancy += 0.02
+}
+
 Q.sa_force = Q.sa_strength*Q.sa_militancy;
 Q.sh_force = Q.sh_strength*Q.sh_militancy;
 Q.rb_force = Q.rb_strength*Q.rb_militancy;
