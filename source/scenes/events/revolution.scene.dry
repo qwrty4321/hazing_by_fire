@@ -38,6 +38,7 @@ We are in the opposition; the revolt's fate rests with the current coalition. St
 
 - @join
 - @beg
+- @silence
 
 @join
 title: Alle Macht den Arbeitern!
@@ -159,5 +160,14 @@ It seems that the brutality of the Reichswehr has only strengthened the communis
 title: We will not issue a statement at this time.
 subtitle: This is unlikely to satisfy anyone...
 on-arrival: kpd_relation -= 5; z_relation -= 20; ddp_relation -= 20; dvp_relation -= 30
+go-to: gov_crush_yay if kpd_power < else_power / 2; gov_crush_nay if kpd_power >= else_power / 2
 
 Our fellow democratic parties are enraged by our inaction.
+
+@gov_crush_yay
+
+placeholder
+
+@gov_crush_nay
+
+placeholder
